@@ -47,7 +47,7 @@ POST/PUT JSON fields: `equipment`, `borrower`, `due_date` (`YYYY-MM-DD`), `statu
 
 `Dockerfile` builds with Node, copies only static output into Nginx, and runs the final image as UID/GID `101:101` on port `8080`. The direct Nginx entrypoint avoids startup scripts modifying configuration. For a read-only container filesystem, mount writable `/tmp`, `/var/cache/nginx`, and `/var/run` directories.
 
-The bundled `nginx.conf` uses the Compose DNS name `backend:8000`. Its proxy forwards the full original URI, preserving `/api/loans`. In Kubernetes, the chart must either expose the backend as `backend` within the namespace or mount a matching Nginx ConfigMap with its actual backend Service name. SPA fallback applies only to the frontend route; failed API requests keep their API status rather than returning index.html.
+The bundled `nginx.conf` resolves the Compose DNS name `backend:8000` through Docker's embedded DNS (`127.0.0.11`), refreshing its cached address after 10 seconds so backend container recreation does not leave Nginx using an old IP. A variable `proxy_pass` with no URI suffix forwards the original path and query string, preserving `/api/loans`. In Kubernetes, the chart mounts a separate Nginx ConfigMap using its stable backend Service DNS; the Docker-only resolver does not belong in that configuration. SPA fallback applies only to the frontend route; failed API requests keep their API status rather than returning index.html.
 
 Use immutable image digests when promoting images after a successful scan. Base image tags intentionally receive security patch updates; actual image identities and security findings must come from the current build/Trivy evidence.
 
