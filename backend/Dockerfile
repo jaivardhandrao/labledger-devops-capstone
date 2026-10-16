@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12-alpine
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
@@ -8,8 +8,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir --requirement requirements.txt \
-    && groupadd --gid 10001 labledger \
-    && useradd --uid 10001 --gid labledger --no-create-home --shell /usr/sbin/nologin labledger
+    && addgroup -g 10001 -S labledger \
+    && adduser -u 10001 -S -D -H -G labledger -s /sbin/nologin labledger
 
 COPY --chown=labledger:labledger app/ ./app/
 COPY --chown=labledger:labledger alembic/ ./alembic/
