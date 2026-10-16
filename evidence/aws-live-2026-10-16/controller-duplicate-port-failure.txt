@@ -1,0 +1,1 @@
+Error: server-side apply failed for object nginx-ingress/nginx-ingress-controller apps/v1, Kind=Deployment: failed to create typed patch object (nginx-ingress/nginx-ingress-controller; apps/v1, Kind=Deployment): .spec.template.spec.containers[name="nginx-ingress"].ports: duplicate entries for key [containerPort=8081,protocol="TCP"]

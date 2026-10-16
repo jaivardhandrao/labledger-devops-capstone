@@ -1,0 +1,14 @@
+{
+  "recorded_at_utc": "2026-10-16T17:16:15.294977+00:00",
+  "scope": "Only new personal EKS capstone",
+  "disposable_database_volumes": [
+    {
+      "pvc": "data-labledger-postgres-0",
+      "pv": "pvc-b3ebc7f6-d8ca-4cc9-9096-1e4dde7f917c",
+      "volume_id": "vol-0a9572faa20358b59",
+      "reclaim_policy": "Delete"
+    }
+  ],
+  "exact_database_ebs_deletion_verified": true,
+  "other_local_clusters_untouched": true
+}

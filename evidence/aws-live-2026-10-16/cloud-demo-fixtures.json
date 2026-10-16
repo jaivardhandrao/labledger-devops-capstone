@@ -1,0 +1,55 @@
+{
+  "recorded_at_utc": "2026-10-16T16:53:25.750011+00:00",
+  "source": "Actually created through public AWS NLB after verified06909ce rollout",
+  "purpose": "Clearly fictional UI demonstration records; separate from completed-and-deleted CRUD-check fixture",
+  "records": [
+    {
+      "equipment": "Arduino kit (fictional)",
+      "borrower": "Demo borrower 1 (fictional)",
+      "due_date": "2026-10-18",
+      "status": "requested",
+      "notes": "AWS-SCREENSHOT-FIXTURE: explicitly fictional temporary capstone demonstration data.",
+      "id": "7fd5cd8d-8e36-49fd-86be-fa1e77989a99",
+      "created_at": "2026-10-16T16:53:23.968713Z"
+    },
+    {
+      "equipment": "Oscilloscope (fictional)",
+      "borrower": "Demo borrower 2 (fictional)",
+      "due_date": "2026-10-15",
+      "status": "collected",
+      "notes": "AWS-SCREENSHOT-FIXTURE: explicitly fictional temporary capstone demonstration data.",
+      "id": "8bf0fcea-f4a7-4479-8fd1-34376ea18152",
+      "created_at": "2026-10-16T16:53:24.550878Z"
+    },
+    {
+      "equipment": "Sensor pack (fictional)",
+      "borrower": "Demo borrower 3 (fictional)",
+      "due_date": "2026-10-14",
+      "status": "returned",
+      "notes": "AWS-SCREENSHOT-FIXTURE: explicitly fictional temporary capstone demonstration data.",
+      "id": "72cf9714-3b98-41d5-97b6-c6e322129dae",
+      "created_at": "2026-10-16T16:53:25.035363Z"
+    }
+  ],
+  "before": {
+    "status": 200,
+    "body": {
+      "total": 0,
+      "active": 0,
+      "overdue": 0,
+      "returned": 0
+    },
+    "location": null
+  },
+  "after": {
+    "status": 200,
+    "body": {
+      "total": 3,
+      "active": 2,
+      "overdue": 1,
+      "returned": 1
+    },
+    "location": null
+  },
+  "disposal": "Approved disposable new-project database, removed with PVC/EBS during cleanup"
+}

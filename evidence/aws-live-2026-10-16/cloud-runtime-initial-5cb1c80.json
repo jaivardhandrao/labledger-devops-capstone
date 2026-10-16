@@ -1,0 +1,202 @@
+{
+  "recorded_at_utc": "2026-10-16T16:44:20.580517+00:00",
+  "scope": "Actual temporary personal AWS EKS deployment in ap-south-1",
+  "image_git_sha": "5cb1c80d6489103ad0c4d60352d0b6c24e998920",
+  "application_url_during_demo": "http://labl-2026101616185564690000000c-37d4dd62bbe4cbff.elb.ap-south-1.amazonaws.com",
+  "two_public_subnets": [
+    "subnet-02fc5a43d4c8d089a",
+    "subnet-0774497479e40caf6"
+  ],
+  "two_private_subnets": [
+    "subnet-01de8fdee8c0b0c25",
+    "subnet-018628e475d187ba6"
+  ],
+  "vpc_id": "vpc-077c7c54793a44501",
+  "nodes": [
+    {
+      "name": "ip-10-42-3-126.ap-south-1.compute.internal",
+      "instance_type": "t3.large",
+      "ready": "True",
+      "capacity": {
+        "cpu": "2",
+        "ephemeral-storage": "20893676Ki",
+        "hugepages-1Gi": "0",
+        "hugepages-2Mi": "0",
+        "memory": "8006152Ki",
+        "pods": "35"
+      },
+      "allocatable": {
+        "cpu": "1930m",
+        "ephemeral-storage": "18181869946",
+        "hugepages-1Gi": "0",
+        "hugepages-2Mi": "0",
+        "memory": "7248392Ki",
+        "pods": "35"
+      }
+    }
+  ],
+  "deployments": [
+    {
+      "name": "labledger-backend",
+      "desired": 2,
+      "ready": 2,
+      "images": [
+        "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend:5cb1c80d6489103ad0c4d60352d0b6c24e998920"
+      ]
+    },
+    {
+      "name": "labledger-frontend",
+      "desired": 2,
+      "ready": 2,
+      "images": [
+        "ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend:5cb1c80d6489103ad0c4d60352d0b6c24e998920"
+      ]
+    }
+  ],
+  "pods": [
+    {
+      "name": "labledger-backend-84d6bd79dd-4dsdj",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "backend",
+          "ready": true,
+          "image": "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend:5cb1c80d6489103ad0c4d60352d0b6c24e998920",
+          "image_id": "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend@sha256:560859f81bd10f2d5d4c7430e203698fac1d3e2f37f87e8a80779f210c32c7f8"
+        }
+      ]
+    },
+    {
+      "name": "labledger-backend-84d6bd79dd-qzdkb",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "backend",
+          "ready": true,
+          "image": "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend:5cb1c80d6489103ad0c4d60352d0b6c24e998920",
+          "image_id": "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend@sha256:560859f81bd10f2d5d4c7430e203698fac1d3e2f37f87e8a80779f210c32c7f8"
+        }
+      ]
+    },
+    {
+      "name": "labledger-frontend-56bbff5978-47qhg",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "frontend",
+          "ready": true,
+          "image": "ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend:5cb1c80d6489103ad0c4d60352d0b6c24e998920",
+          "image_id": "ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend@sha256:e05a430d68ce4e9e3198edfc3de2310e6efcdb2a19258020f5e0a43b2563ac93"
+        }
+      ]
+    },
+    {
+      "name": "labledger-frontend-56bbff5978-njjkq",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "frontend",
+          "ready": true,
+          "image": "ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend:5cb1c80d6489103ad0c4d60352d0b6c24e998920",
+          "image_id": "ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend@sha256:e05a430d68ce4e9e3198edfc3de2310e6efcdb2a19258020f5e0a43b2563ac93"
+        }
+      ]
+    },
+    {
+      "name": "labledger-migrate-1-m69k7",
+      "phase": "Succeeded",
+      "containers": [
+        {
+          "name": "migrate",
+          "ready": false,
+          "image": "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend:5cb1c80d6489103ad0c4d60352d0b6c24e998920",
+          "image_id": "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend@sha256:560859f81bd10f2d5d4c7430e203698fac1d3e2f37f87e8a80779f210c32c7f8"
+        }
+      ]
+    },
+    {
+      "name": "labledger-postgres-0",
+      "phase": "Running",
+      "containers": [
+        {
+          "name": "postgres",
+          "ready": true,
+          "image": "docker.io/library/postgres:17-alpine",
+          "image_id": "docker.io/library/postgres@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24"
+        }
+      ]
+    }
+  ],
+  "services": [
+    {
+      "name": "labledger-backend",
+      "type": "ClusterIP",
+      "ports": [
+        {
+          "name": "http",
+          "port": 8000,
+          "protocol": "TCP",
+          "targetPort": "http"
+        }
+      ]
+    },
+    {
+      "name": "labledger-frontend",
+      "type": "ClusterIP",
+      "ports": [
+        {
+          "name": "http",
+          "port": 8080,
+          "protocol": "TCP",
+          "targetPort": "http"
+        }
+      ]
+    },
+    {
+      "name": "labledger-postgres",
+      "type": "ClusterIP",
+      "ports": [
+        {
+          "name": "postgres",
+          "port": 5432,
+          "protocol": "TCP",
+          "targetPort": "postgres"
+        }
+      ]
+    }
+  ],
+  "pvcs": [
+    {
+      "name": "data-labledger-postgres-0",
+      "storage_class": "gp3",
+      "phase": "Bound",
+      "capacity": {
+        "storage": "2Gi"
+      }
+    }
+  ],
+  "nlb_targets": [
+    {
+      "instance_id": "i-02d2cf3ee0ec07940",
+      "port": 30080,
+      "health": {
+        "State": "healthy"
+      }
+    }
+  ],
+  "http": {
+    "frontend_status": 200,
+    "footer_text_present_in_served_javascript": true,
+    "browser_rendered_visibility_claimed": false,
+    "stats": {
+      "status": 200,
+      "body": {
+        "total": 0,
+        "active": 0,
+        "overdue": 0,
+        "returned": 0
+      },
+      "location": null
+    }
+  }
+}

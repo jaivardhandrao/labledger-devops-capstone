@@ -1,0 +1,40 @@
+{
+  "started_at_utc": "2026-10-16T16:25:05.529960+00:00",
+  "finished_at_utc": "2026-10-16T16:25:08.455576+00:00",
+  "method": "Unauthenticated GHCR pull-token request and exact-tag manifest GET; ephemeral anonymous tokens never persisted",
+  "images": [
+    {
+      "component": "frontend",
+      "tag": "5cb1c80d6489103ad0c4d60352d0b6c24e998920",
+      "manifest_digest": "sha256:e05a430d68ce4e9e3198edfc3de2310e6efcdb2a19258020f5e0a43b2563ac93",
+      "platforms": [
+        {
+          "architecture": "amd64",
+          "os": "linux"
+        },
+        {
+          "architecture": "arm64",
+          "os": "linux"
+        }
+      ],
+      "anonymous_manifest_get_succeeded": true
+    },
+    {
+      "component": "backend",
+      "tag": "5cb1c80d6489103ad0c4d60352d0b6c24e998920",
+      "manifest_digest": "sha256:560859f81bd10f2d5d4c7430e203698fac1d3e2f37f87e8a80779f210c32c7f8",
+      "platforms": [
+        {
+          "architecture": "amd64",
+          "os": "linux"
+        },
+        {
+          "architecture": "arm64",
+          "os": "linux"
+        }
+      ],
+      "anonymous_manifest_get_succeeded": true
+    }
+  ],
+  "visibility_changed": false
+}

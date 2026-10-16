@@ -1,0 +1,15 @@
+{
+  "recorded_at_utc": "2026-10-16T16:59:37.884600+00:00",
+  "pvc": "data-labledger-postgres-0",
+  "phase": "Bound",
+  "pv": "pvc-b3ebc7f6-d8ca-4cc9-9096-1e4dde7f917c",
+  "reclaim_policy": "Delete",
+  "actual_ebs_volume": {
+    "id": "vol-0a9572faa20358b59",
+    "state": "in-use",
+    "size": 2,
+    "type": "gp3",
+    "encrypted": true,
+    "az": "ap-south-1b"
+  }
+}

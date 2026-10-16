@@ -1,0 +1,19 @@
+Actual cloud PostgreSQL, UTC 2026-10-16T16:59:37.884600+00:00; enforced read-only SQL session.
+
+ default_transaction_read_only 
+-------------------------------
+ on
+(1 row)
+
+              List of relations
+ Schema |      Name       | Type  |   Owner   
+--------+-----------------+-------+-----------
+ public | alembic_version | table | labledger
+ public | loans           | table | labledger
+(2 rows)
+
+ loans 
+-------
+     3
+(1 row)
+

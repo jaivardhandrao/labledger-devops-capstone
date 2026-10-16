@@ -14,6 +14,8 @@ from pptx.enum.shapes import MSO_SHAPE
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = Path(__file__).resolve().parent
+CLEANUP = json.loads((ROOT/'evidence/aws-live-2026-10-16/cloud-cleanup-verification.json').read_text())
+assert CLEANUP['all_project_resources_removed'] is True, 'Verify actual teardown before building the final deck'
 W, H = 960, 540
 NAVY, INK, TEAL, PAPER, MUTED = '102D42', '17364B', '007E80', 'F4F8FA', '526C7B'
 FONT = 'Helvetica'
@@ -32,7 +34,7 @@ def rgb(value):
 class Deck:
     def __init__(self):
         self.pdf = canvas.Canvas(str(OUT/'LabLedger_Capstone_Presentation.pdf'), pagesize=(W, H))
-        self.pdf.setTitle('LabLedger — DevOps Capstone | Jaivardhan D Rao | Local Evidence')
+        self.pdf.setTitle('LabLedger — DevOps Capstone | Jaivardhan D Rao | Local and AWS Evidence')
         self.pdf.setAuthor('Jaivardhan D Rao')
         self.ppt = Presentation()
         self.ppt.slide_width, self.ppt.slide_height = Inches(13.333333), Inches(7.5)
@@ -40,6 +42,7 @@ class Deck:
         self.ppt.core_properties.author = 'Jaivardhan D Rao'
         self.number = 0
         self.items = []
+        self.note_items = []
 
     def rect(self, x, y, w, h, color, radius=0):
         self.pdf.setFillColorRGB(*rgb(color))
@@ -104,6 +107,7 @@ class Deck:
                   color='CBDAE3' if dark else MUTED, w=600)
         self.text(f'{self.number:02d} / 12', 842, 512, 10, color='CBDAE3' if dark else MUTED, w=70)
         self.slide.notes_slide.notes_text_frame.text = dedent(notes).strip()
+        self.note_items.append((title, dedent(notes).strip()))
 
     def bullet(self, heading, body, y, x=64, w=540):
         self.text(heading, x, y, 21, w=w, bold=True)
@@ -118,20 +122,21 @@ class Deck:
         self.pdf.save()
         self.ppt.save(OUT/'LabLedger_Capstone_Presentation.pptx')
         (OUT/'layout-manifest.json').write_text(json.dumps({'slides': self.number, 'page_size_points': [W,H], 'items': self.items}, indent=2)+'\n')
+        (OUT/'SPEAKER-NOTES.md').write_text('# LabLedger speaker notes\n\nLocal and actual temporary AWS evidence; captures and remaining limitations are identified.\n\n' + '\n\n'.join(f'## Slide {i}: {title}\n\n{notes}' for i,(title,notes) in enumerate(self.note_items,1)) + '\n')
 
 
 d = Deck()
-d.page('LabLedger', 'DevOps final capstone · local demonstration', '''
+d.page('LabLedger', 'DevOps final capstone · local and AWS evidence', '''
 Introduce the original campus equipment-loan domain. Identify yourself as Jaivardhan D Rao, roll 10117, Group A.
 The screenshot is a genuine earlier School-profile capture of local Kubernetes, not AWS. Every displayed loan is fictional.
-State the scope accurately: the application, CI and local Kubernetes have run; real AWS apply and teardown remain pending approval.
-The slides support a live presentation. The separate short video records only the actual local Terminal evidence, not a complete browser walkthrough.
+The application, CI, local Kubernetes and temporary personal AWS EKS ran successfully. Actual cleanup was verified separately before this final deck was built.
+The title image remains the original local UI capture, not an AWS browser image. New Terminal/API evidence documents the cloud run; private browser captures are not embedded while publication approval is pending.
 ''', dark=True)
 d.text('Shared equipment.\nClear returns.', 64, 128, 32, w=318, color='FFFFFF', bold=True)
 d.text('React · FastAPI · PostgreSQL\nDocker · CI · Helm · Monitoring', 64, 252, 19, w=305, color='CBDAE3')
 d.rect(64, 355, 293, 86, '1E4559', radius=8)
-d.text('VERIFIED LOCALLY', 80, 370, 13, w=260, color='A7E2DD', bold=True)
-d.text('Cloud execution is still pending.', 80, 398, 15, w=260, color='FFFFFF')
+d.text('VERIFIED ON EKS', 80, 370, 13, w=260, color='A7E2DD', bold=True)
+d.text('Temporary cloud demo cleaned up.', 80, 398, 15, w=260, color='FFFFFF')
 d.image('evidence/ui-kubernetes-desktop-8088.jpg', 390, 126, 515, 335)
 
 d.page('One clear equipment-loan lifecycle', '01 · Application', '''
@@ -150,7 +155,7 @@ d.page('Follow a request through the stack', '02 · Architecture', '''
 The browser sends relative /api requests. Compose Nginx resolves the backend service; Kubernetes Ingress routes /api directly to the API ClusterIP Service.
 The frontend serves static React assets. The backend validates inputs and persists loans through SQLAlchemy in PostgreSQL, with Alembic owning schema migration.
 Prometheus scrapes both backend replicas and Grafana queries Prometheus. Metrics Server is a separate HPA dependency.
-Kubernetes API and monitoring UIs are not public in this local demonstration. A real cloud public endpoint has not been created.
+The temporary cloud path was public HTTP NLB to NodePort30080, NGINX Ingress, ClusterIP Services and PostgreSQL. Monitoring remained loopback-only. The endpoint was retired after evidence capture.
 ''')
 for i, (head, body) in enumerate([('React UI', 'Relative /api calls'), ('Nginx / Ingress', '/ and /api routes'), ('FastAPI', 'Validation + metrics'), ('PostgreSQL', 'Alembic + loans')]):
     x = 64+i*218
@@ -176,7 +181,7 @@ d.image('evidence/presentation/terminal-ci-tests-part2.png', 64, 106, 832, 367)
 d.text('Actual completed CI pytest output; all 35 results are available across the two native captures.', 64, 482, 12, color=MUTED)
 
 d.page('Three healthy services; two non-root images', '04 · Docker and persistence', '''
-This is a fresh actual native Terminal capture. The Compose service is named database, while the Kubernetes StatefulSet is named labledger-postgres.
+This is an original actual local Terminal capture. The Compose service is named database, while the Kubernetes StatefulSet is named labledger-postgres. The later cloud database/table and container UID results are separate.
 The API runs as UID10001 and frontend as UID101. The frontend is a Node-build to unprivileged-Nginx multi-stage image.
 The read-only PostgreSQL session lists alembic_version and loans. No database record or schema was changed for this capture.
 A prior forced backend IP-change check verified proxy DNS recovery and data preservation; see the original raw evidence. No images were rebuilt during this presentation capture.
@@ -185,19 +190,19 @@ d.image('evidence/presentation/terminal-compose.png', 64, 106, 832, 367)
 d.text('Live local containers and enforced read-only table inspection; original volumes preserved.', 64, 482, 12, color=MUTED)
 
 d.page('A real change reached the running application', '05 · Delivery', '''
-Show the meaningful history and actual completed main-push run38915964006, all seven jobs green for source5cb1c80.
-The earlier visible footer change went through runs38909132624 and38909739859. Helm4 rejected the first promotion preflight flag, so no deployment was claimed for that failure.
-The repaired c2f4acf revision then passed CI and completed exact-Git-archive promotion: two Ready API and UI replicas, new footer served, old footer absent.
-The current source-only cloud-preparation commit5cb1c80 is green but is not claimed deployed locally. Full SHAs identify images; the workflow does not deploy automatically to AWS.
+Show actual completed run 38934060961, seven successful jobs for 06909ce. It tested the controller fix and published both multiarch SHA image tags.
+Anonymous exact-tag manifest fetches succeeded. A deliberate personal-account Helm promotion then rolled the cloud application to exactly06909ce, release2, with Ready UI/API Pods.
+The screenshot combines explicitly completed CI/promotion records with actual current Deployment image queries. A later documentation-only commit is not a newly tested image.
+The earlier visible footer change and c2f4acf local rollout remain independently documented. CI publishes images; AWS promotion is an explicit guarded step, not automatic cloud access.
 ''')
-d.image('evidence/presentation/terminal-git.png', 64, 106, 832, 350)
-d.text('Visible change → green CI → exact c2f4acf local rollout. Current source/CI: 5cb1c80.', 64, 466, 13, color=MUTED)
-d.link('Open the actual seven-job green run', 'https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38915964006', y=489)
+d.image('evidence/aws-live-2026-10-16/cloud-delivery-terminal.png', 64, 106, 832, 350)
+d.text('Controller fix → seven green jobs → exact 06909ce EKS rollout, Helm release 2.', 64, 466, 13, color=MUTED)
+d.link('Open the actual seven-job green run', 'https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38934060961', y=489)
 
 d.page('The scan gate found a problem, then verified the repair', '06 · DevSecOps', '''
 Explain that the initial Debian-based backend image failed strict HIGH/CRITICAL scanning. Its original failed report was retained.
 Replacing the runtime with Alpine and rebuilding produced clean backend/frontend reports. Both amd64 and arm64 images must pass before canonical multiarch publication.
-Trivy uses HIGH,CRITICAL with ignore-unfixed=false and exit-code1; no broad ignore gate was added. All four actual downloaded current CI reports have zero HIGH/CRITICAL findings.
+Trivy uses HIGH,CRITICAL with ignore-unfixed=false and exit-code1; no broad ignore gate was added. Earlier downloaded reports have zero HIGH/CRITICAL findings. Fresh06909ce metadata verifies all four strict scan jobs succeeded; their raw report ZIPs were not downloaded.
 A clean container scan is a bounded observation, not proof of total application security. Separate exact-credential and secret scans checked the public tree/history; credentials and local state stay outside Git.
 ''')
 d.rect(64, 124, 393, 250, 'FFFFFF', radius=8)
@@ -206,66 +211,65 @@ d.text('Strict scan failed', 86, 181, 29, w=345, bold=True)
 d.text('Debian runtime findings were preserved in the original report.', 86, 241, 20, w=338)
 d.rect(481, 124, 415, 250, 'E4F1F2', radius=8)
 d.text('After', 503, 145, 16, color=TEAL, w=365)
-d.text('4 clean CI reports', 503, 181, 29, w=365, bold=True, color=TEAL)
-d.text('Backend + frontend\namd64 + arm64\n0 HIGH / CRITICAL', 503, 240, 21, w=365)
+d.text('4 strict gates passed', 503, 181, 29, w=365, bold=True, color=TEAL)
+d.text('Backend + frontend\namd64 + arm64\nNo HIGH / CRITICAL allowed', 503, 240, 20, w=365)
 d.text('Gate: --severity HIGH,CRITICAL --ignore-unfixed=false --exit-code 1', 64, 408, 17, w=832, bold=True)
 d.text('A clean scan is evidence about that image at that time; it is not a security guarantee.', 64, 456, 16, color=MUTED)
 
-d.page('Helm release 2 is running in the dedicated local cluster', '07 · Kubernetes', '''
-Show the exact labledger-capstone context rather than relying on the current global context. The older coursework cluster is preserved.
-Both UI and API Deployments have two Ready replicas. Their Services are ClusterIP. PostgreSQL is a StatefulSet with a PVC; the migration Job completed successfully.
+d.page('Helm release 2 ran on the dedicated EKS cluster', '07 · Kubernetes', '''
+The screenshot displays the explicitly saved actual cloud API snapshot, with its original capture time and source file. It is not represented as a fresh cluster query after teardown. The existing local coursework cluster was preserved.
+Both UI and API Deployments had two Ready replicas after HPA cooldown. Their Services are ClusterIP. PostgreSQL used an encrypted 2GiB gp3 PVC; the migration Job completed successfully.
 A Completed migration Job is expected and does not mean application Pods are unhealthy. Probes gate application readiness on migration/database state.
-The local storage class is standard, not the prepared AWS gp3 class. These are genuine local Kubernetes results, not EKS results.
+Actual public NLB routing and cloud CRUD succeeded. This is genuine cloud evidence captured before approved teardown, not a claim that the temporary endpoint remains online.
 ''')
-d.image('evidence/presentation/terminal-kubernetes.png', 64, 106, 832, 367)
-d.text('Local context: labledger-capstone. UI/API Running; migration Job Completed as designed.', 64, 482, 12, color=MUTED)
+d.image('evidence/aws-live-2026-10-16/cloud-snapshot-terminal.png', 64, 106, 832, 367)
+d.text('Actual EKS: ClusterIP Services, bound gp3, completed migration and deployed Helm releases.', 64, 482, 12, color=MUTED)
 
 d.page('Resilience was exercised, not only configured', '08 · HPA and troubleshooting', '''
-Use the retained original load/drill logs; this evidence is historical and no new fault or load is injected during this presentation capture.
-The actual HPA rose from 2 to 4 Ready API Pods under CPU load and later returned to 2. The persistent read load recorded 2338 requests with zero failures.
-A deliberately broken Service selector produced503/no endpoints; restoring the selector restored200. One earlier drill was affected by controller reconciliation and is retained separately.
+Use the actual cloud load/drill records. HPA rose from 2 to 4 Ready API Pods and returned to 2; the worker count remained one.
+The 90-second burst recorded 7,431 HTTP200 and 12 failures. Failure categories were not retained, so their cause is not established. A separate lower-rate recovery check passed 40/40; this is not a claim that the burst workload was repaired.
+A deliberately broken cloud Service selector produced502/no endpoints; exact restoration restored200. The initial EndpointSlice-null instrumentation error and its successful finally-restoration are retained separately.
 Explain readiness vs liveness, Service selectors vs Pod labels, and why Metrics Server and CPU requests are required for HPA. HPA scales Pods, not worker nodes.
 ''')
 d.text('2 → 4 Ready → 2', 64, 123, 44, color=TEAL, bold=True)
-d.text('Observed API HPA response under controlled local CPU load.', 64, 188, 20, color=MUTED)
+d.text('Observed cloud API HPA response; one worker throughout.', 64, 188, 20, color=MUTED)
 d.rect(64, 245, 393, 139, 'FFFFFF', radius=8)
-d.text('2,338 reads · 0 failures', 84, 264, 25, w=350, bold=True)
-d.text('Persistent HTTP connections; original request log retained.', 84, 311, 18, w=350, color=MUTED)
+d.text('7,431 reads · 12 failures', 84, 264, 25, w=350, bold=True)
+d.text('Separate lower-rate recovery: 40/40 HTTP 200. Burst failures retained.', 84, 311, 18, w=350, color=MUTED)
 d.rect(481, 245, 415, 139, 'FFFFFF', radius=8)
-d.text('200 → 503 → 200', 501, 264, 25, w=370, bold=True)
+d.text('200 → 502 → 200', 501, 264, 25, w=370, bold=True)
 d.text('Service selector fault, diagnosis and real recovery.', 501, 311, 18, w=370, color=MUTED)
-d.text('Original logs: evidence/local-cluster/README.md. No new failure was injected for these slides.', 64, 433, 16, color=MUTED)
+d.text('Actual cloud records retained. Earlier local 2,338 reads / 0 failures are separate evidence.', 64, 433, 16, color=MUTED)
 
 d.page('Actual application scraping is healthy', '09 · Observability', '''
-This is the genuine unfiltered School-profile browser screenshot after the documented local-only configuration repair:14 applicable targets UP across13 pools.
-The original three optional loopback-only control-plane endpoint failures are still retained. Their endpoints did not become reachable; the local override excludes those inapplicable component scrapes.
-Both API replicas remain scraped. Grafana authenticated API previously returned the six-panel dashboard with positive actual traffic samples, but no populated browser screenshot is claimed.
-Open the real Grafana UI using legitimate private login in the School profile. Never show a login page or dashboard JSON as evidence of a populated panel.
+This is a genuine native Terminal display of explicitly saved cloud checks, not a browser dashboard. Prometheus returned 16/16 UP before scaling; HPA temporarily increased the API target count.
+Grafana's authenticated API returned the actual six-panel dashboard, six traffic series and positive samples. Credentials remained in RAM. A populated browser panel is still a separate capture requirement.
+The initial local loopback-only control-plane failures and local repair remain historical evidence. EKS uses its separately documented managed-control-plane scrape profile.
+Private Console/app/Prometheus browser images were captured separately and remain unpublished pending their specific publication approval. No browser pixels are embedded here.
 ''')
-d.image('evidence/prometheus-applicable-targets-summary-updated.jpg', 64, 104, 832, 335)
-d.text('14 applicable targets UP; original loopback-endpoint failures and local fix retained.', 64, 449, 14, color=MUTED)
+d.image('evidence/aws-live-2026-10-16/cloud-verification-terminal.png', 64, 104, 832, 335)
+d.text('Cloud: 16/16 targets UP at capture time; actual CRUD and Service recovery retained.', 64, 449, 14, color=MUTED)
 d.text('Grafana: real API data verified; populated browser-panel capture still pending login.', 64, 477, 14, color=TEAL, bold=True)
 
-d.page('AWS is prepared, but has not been deployed', '10 · Honest cloud status', '''
-The actual read-only personal-account plan proposes62 creates, zero changes and zero deletes. Nine mock tests and provider validation passed, but these are not proof of a running EKS cluster.
-The proposed isolated Mumbai environment contains a VPC, two public/two private subnets, one NAT, one EKS cluster/worker and a Terraform-owned HTTP NLB.
-Official API prices support a two-hour bounded illustrative estimate of2.432349USD before tax; the approved conditional ceiling is10USD/max2h. This is not a hard automated billing cap.
-Exact IAM/temporary admin/controller RBAC/public-network and package-visibility decisions remain pending. No access grant, AWS resource, cost, Console screenshot or destroy success is claimed.
+d.page('Real AWS deployment, then verified cleanup', '10 · Terraform and lifecycle', '''
+The actual frozen personal-account plan created 62 resources, zero changes/deletions. Mumbai EKS 1.34 and its managed t3.large group became ACTIVE. The VPC had two public/two private subnets, NAT and a Terraform-owned HTTP NLB.
+The screenshot is an original native Terminal capture displaying actual completed destroy output and explicitly recorded post-deletion API checks. The separate apply capture preserves the actual 62-create output and ACTIVE EKS/node-group responses. Separate Console captures remain private until publication approval.
+After actual runtime evidence, the disposable PostgreSQL PVC/EBS was removed while CSI/node permissions remained available. A separately reviewed 62-delete Terraform plan removed the new infrastructure; post-cleanup API/state checks are linked in the evidence gallery.
+The final build requires a successful actual cleanup-verification file. The approved ceiling was US$10 / maximum two hours. The US$2.43 before-tax scenario is a planning estimate, not a measured final bill or automated billing cap.
 ''')
-y = d.bullet('Observed: a real read-only account plan', '62 creates · 0 updates · 0 deletes. No apply, access grant or cloud teardown.', 117, w=820)
-y = d.bullet('Prepared: reproducible infrastructure and bootstrap', 'VPC + EKS + one worker + NLB; restricted API; Helm and monitoring; project-only cleanup.', y, w=820)
-y = d.bullet('Remaining: approval and genuine cloud evidence', 'Exact access/visibility decisions, actual apply, Console/runtime verification and complete teardown.', y, w=820)
-d.text('Pricing scenario: about US$2.43 before tax. Conditional ceiling: US$10 / maximum 2 hours.', 64, 461, 16, color=TEAL, w=832, bold=True)
+d.image('evidence/aws-live-2026-10-16/terraform-destroy-terminal.png', 64, 104, 832, 335)
+d.text('62 created → real runtime verified → 62 destroyed; pre-existing resources preserved.', 64, 449, 15, color=TEAL, w=832, bold=True)
+d.text('Planning estimate about US$2.43 before tax; actual final AWS bill is not yet verified.', 64, 477, 14, color=MUTED, w=832)
 
-d.page('Present the verified work, then review the submission', '11 · Handoff and limits', '''
+d.page('Present the verified work and its limits', '11 · Handoff', '''
 Use the PDF or editable slides as a speaking guide. Play the separate native Terminal-only recording as supporting evidence, not a claim that the complete app/browser demo was recorded.
 For a full live/remote walkthrough, open local UI/Swagger/Prometheus/Grafana in the School Chrome profile, show the genuine green run and package pages, and explain the retained change-to-rollout sequence.
-Finish any actual AWS work only after the pending access/visibility decisions and legitimate Console authentication. Capture and clean up real resources before claiming the cloud module.
-The school form is filled for Jaivardhan D Rao, Group A, roll 10117 and the official SST email. The user reviews and submits manually. No submission or receipt is claimed.
+Actual cloud deployment, delivery update, metrics, troubleshooting and project-only cleanup are complete. The temporary AWS endpoint is retired; local demonstration instructions remain reproducible.
+The student reported manually submitting the form. No automated submission, instructor acceptance or submission receipt is claimed, and no further form actions are performed.
 ''')
-y = d.bullet('Ready to review', 'Original app, tests, containers, green CI, local Kubernetes, native evidence and these editable slides.', 116, w=820)
-y = d.bullet('Still required for the complete presentation', 'Live browser/Swagger CRUD, populated Grafana and package-page captures; genuine AWS evidence after approval.', y, w=820)
-d.bullet('Final submission stays with the student', 'Form filled for Group A / roll 10117. Review the public repository and evidence before pressing Submit.', y, w=820)
+y = d.bullet('Verified and reproducible', 'Original app, seven green CI jobs, exact-SHA EKS rollout, real metrics, recovery and verified cleanup.', 116, w=820)
+y = d.bullet('Remaining evidence limits', 'Private browser captures need publication approval. Populated Grafana and the full student live walkthrough remain separate.', y, w=820)
+d.bullet('Continue in the final repository', 'The student reported manual form submission. No further form action or receipt is claimed.', y, w=820)
 d.link('Public repository and complete evidence index', 'https://github.com/jaivardhandrao/labledger-devops-capstone', y=480)
 d.save()
 print('Built 12-slide PDF and editable PPTX with speaker notes; genuine evidence images retained unchanged.')

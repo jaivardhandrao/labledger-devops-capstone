@@ -8,7 +8,7 @@
     {
       "slide": 1,
       "type": "text",
-      "text": "DEVOPS FINAL CAPSTONE \u00b7 LOCAL DEMONSTRATION",
+      "text": "DEVOPS FINAL CAPSTONE \u00b7 LOCAL AND AWS EVIDENCE",
       "bounds": [
         64,
         26,
@@ -74,7 +74,7 @@
     {
       "slide": 1,
       "type": "text",
-      "text": "VERIFIED LOCALLY",
+      "text": "VERIFIED ON EKS",
       "bounds": [
         80,
         370,
@@ -85,7 +85,7 @@
     {
       "slide": 1,
       "type": "text",
-      "text": "Cloud execution is still pending.",
+      "text": "Temporary cloud demo cleaned up.",
       "bounds": [
         80,
         398,
@@ -646,18 +646,18 @@
     {
       "slide": 6,
       "type": "genuine_image",
-      "source": "evidence/presentation/terminal-git.png",
+      "source": "evidence/aws-live-2026-10-16/cloud-delivery-terminal.png",
       "bounds": [
-        172.43486973947893,
-        106.0,
-        615.1302605210421,
-        350.0
+        203.38709677419354,
+        105.99999999999997,
+        553.2258064516129,
+        350.00000000000006
       ]
     },
     {
       "slide": 6,
       "type": "text",
-      "text": "Visible change \u2192 green CI \u2192 exact c2f4acf local rollout. Current source/CI: 5cb1c80.",
+      "text": "Controller fix \u2192 seven green jobs \u2192 exact 06909ce EKS rollout, Helm release 2.",
       "bounds": [
         64,
         466,
@@ -767,7 +767,7 @@
     {
       "slide": 7,
       "type": "text",
-      "text": "4 clean CI reports",
+      "text": "4 strict gates passed",
       "bounds": [
         503,
         181,
@@ -778,12 +778,12 @@
     {
       "slide": 7,
       "type": "text",
-      "text": "Backend + frontend\namd64 + arm64\n0 HIGH / CRITICAL",
+      "text": "Backend + frontend\namd64 + arm64\nNo HIGH / CRITICAL allowed",
       "bounds": [
         503,
         240,
         365,
-        78.75
+        75.0
       ]
     },
     {
@@ -822,7 +822,7 @@
     {
       "slide": 8,
       "type": "text",
-      "text": "Helm release 2 is running in the dedicated local cluster",
+      "text": "Helm release 2 ran on the dedicated EKS cluster",
       "bounds": [
         64,
         48,
@@ -855,18 +855,18 @@
     {
       "slide": 8,
       "type": "genuine_image",
-      "source": "evidence/presentation/terminal-kubernetes.png",
+      "source": "evidence/aws-live-2026-10-16/cloud-snapshot-terminal.png",
       "bounds": [
-        157.49599198396794,
+        189.9516129032258,
         106.0,
-        645.0080160320641,
+        580.0967741935484,
         367.0
       ]
     },
     {
       "slide": 8,
       "type": "text",
-      "text": "Local context: labledger-capstone. UI/API Running; migration Job Completed as designed.",
+      "text": "Actual EKS: ClusterIP Services, bound gp3, completed migration and deployed Helm releases.",
       "bounds": [
         64,
         482,
@@ -932,7 +932,7 @@
     {
       "slide": 9,
       "type": "text",
-      "text": "Observed API HPA response under controlled local CPU load.",
+      "text": "Observed cloud API HPA response; one worker throughout.",
       "bounds": [
         64,
         188,
@@ -943,7 +943,7 @@
     {
       "slide": 9,
       "type": "text",
-      "text": "2,338 reads \u00b7 0 failures",
+      "text": "7,431 reads \u00b7 12 failures",
       "bounds": [
         84,
         264,
@@ -954,7 +954,7 @@
     {
       "slide": 9,
       "type": "text",
-      "text": "Persistent HTTP connections; original request log retained.",
+      "text": "Separate lower-rate recovery: 40/40 HTTP 200. Burst failures retained.",
       "bounds": [
         84,
         311,
@@ -965,7 +965,7 @@
     {
       "slide": 9,
       "type": "text",
-      "text": "200 \u2192 503 \u2192 200",
+      "text": "200 \u2192 502 \u2192 200",
       "bounds": [
         501,
         264,
@@ -987,7 +987,7 @@
     {
       "slide": 9,
       "type": "text",
-      "text": "Original logs: evidence/local-cluster/README.md. No new failure was injected for these slides.",
+      "text": "Actual cloud records retained. Earlier local 2,338 reads / 0 failures are separate evidence.",
       "bounds": [
         64,
         433,
@@ -1042,18 +1042,18 @@
     {
       "slide": 10,
       "type": "genuine_image",
-      "source": "evidence/prometheus-applicable-targets-summary-updated.jpg",
+      "source": "evidence/aws-live-2026-10-16/cloud-verification-terminal.png",
       "bounds": [
-        190.65259117082536,
+        215.24193548387098,
         104.0,
-        578.6948176583493,
+        529.516129032258,
         335.0
       ]
     },
     {
       "slide": 10,
       "type": "text",
-      "text": "14 applicable targets UP; original loopback-endpoint failures and local fix retained.",
+      "text": "Cloud: 16/16 targets UP at capture time; actual CRUD and Service recovery retained.",
       "bounds": [
         64,
         449,
@@ -1075,7 +1075,7 @@
     {
       "slide": 11,
       "type": "text",
-      "text": "10 \u00b7 HONEST CLOUD STATUS",
+      "text": "10 \u00b7 TERRAFORM AND LIFECYCLE",
       "bounds": [
         64,
         26,
@@ -1086,7 +1086,7 @@
     {
       "slide": 11,
       "type": "text",
-      "text": "AWS is prepared, but has not been deployed",
+      "text": "Real AWS deployment, then verified cleanup",
       "bounds": [
         64,
         48,
@@ -1118,85 +1118,41 @@
     },
     {
       "slide": 11,
-      "type": "text",
-      "text": "Observed: a real read-only account plan",
+      "type": "genuine_image",
+      "source": "evidence/aws-live-2026-10-16/terraform-destroy-terminal.png",
       "bounds": [
-        64,
-        117,
-        820,
-        26.25
+        215.24193548387098,
+        104.0,
+        529.516129032258,
+        335.0
       ]
     },
     {
       "slide": 11,
       "type": "text",
-      "text": "62 creates \u00b7 0 updates \u00b7 0 deletes. No apply, access grant or cloud teardown.",
+      "text": "62 created \u2192 real runtime verified \u2192 62 destroyed; pre-existing resources preserved.",
       "bounds": [
         64,
-        148,
-        820,
-        21.25
-      ]
-    },
-    {
-      "slide": 11,
-      "type": "text",
-      "text": "Prepared: reproducible infrastructure and bootstrap",
-      "bounds": [
-        64,
-        187.25,
-        820,
-        26.25
-      ]
-    },
-    {
-      "slide": 11,
-      "type": "text",
-      "text": "VPC + EKS + one worker + NLB; restricted API; Helm and monitoring; project-only cleanup.",
-      "bounds": [
-        64,
-        218.25,
-        820,
-        21.25
-      ]
-    },
-    {
-      "slide": 11,
-      "type": "text",
-      "text": "Remaining: approval and genuine cloud evidence",
-      "bounds": [
-        64,
-        257.5,
-        820,
-        26.25
-      ]
-    },
-    {
-      "slide": 11,
-      "type": "text",
-      "text": "Exact access/visibility decisions, actual apply, Console/runtime verification and complete teardown.",
-      "bounds": [
-        64,
-        288.5,
-        820,
-        21.25
-      ]
-    },
-    {
-      "slide": 11,
-      "type": "text",
-      "text": "Pricing scenario: about US$2.43 before tax. Conditional ceiling: US$10 / maximum 2 hours.",
-      "bounds": [
-        64,
-        461,
+        449,
         832,
-        20.0
+        18.75
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "Planning estimate about US$2.43 before tax; actual final AWS bill is not yet verified.",
+      "bounds": [
+        64,
+        477,
+        832,
+        17.5
       ]
     },
     {
       "slide": 12,
       "type": "text",
-      "text": "11 \u00b7 HANDOFF AND LIMITS",
+      "text": "11 \u00b7 HANDOFF",
       "bounds": [
         64,
         26,
@@ -1207,7 +1163,7 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Present the verified work, then review the submission",
+      "text": "Present the verified work and its limits",
       "bounds": [
         64,
         48,
@@ -1240,7 +1196,7 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Ready to review",
+      "text": "Verified and reproducible",
       "bounds": [
         64,
         116,
@@ -1251,7 +1207,7 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Original app, tests, containers, green CI, local Kubernetes, native evidence and these editable slides.",
+      "text": "Original app, seven green CI jobs, exact-SHA EKS rollout, real metrics, recovery and verified cleanup.",
       "bounds": [
         64,
         147,
@@ -1262,7 +1218,7 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Still required for the complete presentation",
+      "text": "Remaining evidence limits",
       "bounds": [
         64,
         186.25,
@@ -1273,7 +1229,7 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Live browser/Swagger CRUD, populated Grafana and package-page captures; genuine AWS evidence after approval.",
+      "text": "Private browser captures need publication approval. Populated Grafana and the full student live walkthrough remain separate.",
       "bounds": [
         64,
         217.25,
@@ -1284,7 +1240,7 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Final submission stays with the student",
+      "text": "Continue in the final repository",
       "bounds": [
         64,
         277.75,
@@ -1295,7 +1251,7 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Form filled for Group A / roll 10117. Review the public repository and evidence before pressing Submit.",
+      "text": "The student reported manual form submission. No further form action or receipt is claimed.",
       "bounds": [
         64,
         308.75,

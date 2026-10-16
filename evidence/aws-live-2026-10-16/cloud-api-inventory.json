@@ -1,0 +1,84 @@
+{
+  "recorded_at_utc": "2026-10-16T16:34:32.936287+00:00",
+  "source": "Actual AWS EKS and EC2 read APIs after successful exact-plan apply",
+  "region": "ap-south-1",
+  "terraform_apply_result": "Apply complete! Resources: 62 added, 0 changed, 0 destroyed.",
+  "cluster": {
+    "name": "labledger-capstone",
+    "status": "ACTIVE",
+    "version": "1.34",
+    "createdAt": "2026-10-16T21:48:53.271000+05:30",
+    "health": null,
+    "publicAPI": true,
+    "privateAPI": true,
+    "vpc": "vpc-077c7c54793a44501",
+    "subnets": [
+      "subnet-018628e475d187ba6",
+      "subnet-01de8fdee8c0b0c25"
+    ],
+    "authentication": "API",
+    "creatorAutoAdmin": null
+  },
+  "managed_nodegroup": {
+    "name": "labledger-capstone-workers",
+    "status": "ACTIVE",
+    "version": "1.34",
+    "instances": [
+      "t3.large"
+    ],
+    "capacity": "ON_DEMAND",
+    "scaling": {
+      "minSize": 1,
+      "maxSize": 1,
+      "desiredSize": 1
+    },
+    "subnets": [
+      "subnet-018628e475d187ba6",
+      "subnet-01de8fdee8c0b0c25"
+    ],
+    "health": []
+  },
+  "subnets": [
+    {
+      "id": "subnet-01de8fdee8c0b0c25",
+      "vpc": "vpc-077c7c54793a44501",
+      "az": "ap-south-1a",
+      "state": "available",
+      "cidr": "10.42.2.0/24",
+      "publicIPv4": false
+    },
+    {
+      "id": "subnet-018628e475d187ba6",
+      "vpc": "vpc-077c7c54793a44501",
+      "az": "ap-south-1b",
+      "state": "available",
+      "cidr": "10.42.3.0/24",
+      "publicIPv4": false
+    },
+    {
+      "id": "subnet-02fc5a43d4c8d089a",
+      "vpc": "vpc-077c7c54793a44501",
+      "az": "ap-south-1a",
+      "state": "available",
+      "cidr": "10.42.0.0/24",
+      "publicIPv4": true
+    },
+    {
+      "id": "subnet-0774497479e40caf6",
+      "vpc": "vpc-077c7c54793a44501",
+      "az": "ap-south-1b",
+      "state": "available",
+      "cidr": "10.42.1.0/24",
+      "publicIPv4": true
+    }
+  ],
+  "addons": [
+    "aws-ebs-csi-driver",
+    "coredns",
+    "kube-proxy",
+    "metrics-server",
+    "vpc-cni"
+  ],
+  "preexisting_default_vpc_preserved": true,
+  "account_identifiers_and_operator_ip_omitted": true
+}

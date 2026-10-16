@@ -1,0 +1,10 @@
+{
+  "file": "terraform-plan-terminal.png",
+  "sha256": "9608c2a90cf2032e0c35a5043d725c7cc4717f4451d00de80abb0df13e698ddd",
+  "file_mtime_utc": "2026-10-16T16:26:30.954769+00:00",
+  "method": "Unmodified native macOS screencapture -x -o -l for exact dedicated Terminal window3046",
+  "scope": "Saved real frozen Terraform plan summarized from its real JSON, plus actual ongoing apply status; not completed runtime",
+  "visually_reviewed": true,
+  "contains_credentials": false,
+  "initial_bad_capture_retained_as_evidence": false
+}

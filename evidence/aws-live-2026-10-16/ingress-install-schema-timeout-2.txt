@@ -1,0 +1,8 @@
+Actual failed install stderr; failure occurred before installing controller resources.
+Original private log file mtime UTC: 2026-10-16T16:34:14.474308+00:00
+
+Warning: resource 'clusterroles' is not namespace scoped in group 'rbac.authorization.k8s.io'
+
+Error: values don't meet the specifications of the schema(s) in the following chart(s):
+nginx-ingress:
+failing loading "https://raw.githubusercontent.com/nginxinc/kubernetes-json-schema/master/v1.37.0/_definitions.json": HTTP request failed for https://raw.githubusercontent.com/nginxinc/kubernetes-json-schema/master/v1.37.0/_definitions.json: Get "https://raw.githubusercontent.com/nginxinc/kubernetes-json-schema/master/v1.37.0/_definitions.json": context deadline exceeded (Client.Timeout exceeded while awaiting headers)

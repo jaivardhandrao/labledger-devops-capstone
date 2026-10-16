@@ -1,0 +1,8 @@
+{
+  "recorded_at_utc": "2026-10-16T16:59:37.884600+00:00",
+  "source": "Actual exec id inside one running container of each cloud Deployment",
+  "identities": {
+    "backend": "uid=10001(labledger) gid=10001(labledger) groups=10001(labledger)",
+    "frontend": "uid=101(nginx) gid=101(nginx) groups=101(nginx)"
+  }
+}

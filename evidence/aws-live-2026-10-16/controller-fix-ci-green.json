@@ -1,0 +1,406 @@
+{
+  "recorded_at_utc": "2026-10-16T16:50:20.635139+00:00",
+  "run": {
+    "id": 38934060961,
+    "head_sha": "06909ce67803bad2563d0b2b3e227eb4e0c71d28",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38934060961",
+    "created_at": "2026-10-16T16:42:30Z",
+    "updated_at": "2026-10-16T16:45:42Z"
+  },
+  "jobs": [
+    {
+      "id": 117084977432,
+      "name": "backend-tests",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-16T16:42:34Z",
+      "completed_at": "2026-10-16T16:42:53Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install isolated test dependencies",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run API and migration tests",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check Python quality",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117084977776,
+      "name": "frontend-checks",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-16T16:42:34Z",
+      "completed_at": "2026-10-16T16:42:45Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm ci",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run build",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117085135071,
+      "name": "scan-and-publish (frontend, amd64)",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-16T16:42:55Z",
+      "completed_at": "2026-10-16T16:43:44Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-qemu-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Set immutable image identity",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build this architecture locally before promotion",
+          "conclusion": "success"
+        },
+        {
+          "name": "Fail on every HIGH or CRITICAL container vulnerability",
+          "conclusion": "success"
+        },
+        {
+          "name": "Save actual scan report, including failed scans",
+          "conclusion": "success"
+        },
+        {
+          "name": "Authenticate to GHCR after successful scan",
+          "conclusion": "success"
+        },
+        {
+          "name": "Publish the scanned SHA-architecture image",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-qemu-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117085135188,
+      "name": "scan-and-publish (backend, arm64)",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-16T16:42:55Z",
+      "completed_at": "2026-10-16T16:45:14Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-qemu-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Set immutable image identity",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build this architecture locally before promotion",
+          "conclusion": "success"
+        },
+        {
+          "name": "Fail on every HIGH or CRITICAL container vulnerability",
+          "conclusion": "success"
+        },
+        {
+          "name": "Save actual scan report, including failed scans",
+          "conclusion": "success"
+        },
+        {
+          "name": "Authenticate to GHCR after successful scan",
+          "conclusion": "success"
+        },
+        {
+          "name": "Publish the scanned SHA-architecture image",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-qemu-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117085135210,
+      "name": "scan-and-publish (backend, amd64)",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-16T16:42:55Z",
+      "completed_at": "2026-10-16T16:43:51Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-qemu-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Set immutable image identity",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build this architecture locally before promotion",
+          "conclusion": "success"
+        },
+        {
+          "name": "Fail on every HIGH or CRITICAL container vulnerability",
+          "conclusion": "success"
+        },
+        {
+          "name": "Save actual scan report, including failed scans",
+          "conclusion": "success"
+        },
+        {
+          "name": "Authenticate to GHCR after successful scan",
+          "conclusion": "success"
+        },
+        {
+          "name": "Publish the scanned SHA-architecture image",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-qemu-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117085135392,
+      "name": "scan-and-publish (frontend, arm64)",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-16T16:42:55Z",
+      "completed_at": "2026-10-16T16:44:18Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-qemu-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Set immutable image identity",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build this architecture locally before promotion",
+          "conclusion": "success"
+        },
+        {
+          "name": "Fail on every HIGH or CRITICAL container vulnerability",
+          "conclusion": "success"
+        },
+        {
+          "name": "Save actual scan report, including failed scans",
+          "conclusion": "success"
+        },
+        {
+          "name": "Authenticate to GHCR after successful scan",
+          "conclusion": "success"
+        },
+        {
+          "name": "Publish the scanned SHA-architecture image",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-qemu-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 117086132367,
+      "name": "publish-multiarch-sha",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-16T16:45:17Z",
+      "completed_at": "2026-10-16T16:45:41Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run docker/setup-buildx-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Authenticate to GHCR",
+          "conclusion": "success"
+        },
+        {
+          "name": "Promote both images only when all four scans passed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run docker/setup-buildx-action@v3",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "raw_new_scan_reports_downloaded": false,
+  "strict_gate_source": ".github/workflows/delivery.yml"
+}

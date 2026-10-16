@@ -1,0 +1,371 @@
+{
+  "recorded_at_utc": "2026-10-16T16:46:17.714465+00:00",
+  "scope": "Actual NEW personal EKS Grafana through dedicated loopback13001",
+  "health": {
+    "database": "ok",
+    "version": "13.2.4",
+    "commit": "0e79aef9d91abf3bdadae9af15763029072fb45b"
+  },
+  "dashboard": {
+    "uid": "labledger-overview",
+    "title": "LabLedger \u2014 Application and Scaling",
+    "panels": 6
+  },
+  "datasource": {
+    "type": "prometheus",
+    "name": "Prometheus",
+    "uid": "prometheus"
+  },
+  "expression": "sum by (route,method) (rate(labledger_http_requests_total{namespace=\"labledger\",service=\"labledger-backend\",route!~\"/health|/ready|/metrics\"}[2m]))",
+  "positive_samples": 5,
+  "series": 6,
+  "query_response": {
+    "results": {
+      "A": {
+        "status": 200,
+        "frames": [
+          {
+            "schema": {
+              "refId": "A",
+              "meta": {
+                "type": "timeseries-multi",
+                "typeVersion": [
+                  0,
+                  1
+                ],
+                "custom": {
+                  "calculatedMinStep": 15000,
+                  "resultType": "matrix"
+                },
+                "executedQueryString": "Expr: sum by (route,method) (rate(labledger_http_requests_total{namespace=\"labledger\",service=\"labledger-backend\",route!~\"/health|/ready|/metrics\"}[2m]))\nStep: 15s"
+              },
+              "fields": [
+                {
+                  "name": "Time",
+                  "type": "time",
+                  "typeInfo": {
+                    "frame": "time.Time"
+                  },
+                  "config": {
+                    "interval": 15000
+                  }
+                },
+                {
+                  "name": "Value",
+                  "type": "number",
+                  "typeInfo": {
+                    "frame": "float64"
+                  },
+                  "labels": {
+                    "method": "DELETE",
+                    "route": "/api/loans/{loan_id}"
+                  },
+                  "config": {
+                    "displayNameFromDS": "{method=\"DELETE\", route=\"/api/loans/{loan_id}\"}"
+                  }
+                }
+              ]
+            },
+            "data": {
+              "values": [
+                [
+                  1792169130000,
+                  1792169145000,
+                  1792169160000,
+                  1792169175000
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            }
+          },
+          {
+            "schema": {
+              "refId": "A",
+              "meta": {
+                "type": "timeseries-multi",
+                "typeVersion": [
+                  0,
+                  1
+                ],
+                "custom": {
+                  "resultType": "matrix"
+                }
+              },
+              "fields": [
+                {
+                  "name": "Time",
+                  "type": "time",
+                  "typeInfo": {
+                    "frame": "time.Time"
+                  },
+                  "config": {
+                    "interval": 15000
+                  }
+                },
+                {
+                  "name": "Value",
+                  "type": "number",
+                  "typeInfo": {
+                    "frame": "float64"
+                  },
+                  "labels": {
+                    "method": "GET",
+                    "route": "/api/loans"
+                  },
+                  "config": {
+                    "displayNameFromDS": "{method=\"GET\", route=\"/api/loans\"}"
+                  }
+                }
+              ]
+            },
+            "data": {
+              "values": [
+                [
+                  1792169175000
+                ],
+                [
+                  0
+                ]
+              ]
+            }
+          },
+          {
+            "schema": {
+              "refId": "A",
+              "meta": {
+                "type": "timeseries-multi",
+                "typeVersion": [
+                  0,
+                  1
+                ],
+                "custom": {
+                  "resultType": "matrix"
+                }
+              },
+              "fields": [
+                {
+                  "name": "Time",
+                  "type": "time",
+                  "typeInfo": {
+                    "frame": "time.Time"
+                  },
+                  "config": {
+                    "interval": 15000
+                  }
+                },
+                {
+                  "name": "Value",
+                  "type": "number",
+                  "typeInfo": {
+                    "frame": "float64"
+                  },
+                  "labels": {
+                    "method": "GET",
+                    "route": "/api/loans/stats"
+                  },
+                  "config": {
+                    "displayNameFromDS": "{method=\"GET\", route=\"/api/loans/stats\"}"
+                  }
+                }
+              ]
+            },
+            "data": {
+              "values": [
+                [
+                  1792169115000,
+                  1792169130000,
+                  1792169145000,
+                  1792169160000,
+                  1792169175000
+                ],
+                [
+                  0.044145000000000004,
+                  0.03665583333333334,
+                  0.037500000000000006,
+                  0.03186958333333333,
+                  0.030287333333333333
+                ]
+              ]
+            }
+          },
+          {
+            "schema": {
+              "refId": "A",
+              "meta": {
+                "type": "timeseries-multi",
+                "typeVersion": [
+                  0,
+                  1
+                ],
+                "custom": {
+                  "resultType": "matrix"
+                }
+              },
+              "fields": [
+                {
+                  "name": "Time",
+                  "type": "time",
+                  "typeInfo": {
+                    "frame": "time.Time"
+                  },
+                  "config": {
+                    "interval": 15000
+                  }
+                },
+                {
+                  "name": "Value",
+                  "type": "number",
+                  "typeInfo": {
+                    "frame": "float64"
+                  },
+                  "labels": {
+                    "method": "GET",
+                    "route": "/api/loans/{loan_id}"
+                  },
+                  "config": {
+                    "displayNameFromDS": "{method=\"GET\", route=\"/api/loans/{loan_id}\"}"
+                  }
+                }
+              ]
+            },
+            "data": {
+              "values": [
+                [
+                  1792169130000,
+                  1792169145000,
+                  1792169160000,
+                  1792169175000
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            }
+          },
+          {
+            "schema": {
+              "refId": "A",
+              "meta": {
+                "type": "timeseries-multi",
+                "typeVersion": [
+                  0,
+                  1
+                ],
+                "custom": {
+                  "resultType": "matrix"
+                }
+              },
+              "fields": [
+                {
+                  "name": "Time",
+                  "type": "time",
+                  "typeInfo": {
+                    "frame": "time.Time"
+                  },
+                  "config": {
+                    "interval": 15000
+                  }
+                },
+                {
+                  "name": "Value",
+                  "type": "number",
+                  "typeInfo": {
+                    "frame": "float64"
+                  },
+                  "labels": {
+                    "method": "POST",
+                    "route": "/api/loans"
+                  },
+                  "config": {
+                    "displayNameFromDS": "{method=\"POST\", route=\"/api/loans\"}"
+                  }
+                }
+              ]
+            },
+            "data": {
+              "values": [
+                [
+                  1792169130000,
+                  1792169145000,
+                  1792169160000,
+                  1792169175000
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            }
+          },
+          {
+            "schema": {
+              "refId": "A",
+              "meta": {
+                "type": "timeseries-multi",
+                "typeVersion": [
+                  0,
+                  1
+                ],
+                "custom": {
+                  "resultType": "matrix"
+                }
+              },
+              "fields": [
+                {
+                  "name": "Time",
+                  "type": "time",
+                  "typeInfo": {
+                    "frame": "time.Time"
+                  },
+                  "config": {
+                    "interval": 15000
+                  }
+                },
+                {
+                  "name": "Value",
+                  "type": "number",
+                  "typeInfo": {
+                    "frame": "float64"
+                  },
+                  "labels": {
+                    "method": "PUT",
+                    "route": "/api/loans/{loan_id}"
+                  },
+                  "config": {
+                    "displayNameFromDS": "{method=\"PUT\", route=\"/api/loans/{loan_id}\"}"
+                  }
+                }
+              ]
+            },
+            "data": {
+              "values": [
+                [
+                  1792169145000,
+                  1792169160000,
+                  1792169175000
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "browser_populated_panel_capture_claimed": false,
+  "credentials_disclosed_or_saved": false
+}

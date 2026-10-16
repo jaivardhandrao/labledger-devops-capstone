@@ -1,0 +1,7 @@
+{
+  "verified_at_utc": "2026-10-16T17:02:43.145035+00:00",
+  "swagger_url": "http://localhost:18001/docs",
+  "http_status": 200,
+  "actual_swagger_html_verified": true,
+  "scope": "Recreated only the existing cloud backend loopback port-forward after old selected Pod exited; no AWS/cluster config or grants changed"
+}

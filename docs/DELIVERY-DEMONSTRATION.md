@@ -1,5 +1,6 @@
 # Actual delivery demonstration — 16 October 2026
 
+**New cloud continuation:** controller fix06909ce passed all seven jobs in [run 38934060961](https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38934060961), then actually rolled out those exact SHA images to EKS release2 at 16:52:04 UTC. The [cloud record](../evidence/aws-live-2026-10-16/README.md) contains actual metadata and verified cleanup. The visible footer/local sequence below remains a separate historical demonstration.
 The following sequence was performed against the dedicated local `labledger-capstone` profile. It is local Kubernetes evidence; the separate AWS work has not yet been applied.
 
 | Step | Actual observation |

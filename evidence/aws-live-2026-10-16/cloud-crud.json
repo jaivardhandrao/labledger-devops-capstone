@@ -1,0 +1,139 @@
+{
+  "started_at_utc": "2026-10-16T16:45:02.040610+00:00",
+  "finished_at_utc": "2026-10-16T16:45:07.190810+00:00",
+  "source": "Actual HTTP through AWS NLB",
+  "fictional_fixture_only": true,
+  "events": [
+    {
+      "step": "baseline",
+      "at_utc": "2026-10-16T16:45:02.496295+00:00",
+      "response": {
+        "status": 200,
+        "body": {
+          "total": 0,
+          "active": 0,
+          "overdue": 0,
+          "returned": 0
+        },
+        "location": null
+      }
+    },
+    {
+      "step": "create",
+      "at_utc": "2026-10-16T16:45:02.962445+00:00",
+      "response": {
+        "status": 201,
+        "body": {
+          "equipment": "AWS-DEMO-1792169102040810000 equipment (fictional)",
+          "borrower": "Fictional capstone borrower",
+          "due_date": "2026-10-17",
+          "status": "requested",
+          "notes": "Synthetic temporary AWS capstone demonstration; no real borrower data.",
+          "id": "1cdfeab2-ab24-4d4d-92c7-6bddef4bf484",
+          "created_at": "2026-10-16T16:45:02.911883Z"
+        },
+        "location": "/api/loans/1cdfeab2-ab24-4d4d-92c7-6bddef4bf484"
+      }
+    },
+    {
+      "step": "read",
+      "at_utc": "2026-10-16T16:45:03.477453+00:00",
+      "response": {
+        "status": 200,
+        "body": {
+          "equipment": "AWS-DEMO-1792169102040810000 equipment (fictional)",
+          "borrower": "Fictional capstone borrower",
+          "due_date": "2026-10-17",
+          "status": "requested",
+          "notes": "Synthetic temporary AWS capstone demonstration; no real borrower data.",
+          "id": "1cdfeab2-ab24-4d4d-92c7-6bddef4bf484",
+          "created_at": "2026-10-16T16:45:02.911883Z"
+        },
+        "location": null
+      }
+    },
+    {
+      "step": "update_overdue",
+      "at_utc": "2026-10-16T16:45:04.495995+00:00",
+      "response": {
+        "status": 200,
+        "body": {
+          "equipment": "AWS-DEMO-1792169102040810000 equipment (fictional)",
+          "borrower": "Fictional capstone borrower",
+          "due_date": "2026-10-15",
+          "status": "collected",
+          "notes": "Synthetic temporary AWS capstone demonstration; no real borrower data.",
+          "id": "1cdfeab2-ab24-4d4d-92c7-6bddef4bf484",
+          "created_at": "2026-10-16T16:45:02.911883Z"
+        },
+        "location": null
+      },
+      "stats": {
+        "status": 200,
+        "body": {
+          "total": 1,
+          "active": 1,
+          "overdue": 1,
+          "returned": 0
+        },
+        "location": null
+      }
+    },
+    {
+      "step": "return",
+      "at_utc": "2026-10-16T16:45:05.525059+00:00",
+      "response": {
+        "status": 200,
+        "body": {
+          "equipment": "AWS-DEMO-1792169102040810000 equipment (fictional)",
+          "borrower": "Fictional capstone borrower",
+          "due_date": "2026-10-15",
+          "status": "returned",
+          "notes": "Synthetic temporary AWS capstone demonstration; no real borrower data.",
+          "id": "1cdfeab2-ab24-4d4d-92c7-6bddef4bf484",
+          "created_at": "2026-10-16T16:45:02.911883Z"
+        },
+        "location": null
+      },
+      "stats": {
+        "status": 200,
+        "body": {
+          "total": 1,
+          "active": 0,
+          "overdue": 0,
+          "returned": 1
+        },
+        "location": null
+      }
+    },
+    {
+      "step": "delete_only_new_fixture",
+      "at_utc": "2026-10-16T16:45:06.030740+00:00",
+      "response": {
+        "status": 204,
+        "body": "",
+        "location": null
+      }
+    },
+    {
+      "step": "deleted_record_absent_baseline_restored",
+      "at_utc": "2026-10-16T16:45:07.190786+00:00",
+      "get": {
+        "status": 404,
+        "body": {
+          "detail": "Loan not found"
+        }
+      },
+      "stats": {
+        "status": 200,
+        "body": {
+          "total": 0,
+          "active": 0,
+          "overdue": 0,
+          "returned": 0
+        },
+        "location": null
+      }
+    }
+  ]
+}

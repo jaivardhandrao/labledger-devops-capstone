@@ -1,0 +1,37 @@
+{
+  "recorded_at_utc": "2026-10-16T16:51:03.422835+00:00",
+  "actual_anonymous_manifest_fetches": true,
+  "images": [
+    {
+      "component": "frontend",
+      "tag": "06909ce67803bad2563d0b2b3e227eb4e0c71d28",
+      "manifest_digest": "sha256:47b584f167d594eb3fb52f000dc1335161a083d58a7a3e651617fb7ee2e35419",
+      "platforms": [
+        {
+          "architecture": "amd64",
+          "os": "linux"
+        },
+        {
+          "architecture": "arm64",
+          "os": "linux"
+        }
+      ]
+    },
+    {
+      "component": "backend",
+      "tag": "06909ce67803bad2563d0b2b3e227eb4e0c71d28",
+      "manifest_digest": "sha256:c9ded6a065d5b1aa32410b8177d7fd278cc0aa9e4efce6593fa50dcd836bd895",
+      "platforms": [
+        {
+          "architecture": "amd64",
+          "os": "linux"
+        },
+        {
+          "architecture": "arm64",
+          "os": "linux"
+        }
+      ]
+    }
+  ],
+  "visibility_changed": false
+}

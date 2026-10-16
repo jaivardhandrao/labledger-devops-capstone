@@ -1,0 +1,63 @@
+[
+  {
+    "file": "cloud-runtime-during-scale-up-terminal.png",
+    "captured_at_utc": "2026-10-16T16:56:31.765800+00:00",
+    "sha256": "724f0d4043021edb5836833d469562e38a92a3b998b58dc1a6efbe398a3e0488",
+    "method": "Original native macOS window-only screencapture; no pixel edits or overlays",
+    "source": "Actual dedicated Terminal script runtime",
+    "saved_results_explicitly_labeled": false,
+    "browser_or_whole_display_capture": false,
+    "credentials_visible": false,
+    "visually_reviewed": true,
+    "scope_note": "Actual transition: two existing Ready API pods plus two new Pending pods during HPA scale-up; not final steady state."
+  },
+  {
+    "file": "cloud-delivery-terminal.png",
+    "captured_at_utc": "2026-10-16T16:56:34.825367+00:00",
+    "sha256": "45fe700acf68ef8aa186cc3ed4b881630313056ab01528bdaf6063aa0f673623",
+    "method": "Original native macOS window-only screencapture; no pixel edits or overlays",
+    "source": "Actual dedicated Terminal script delivery",
+    "saved_results_explicitly_labeled": false,
+    "browser_or_whole_display_capture": false,
+    "credentials_visible": false,
+    "visually_reviewed": true
+  },
+  {
+    "file": "cloud-verification-terminal.png",
+    "captured_at_utc": "2026-10-16T16:56:35.881689+00:00",
+    "sha256": "d7adfda2dbfe1479dcf844a700bddd6c96c854f02407e0990c3a10079a27475c",
+    "method": "Original native macOS window-only screencapture; no pixel edits or overlays",
+    "source": "Actual dedicated Terminal script verification",
+    "saved_results_explicitly_labeled": true,
+    "browser_or_whole_display_capture": false,
+    "credentials_visible": false,
+    "visually_reviewed": true
+  },
+  {
+    "file": "cloud-scaling-terminal.png",
+    "captured_at_utc": "2026-10-16T17:00:32.132387+00:00",
+    "sha256": "d3d892165fe274883850b7859a57e382f1bb16c2df6bfcdf19b936612fe70417",
+    "method": "Original native macOS window-only screencapture; no pixel edits or overlays",
+    "source": "Actual dedicated Terminal script scaling",
+    "saved_results_explicitly_labeled": true,
+    "browser_or_whole_display_capture": false,
+    "credentials_visible": false,
+    "visually_reviewed": true
+  },
+  {
+    "file": "cloud-snapshot-terminal.png",
+    "captured_at_utc": "2026-10-16T17:19:38.734144+00:00",
+    "sha256": "ce735d8aea1ecea3bf0c031ebaf802cbba28bc2dd600287b7c198cb58cb0a5ae",
+    "method": "Original native Terminal-window screenshot displaying explicitly saved actual pre-teardown API snapshot; original capture time and source shown",
+    "browser_or_display_capture": false,
+    "visually_reviewed": true
+  },
+  {
+    "file": "terraform-destroy-terminal.png",
+    "captured_at_utc": "2026-10-16T17:40:29.361844+00:00",
+    "sha256": "48494da41c70f6e2ce6e04ce2cc6e18a27873932f7cf7c1b7e929839e3e3c36d",
+    "method": "Original native Terminal-window capture displaying actual completed Terraform output and explicitly recorded post-deletion API checks",
+    "saved_results_explicitly_labeled": true,
+    "visually_reviewed": true
+  }
+]

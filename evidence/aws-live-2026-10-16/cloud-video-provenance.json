@@ -1,0 +1,15 @@
+{
+  "started_at_utc": "2026-10-16T17:09:23.464712+00:00",
+  "finished_at_utc": "2026-10-16T17:10:16.761911+00:00",
+  "requested_seconds": 50,
+  "window_only": true,
+  "audio": false,
+  "source": "Actual dedicated native Terminal: real runtime queries, completed CI/promotion records plus live Deployment image query, explicitly saved cloud verification results",
+  "full_browser_or_student_presentation_claimed": false,
+  "duration_seconds": 53.2,
+  "published_mp4_sha256": "b44a3806965d2bb26e21d13d4f1c2e2b35d021f5cfa19ece18e95de53428770e",
+  "original_mov_sha256": "71e67116d24de71807a5ca4369e21fbf1b948e75a1637116cf2bcec3ca7539da",
+  "transcode": "H264 MP4,10fps,CRF24,noaudio,nooverlays",
+  "width": 1960,
+  "height": 1240
+}

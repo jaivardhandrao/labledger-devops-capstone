@@ -1,0 +1,255 @@
+{
+  "recorded_at_utc": "2026-10-16T16:46:16.315629+00:00",
+  "scope": "Actual temporary personal AWS EKS Prometheus, port-forward19090",
+  "up_count": 16,
+  "down_count": 0,
+  "app_targets": [
+    {
+      "health": "up",
+      "labels": {
+        "container": "backend",
+        "endpoint": "http",
+        "instance": "10.42.3.140:8000",
+        "job": "labledger-backend",
+        "namespace": "labledger",
+        "pod": "labledger-backend-84d6bd79dd-4dsdj",
+        "service": "labledger-backend"
+      },
+      "last_error": ""
+    },
+    {
+      "health": "up",
+      "labels": {
+        "container": "backend",
+        "endpoint": "http",
+        "instance": "10.42.3.207:8000",
+        "job": "labledger-backend",
+        "namespace": "labledger",
+        "pod": "labledger-backend-84d6bd79dd-qzdkb",
+        "service": "labledger-backend"
+      },
+      "last_error": ""
+    }
+  ],
+  "targets": [
+    {
+      "health": "up",
+      "labels": {
+        "container": "backend",
+        "endpoint": "http",
+        "instance": "10.42.3.140:8000",
+        "job": "labledger-backend",
+        "namespace": "labledger",
+        "pod": "labledger-backend-84d6bd79dd-4dsdj",
+        "service": "labledger-backend"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:46:08.513128837Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "container": "backend",
+        "endpoint": "http",
+        "instance": "10.42.3.207:8000",
+        "job": "labledger-backend",
+        "namespace": "labledger",
+        "pod": "labledger-backend-84d6bd79dd-qzdkb",
+        "service": "labledger-backend"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:46:01.577744958Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "endpoint": "https",
+        "instance": "10.42.2.97:443",
+        "job": "apiserver",
+        "namespace": "default",
+        "service": "kubernetes"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:45:46.692791958Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "endpoint": "https",
+        "instance": "10.42.3.108:443",
+        "job": "apiserver",
+        "namespace": "default",
+        "service": "kubernetes"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:46:14.746204317Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "container": "coredns",
+        "endpoint": "http-metrics",
+        "instance": "10.42.3.138:9153",
+        "job": "coredns",
+        "namespace": "kube-system",
+        "pod": "coredns-ff8878f6-ds44t",
+        "service": "monitoring-coredns"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:45:51.161169253Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "container": "coredns",
+        "endpoint": "http-metrics",
+        "instance": "10.42.3.74:9153",
+        "job": "coredns",
+        "namespace": "kube-system",
+        "pod": "coredns-ff8878f6-6pwkv",
+        "service": "monitoring-coredns"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:45:59.325236575Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "container": "grafana",
+        "endpoint": "http-web",
+        "instance": "10.42.3.56:3000",
+        "job": "monitoring-grafana",
+        "namespace": "monitoring",
+        "pod": "monitoring-grafana-85b86d96bd-562tc",
+        "service": "monitoring-grafana"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:46:00.542637124Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "endpoint": "http-metrics",
+        "instance": "10.42.3.126:10249",
+        "job": "kube-proxy",
+        "namespace": "kube-system",
+        "pod": "kube-proxy-q5tdw",
+        "service": "monitoring-kube-proxy"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:46:15.506540333Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "container": "kube-state-metrics",
+        "endpoint": "http",
+        "instance": "10.42.3.39:8080",
+        "job": "kube-state-metrics",
+        "namespace": "monitoring",
+        "pod": "monitoring-kube-state-metrics-d9d6df766-v9wnv",
+        "service": "monitoring-kube-state-metrics"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:46:09.075150915Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "endpoint": "https-metrics",
+        "instance": "10.42.3.126:10250",
+        "job": "kubelet",
+        "metrics_path": "/metrics",
+        "namespace": "kube-system",
+        "node": "ip-10-42-3-126.ap-south-1.compute.internal",
+        "service": "monitoring-kubelet"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:46:05.880255215Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "endpoint": "https-metrics",
+        "instance": "10.42.3.126:10250",
+        "job": "kubelet",
+        "metrics_path": "/metrics/cadvisor",
+        "namespace": "kube-system",
+        "node": "ip-10-42-3-126.ap-south-1.compute.internal",
+        "service": "monitoring-kubelet"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:46:12.945051856Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "endpoint": "https-metrics",
+        "instance": "10.42.3.126:10250",
+        "job": "kubelet",
+        "metrics_path": "/metrics/probes",
+        "namespace": "kube-system",
+        "node": "ip-10-42-3-126.ap-south-1.compute.internal",
+        "service": "monitoring-kubelet"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:46:07.43520824Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "container": "kube-prometheus-stack",
+        "endpoint": "https",
+        "instance": "10.42.3.231:10250",
+        "job": "monitoring-operator",
+        "namespace": "monitoring",
+        "pod": "monitoring-operator-676979bc45-cl57x",
+        "service": "monitoring-operator"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:45:56.968235912Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "10.42.3.126:9100",
+        "job": "node-exporter",
+        "namespace": "monitoring",
+        "pod": "monitoring-prometheus-node-exporter-dzccl",
+        "service": "monitoring-prometheus-node-exporter"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:45:48.412534249Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "container": "prometheus",
+        "endpoint": "http-web",
+        "instance": "10.42.3.59:9090",
+        "job": "monitoring-prometheus",
+        "namespace": "monitoring",
+        "pod": "prometheus-monitoring-prometheus-0",
+        "service": "monitoring-prometheus"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:45:51.3889843Z"
+    },
+    {
+      "health": "up",
+      "labels": {
+        "container": "config-reloader",
+        "endpoint": "reloader-web",
+        "instance": "10.42.3.59:8080",
+        "job": "monitoring-prometheus",
+        "namespace": "monitoring",
+        "pod": "prometheus-monitoring-prometheus-0",
+        "service": "monitoring-prometheus"
+      },
+      "last_error": "",
+      "last_scrape": "2026-10-16T16:45:53.501246036Z"
+    }
+  ]
+}

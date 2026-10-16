@@ -1,0 +1,9 @@
+{
+  "file": "terraform-apply-terminal.png",
+  "sha256": "e936301115d47f57536a03359fe3afa1325c12d9e737758bf82c8c43023789d1",
+  "file_mtime_utc": "2026-10-16T16:32:52.274174+00:00",
+  "method": "Unmodified native macOS screencapture of exact dedicated Terminal window3046",
+  "scope": "Actual saved Terraform apply success plus actual current EKS and managed node-group API responses",
+  "visually_reviewed": true,
+  "no_credentials_or_full_account_ids_visible": true
+}

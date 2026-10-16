@@ -1,0 +1,11 @@
+{
+  "recorded_at_utc": "2026-10-16T16:36:54.782031+00:00",
+  "official_package_sha256": "a48a61321273160cd4f58ff4c4de9aed169097e1203de1f2ca1579c0236c6703",
+  "upstream_schema_sha256": "e1d22fd4a24696a48ed62cbc5facd39b3ff64293f8605b0dc6e7df0f32ed0c40",
+  "schema_validation_enabled_for_install": true,
+  "original_and_offline_manifest_bytes_identical": true,
+  "manifest_sha256": "e9b7539f597458a34748b5b77cd765d307e95b7038639ddd418ad15f062c1efe",
+  "only_change": "82 remote $ref URLs resolve to the byte-pinned upstream schema file; every other chart file unchanged",
+  "network_or_rbac_expanded": false,
+  "schema_dependency_timeout_retained": true
+}

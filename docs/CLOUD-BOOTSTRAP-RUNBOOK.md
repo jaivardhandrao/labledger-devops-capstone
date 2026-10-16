@@ -1,6 +1,6 @@
 # Reviewed EKS bootstrap and evidence runbook
 
-**Preparation only.** The account plan, cloud bootstrap grants, GHCR package visibility and project-only teardown/data disposal are still awaiting their required confirmations. No commands below are evidence that AWS was provisioned. Use the exact approved saved Terraform plan and new personal cluster only; keep within the reviewed budget/lifetime, including setup and cleanup.
+**Executed reference:** the [actual run and verified cleanup](../evidence/aws-live-2026-10-16/README.md) supersede the original preparation status. The commands below remain a reproduction runbook, not authorization to incur new charges. The temporary environment is retired.
 
 ## Source packages and prerequisites
 

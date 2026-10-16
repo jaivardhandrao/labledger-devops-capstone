@@ -1,5 +1,6 @@
 # Local and read-only account validation — 16 October 2026
 
+**Historical preparation record:** original planning/mock observations below predate execution. [Actual personal AWS run and verified cleanup](../evidence/aws-live-2026-10-16/README.md) are recorded separately; do not read former pending statements as current status.
 Executed on the user's Mac with Terraform **1.15.8**, `darwin_arm64`.
 
 | Check | Observed result |

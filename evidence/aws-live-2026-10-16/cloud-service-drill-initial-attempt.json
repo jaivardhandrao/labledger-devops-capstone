@@ -1,0 +1,30 @@
+{
+  "started_at_utc": "2026-10-16T16:45:36.552925+00:00",
+  "scope": "Only NEW personal AWS EKS labledger-capstone, ap-south-1",
+  "fault": "Temporary Service selector mismatch; no security rules, images or database changed",
+  "original_selector": {
+    "app.kubernetes.io/component": "backend",
+    "app.kubernetes.io/instance": "labledger",
+    "app.kubernetes.io/name": "labledger"
+  },
+  "before": {
+    "ready_endpoints": 2,
+    "http": 200
+  },
+  "events": [
+    {
+      "at_utc": "2026-10-16T16:45:38.234274+00:00",
+      "action": "selector mismatch applied"
+    },
+    {
+      "at_utc": "2026-10-16T16:45:40.453528+00:00",
+      "action": "exact original selector restored"
+    }
+  ],
+  "after": {
+    "ready_endpoints": 2,
+    "http": 200
+  },
+  "finished_at_utc": "2026-10-16T16:45:43.550916+00:00",
+  "instrumentation_error": "Initial cloud-drill reader did not handle Kubernetes empty EndpointSlice endpoints:null; finally restored original selector successfully. Reader fixed before rerun."
+}

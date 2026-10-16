@@ -1,0 +1,59 @@
+{
+  "verified_at_utc": "2026-10-16T17:39:21.395853+00:00",
+  "provisioning_started_at_utc": "2026-10-16T16:18:28.130977+00:00",
+  "kubernetes_cleanup_started_at_utc": "2026-10-16T17:15:26.480412+00:00",
+  "terraform_destroy_started_at_utc": "2026-10-16T17:17:08.999762+00:00",
+  "core_resources_absence_verified_at_utc": "2026-10-16T17:39:17.901141+00:00",
+  "actual_terraform_destroy_output": "Apply complete! Resources: 0 added, 0 changed, 62 destroyed.",
+  "terraform_state_managed_resources": 0,
+  "checks": {
+    "eks_cluster_absent": true,
+    "new_vpc_absent": true,
+    "preexisting_default_vpc_preserved": true,
+    "no_active_project_nat": true,
+    "project_nlb_absent": true,
+    "project_eip_released": true,
+    "project_enis_absent": true,
+    "worker_terminated_or_absent": true,
+    "exact_worker_and_database_volumes_absent": true,
+    "four_project_service_iam_roles_absent": true,
+    "project_irsa_oidc_provider_absent": true,
+    "project_log_group_absent": true
+  },
+  "new_only_service_linked_roles": [
+    {
+      "name": "AWSServiceRoleForAmazonEKS",
+      "result": "absence_verified",
+      "baseline_absent": true,
+      "created_during_run": true,
+      "deletion_requested_during_this_run": true,
+      "request_record_reconciled_with": "new-service-linked-role-cleanup.json"
+    },
+    {
+      "name": "AWSServiceRoleForAmazonEKSNodegroup",
+      "result": "absence_verified",
+      "baseline_absent": true,
+      "created_during_run": true,
+      "deletion_requested_during_this_run": true,
+      "request_record_reconciled_with": "new-service-linked-role-cleanup.json"
+    },
+    {
+      "name": "AWSServiceRoleForAutoScaling",
+      "result": "absence_verified",
+      "baseline_absent": true,
+      "created_during_run": true,
+      "deletion_requested_during_this_run": true,
+      "request_record_reconciled_with": "new-service-linked-role-cleanup.json"
+    }
+  ],
+  "all_project_resources_removed": true,
+  "elapsed_seconds": 4853.26,
+  "within_approved_two_hour_window": true,
+  "approved_cost_limit_usd": 10,
+  "actual_final_aws_bill_verified": false,
+  "account_and_operator_ip_omitted": true,
+  "regional_read_verification_endpoint_mode": "Official SDK dual-stack for EC2/ELB; standard endpoint connection errors preserved privately",
+  "scope": "Only exact new personal EKS capstone resources; previous local clusters and default VPC preserved",
+  "summary_reconciled_at_utc": "2026-10-16T17:48:09.507924+00:00",
+  "summary_reconciliation_note": "Deletion-request flags include both original and separate guarded cleanup response filenames. All three actual deletion requests are recorded; direct role-absence verification and its timestamp are unchanged. No new AWS calls were made for this summary correction."
+}

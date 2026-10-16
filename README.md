@@ -5,7 +5,7 @@ LabLedger is an original campus equipment-loan application. A lab desk records a
 **Student:** Jaivardhan D Rao · **Roll:** 10117 · **Enrollment:** 24BCS10117 · **Group:** A
 **School account:** jaivardhan.24bcs10117@sst.scaler.com
 
-The repository contains the application, tests, delivery workflow, infrastructure configuration and real local evidence. [Rubric status](docs/RUBRIC-STATUS.md) records completed checks and remaining requirements.
+The repository contains the application, tests, delivery workflow, infrastructure configuration and real local and temporary AWS evidence. [Rubric status](docs/RUBRIC-STATUS.md) records completed checks and remaining requirements.
 
 ![LabLedger running through the local Kubernetes Ingress](evidence/ui-kubernetes-desktop-8088.jpg)
 
@@ -78,7 +78,7 @@ ghcr.io/jaivardhandrao/labledger-devops-capstone-backend:<40-character-git-sha>
 ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend:<40-character-git-sha>
 ```
 
-The workflow uses the repository-scoped ephemeral GitHub token for GHCR. It contains no AWS credentials or automatic AWS access grant. Publishing a repository or changing package visibility is a separate approval action. The [first actual green run](https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38908280610) passed both test jobs, all four strict image scans and multi-architecture publication for commit `7e28da8`. [Downloaded CI reports](evidence/ci/baseline-scan-summary.json) record the exact image IDs and zero HIGH/CRITICAL findings. Package public visibility is a separate pending decision.
+The workflow uses the repository-scoped ephemeral GitHub token for GHCR. It contains no AWS credentials or automatic AWS access grant. Publishing a repository or changing package visibility is a separate approval action. The [first actual green run](https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38908280610) passed both test jobs, all four strict image scans and multi-architecture publication for commit `7e28da8`. [Downloaded CI reports](evidence/ci/baseline-scan-summary.json) record the exact image IDs and zero HIGH/CRITICAL findings. Both promoted 06909ce SHA manifests were actually readable anonymously; see the [cloud evidence](evidence/aws-live-2026-10-16/README.md).
 
 [Local promotion](scripts/promote-local.sh) requires clean tracked files and a successful main-push delivery run for the reviewed SHA. It builds/scans images and deploys chart inputs from an exact Git archive of that commit, preserves monitoring, loads the native images into the dedicated Minikube profile, and waits for rollout. This is an explicit promotion step; it does not claim that the publication workflow automatically deploys to AWS.
 
@@ -94,7 +94,11 @@ The dedicated local profile is **labledger-capstone**. Every command and script 
 
 [Terraform](terraform/README.md) defines two public/two private subnets, optional NAT, restricted EKS API access and one managed worker group, with CNI/EBS CSI service roles and encrypted storage. `terraform.tfvars.example` contains documentation placeholders. The provider requires an explicitly approved account ID and rejects another account.
 
-**A personal AWS identity and a real read-only account plan are verified; deployment approval is pending.** The proposed plan contains 62 creates, zero changes and zero deletions, with a current-rate estimate inside the conditional US$10 / two-hour limit. No apply, cloud deployment or destroy has occurred. The exact IAM, Kubernetes bootstrap, network and teardown scope is documented for review separately; [the public AWS worksheet](docs/AWS-REVIEW-PLAN.md) explains the design and remaining requirements. No workplace AWS profile is authorized. The completed runtime evidence is local, and mock validation/read-only planning does not satisfy the rubric's real VPC/EKS/Console/teardown requirements.
+**The personal AWS run is complete and verified removed.** The exact plan created 62 resources in Mumbai; EKS 1.34 and its managed t3.large group became ACTIVE. The app ran through its NLB with two Ready UI / two Ready API replicas, encrypted gp3, real CRUD, actual metrics and HPA 2 → 4 Ready → 2. [Actual evidence and retained failures](evidence/aws-live-2026-10-16/README.md) include the fresh seven-job green [06909ce run](https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38934060961) and exact-SHA EKS promotion.
+
+After capture, the disposable PVC/EBS was deleted before its driver/node, then the reviewed 62-delete Terraform plan removed the infrastructure. [Post-removal API/state verification](evidence/aws-live-2026-10-16/cloud-cleanup-verification.json) confirms zero managed state, the exact cloud resources absent, new-only service-role cleanup and preservation of the existing default VPC. The verified lifecycle was 80.89 minutes, within the approved two-hour window. The temporary endpoint is retired. No workplace AWS profile was used. Actual final billing is not verified; the published price worksheet remains an estimate.
+
+Browser Console/app/Prometheus originals remain private pending their specific publication approval. Native Terminal/API evidence is published separately. A populated Grafana browser panel and the full student live walkthrough are not claimed complete.
 
 ## Presentation, evidence and troubleshooting
 

@@ -1,0 +1,33 @@
+{
+  "started_at_utc": "2026-10-16T16:46:47.617277+00:00",
+  "scope": "Only NEW personal AWS EKS labledger-capstone, ap-south-1",
+  "fault": "Temporary Service selector mismatch; no security rules, images or database changed",
+  "original_selector": {
+    "app.kubernetes.io/component": "backend",
+    "app.kubernetes.io/instance": "labledger",
+    "app.kubernetes.io/name": "labledger"
+  },
+  "before": {
+    "ready_endpoints": 2,
+    "http": 200
+  },
+  "events": [
+    {
+      "at_utc": "2026-10-16T16:46:53.659738+00:00",
+      "action": "selector mismatch applied"
+    },
+    {
+      "at_utc": "2026-10-16T16:46:55.107562+00:00",
+      "action": "exact original selector restored"
+    }
+  ],
+  "during": {
+    "ready_endpoints": 0,
+    "http": 502
+  },
+  "after": {
+    "ready_endpoints": 2,
+    "http": 200
+  },
+  "finished_at_utc": "2026-10-16T16:46:57.790795+00:00"
+}

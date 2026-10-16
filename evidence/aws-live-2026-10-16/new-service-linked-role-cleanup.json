@@ -1,0 +1,31 @@
+{
+  "verified_at_utc": "2026-10-16T17:37:52.517906+00:00",
+  "scope": "Only three roles proven absent before and created during this temporary run; normal AWS dependency-protected deletion only",
+  "roles": [
+    {
+      "name": "AWSServiceRoleForAmazonEKS",
+      "baseline_absent": true,
+      "created_during_this_run": true,
+      "recorded_at_utc": "2026-10-16T17:37:33.273815+00:00",
+      "already_absent_after_earlier_approved_deletion": true,
+      "current_absence_verified": true
+    },
+    {
+      "name": "AWSServiceRoleForAmazonEKSNodegroup",
+      "baseline_absent": true,
+      "created_during_this_run": true,
+      "recorded_at_utc": "2026-10-16T17:37:34.505448+00:00",
+      "aws_dependency_checked_deletion_requested": true,
+      "current_absence_verified": true
+    },
+    {
+      "name": "AWSServiceRoleForAutoScaling",
+      "baseline_absent": true,
+      "created_during_this_run": true,
+      "recorded_at_utc": "2026-10-16T17:37:41.872416+00:00",
+      "aws_dependency_checked_deletion_requested": true,
+      "current_absence_verified": true
+    }
+  ],
+  "all_three_absent": true
+}

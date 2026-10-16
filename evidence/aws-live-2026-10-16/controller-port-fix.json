@@ -1,0 +1,16 @@
+{
+  "recorded_at_utc": "2026-10-16T16:39:17.231508+00:00",
+  "actual_failure": "Server-side apply rejected duplicate containerPort8081/TCP from optional controller startupStatus and readinessStatus",
+  "repair": "Disable optional controller startupStatus, preserving readiness and all application startup/readiness probes",
+  "semantic_check": {
+    "controller_ports_unique": [
+      "80",
+      "443",
+      "8081"
+    ],
+    "readiness_retained": true,
+    "rbac_expansion": false
+  },
+  "schema_validation_enabled": true,
+  "terraform_plan_unchanged": true
+}

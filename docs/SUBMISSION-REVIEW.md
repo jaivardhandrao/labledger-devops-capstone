@@ -1,4 +1,6 @@
-# Final submission review
+# Submission reference
+
+The student reported manually submitting the form on 16 October 2026. No further form actions are performed. This is a reference for the verified details and repository review, not an automated submission receipt or instructor acceptance.
 
 The source announcement states **16 October 2026, 11:59 PM**. Neither the announcement nor the form states a timezone; allow for the school's local deadline. Only one response is accepted and resubmissions are not accepted.
 
