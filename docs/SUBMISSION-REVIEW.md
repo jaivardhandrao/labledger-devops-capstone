@@ -22,7 +22,7 @@ The project requirements and rubric were read through the SST School Chrome prof
 
 - Open the actual repository URL and confirm the instructor can access its contents and linked evidence.
 - Check the [rubric status](RUBRIC-STATUS.md), including the remaining real AWS evidence and delivery demonstration.
-- Verify the green run is for the exact submitted commit and both GHCR images carry that full SHA.
+- Verify the green run and both GHCR image tags match the selected full application-source SHA. Keep a later documentation/evidence-only commit distinct from that tested image revision; the presentation/evidence update does not claim a fresh build or rollout.
 - Confirm the correct SST account, name, Group A and numeric roll in the form.
 - Review the complete form. The student retains the **Submit** action.
 

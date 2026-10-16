@@ -1,0 +1,20 @@
+{
+  "validated_at_utc": "2026-10-16T15:00:44.795776+00:00",
+  "pdf_pages": 12,
+  "editable_slides": 12,
+  "speaker_notes_on_every_slide": true,
+  "all_final_pages_rendered": true,
+  "page_size_points": [
+    960,
+    540
+  ],
+  "native_terminal_screenshots": 9,
+  "native_video_seconds": 53,
+  "source_files_sha256": {
+    "LabLedger_Capstone_Presentation.pdf": "56ad3267210b09e8a59bbfdd6f7503b1ab2dc8848078dfe2acc0426f568aad8d",
+    "LabLedger_Capstone_Presentation.pptx": "63ae682432ce994bcf613addc577a72254694f6943cb6fdf3297bbf4062c729f"
+  },
+  "browser_captures_created_by_this_task": 0,
+  "builds_or_tests_rerun": 0,
+  "scope": "Local presentation/supporting terminal evidence, not full browser/AWS presentation completion"
+}

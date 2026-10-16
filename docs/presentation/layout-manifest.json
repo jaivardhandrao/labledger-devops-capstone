@@ -1,0 +1,1318 @@
+{
+  "slides": 12,
+  "page_size_points": [
+    960,
+    540
+  ],
+  "items": [
+    {
+      "slide": 1,
+      "type": "text",
+      "text": "DEVOPS FINAL CAPSTONE \u00b7 LOCAL DEMONSTRATION",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 1,
+      "type": "text",
+      "text": "LabLedger",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 1,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 1,
+      "type": "text",
+      "text": "01 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 1,
+      "type": "text",
+      "text": "Shared equipment.\nClear returns.",
+      "bounds": [
+        64,
+        128,
+        318,
+        80.0
+      ]
+    },
+    {
+      "slide": 1,
+      "type": "text",
+      "text": "React \u00b7 FastAPI \u00b7 PostgreSQL\nDocker \u00b7 CI \u00b7 Helm \u00b7 Monitoring",
+      "bounds": [
+        64,
+        252,
+        305,
+        47.5
+      ]
+    },
+    {
+      "slide": 1,
+      "type": "text",
+      "text": "VERIFIED LOCALLY",
+      "bounds": [
+        80,
+        370,
+        260,
+        16.25
+      ]
+    },
+    {
+      "slide": 1,
+      "type": "text",
+      "text": "Cloud execution is still pending.",
+      "bounds": [
+        80,
+        398,
+        260,
+        18.75
+      ]
+    },
+    {
+      "slide": 1,
+      "type": "genuine_image",
+      "source": "evidence/ui-kubernetes-desktop-8088.jpg",
+      "bounds": [
+        390.0,
+        134.81652661064427,
+        515.0,
+        317.36694677871145
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "01 \u00b7 APPLICATION",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "One clear equipment-loan lifecycle",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "02 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "Request \u2192 collect \u2192 return",
+      "bounds": [
+        64,
+        113,
+        540,
+        26.25
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "A lab desk records the borrower, equipment and return date.",
+      "bounds": [
+        64,
+        144,
+        540,
+        21.25
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "Overdue has a precise meaning",
+      "bounds": [
+        64,
+        183.25,
+        540,
+        26.25
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "Collected + due date before today in Asia/Kolkata. Requested loans are active, but not overdue.",
+      "bounds": [
+        64,
+        214.25,
+        540,
+        42.5
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "Usable on small screens",
+      "bounds": [
+        64,
+        274.75,
+        540,
+        26.25
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "Search, status filters, readable actions and an accessible dialog. Demonstration records are explicitly fictional.",
+      "bounds": [
+        64,
+        305.75,
+        540,
+        42.5
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "genuine_image",
+      "source": "evidence/ui-fixed-mobile-390.jpg",
+      "bounds": [
+        722.7481174698795,
+        103.0,
+        102.50376506024097,
+        363.0
+      ]
+    },
+    {
+      "slide": 2,
+      "type": "text",
+      "text": "Genuine School-profile mobile capture",
+      "bounds": [
+        649,
+        472,
+        260,
+        13.75
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "02 \u00b7 ARCHITECTURE",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "Follow a request through the stack",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "03 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "React UI",
+      "bounds": [
+        78,
+        149,
+        164,
+        23.75
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "Relative /api calls",
+      "bounds": [
+        78,
+        183,
+        164,
+        16.25
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "\u2192",
+      "bounds": [
+        259,
+        158,
+        26,
+        30.0
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "Nginx / Ingress",
+      "bounds": [
+        296,
+        149,
+        164,
+        23.75
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "/ and /api routes",
+      "bounds": [
+        296,
+        183,
+        164,
+        16.25
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "\u2192",
+      "bounds": [
+        477,
+        158,
+        26,
+        30.0
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "FastAPI",
+      "bounds": [
+        514,
+        149,
+        164,
+        23.75
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "Validation + metrics",
+      "bounds": [
+        514,
+        183,
+        164,
+        16.25
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "\u2192",
+      "bounds": [
+        695,
+        158,
+        26,
+        30.0
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "PostgreSQL",
+      "bounds": [
+        732,
+        149,
+        164,
+        23.75
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "Alembic + loans",
+      "bounds": [
+        732,
+        183,
+        164,
+        16.25
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "Compose",
+      "bounds": [
+        64,
+        265,
+        150,
+        25.0
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "localhost:3000 \u2192 frontend \u2192 backend \u2192 database",
+      "bounds": [
+        234,
+        267,
+        650,
+        22.5
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "Kubernetes",
+      "bounds": [
+        64,
+        313,
+        150,
+        25.0
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "localhost:8088 \u2192 Ingress \u2192 ClusterIP Services \u2192 Pods",
+      "bounds": [
+        234,
+        315,
+        650,
+        22.5
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "Prometheus \u2192 Grafana",
+      "bounds": [
+        82,
+        389,
+        400,
+        25.0
+      ]
+    },
+    {
+      "slide": 3,
+      "type": "text",
+      "text": "/metrics on both API replicas; real HTTP counters and latency histograms.",
+      "bounds": [
+        82,
+        421,
+        780,
+        21.25
+      ]
+    },
+    {
+      "slide": 4,
+      "type": "text",
+      "text": "03 \u00b7 CORRECTNESS",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 4,
+      "type": "text",
+      "text": "35 isolated tests, plus real-stack checks",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 4,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 4,
+      "type": "text",
+      "text": "04 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 4,
+      "type": "genuine_image",
+      "source": "evidence/presentation/terminal-ci-tests-part2.png",
+      "bounds": [
+        157.49599198396794,
+        106.0,
+        645.0080160320641,
+        367.0
+      ]
+    },
+    {
+      "slide": 4,
+      "type": "text",
+      "text": "Actual completed CI pytest output; all 35 results are available across the two native captures.",
+      "bounds": [
+        64,
+        482,
+        820,
+        15.0
+      ]
+    },
+    {
+      "slide": 5,
+      "type": "text",
+      "text": "04 \u00b7 DOCKER AND PERSISTENCE",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 5,
+      "type": "text",
+      "text": "Three healthy services; two non-root images",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 5,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 5,
+      "type": "text",
+      "text": "05 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 5,
+      "type": "genuine_image",
+      "source": "evidence/presentation/terminal-compose.png",
+      "bounds": [
+        157.49599198396794,
+        106.0,
+        645.0080160320641,
+        367.0
+      ]
+    },
+    {
+      "slide": 5,
+      "type": "text",
+      "text": "Live local containers and enforced read-only table inspection; original volumes preserved.",
+      "bounds": [
+        64,
+        482,
+        820,
+        15.0
+      ]
+    },
+    {
+      "slide": 6,
+      "type": "text",
+      "text": "05 \u00b7 DELIVERY",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 6,
+      "type": "text",
+      "text": "A real change reached the running application",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 6,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 6,
+      "type": "text",
+      "text": "06 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 6,
+      "type": "genuine_image",
+      "source": "evidence/presentation/terminal-git.png",
+      "bounds": [
+        172.43486973947893,
+        106.0,
+        615.1302605210421,
+        350.0
+      ]
+    },
+    {
+      "slide": 6,
+      "type": "text",
+      "text": "Visible change \u2192 green CI \u2192 exact c2f4acf local rollout. Current source/CI: 5cb1c80.",
+      "bounds": [
+        64,
+        466,
+        820,
+        16.25
+      ]
+    },
+    {
+      "slide": 6,
+      "type": "text",
+      "text": "Open the actual seven-job green run",
+      "bounds": [
+        64,
+        489,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "06 \u00b7 DEVSECOPS",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "The scan gate found a problem, then verified the repair",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "07 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "Before",
+      "bounds": [
+        86,
+        145,
+        345,
+        20.0
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "Strict scan failed",
+      "bounds": [
+        86,
+        181,
+        345,
+        36.25
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "Debian runtime findings were preserved in the original report.",
+      "bounds": [
+        86,
+        241,
+        338,
+        50.0
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "After",
+      "bounds": [
+        503,
+        145,
+        365,
+        20.0
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "4 clean CI reports",
+      "bounds": [
+        503,
+        181,
+        365,
+        36.25
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "Backend + frontend\namd64 + arm64\n0 HIGH / CRITICAL",
+      "bounds": [
+        503,
+        240,
+        365,
+        78.75
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "Gate: --severity HIGH,CRITICAL --ignore-unfixed=false --exit-code 1",
+      "bounds": [
+        64,
+        408,
+        832,
+        21.25
+      ]
+    },
+    {
+      "slide": 7,
+      "type": "text",
+      "text": "A clean scan is evidence about that image at that time; it is not a security guarantee.",
+      "bounds": [
+        64,
+        456,
+        820,
+        20.0
+      ]
+    },
+    {
+      "slide": 8,
+      "type": "text",
+      "text": "07 \u00b7 KUBERNETES",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 8,
+      "type": "text",
+      "text": "Helm release 2 is running in the dedicated local cluster",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 8,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 8,
+      "type": "text",
+      "text": "08 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 8,
+      "type": "genuine_image",
+      "source": "evidence/presentation/terminal-kubernetes.png",
+      "bounds": [
+        157.49599198396794,
+        106.0,
+        645.0080160320641,
+        367.0
+      ]
+    },
+    {
+      "slide": 8,
+      "type": "text",
+      "text": "Local context: labledger-capstone. UI/API Running; migration Job Completed as designed.",
+      "bounds": [
+        64,
+        482,
+        820,
+        15.0
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "08 \u00b7 HPA AND TROUBLESHOOTING",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "Resilience was exercised, not only configured",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "09 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "2 \u2192 4 Ready \u2192 2",
+      "bounds": [
+        64,
+        123,
+        820,
+        55.0
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "Observed API HPA response under controlled local CPU load.",
+      "bounds": [
+        64,
+        188,
+        820,
+        25.0
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "2,338 reads \u00b7 0 failures",
+      "bounds": [
+        84,
+        264,
+        350,
+        31.25
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "Persistent HTTP connections; original request log retained.",
+      "bounds": [
+        84,
+        311,
+        350,
+        45.0
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "200 \u2192 503 \u2192 200",
+      "bounds": [
+        501,
+        264,
+        370,
+        31.25
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "Service selector fault, diagnosis and real recovery.",
+      "bounds": [
+        501,
+        311,
+        370,
+        45.0
+      ]
+    },
+    {
+      "slide": 9,
+      "type": "text",
+      "text": "Original logs: evidence/local-cluster/README.md. No new failure was injected for these slides.",
+      "bounds": [
+        64,
+        433,
+        820,
+        20.0
+      ]
+    },
+    {
+      "slide": 10,
+      "type": "text",
+      "text": "09 \u00b7 OBSERVABILITY",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 10,
+      "type": "text",
+      "text": "Actual application scraping is healthy",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 10,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 10,
+      "type": "text",
+      "text": "10 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 10,
+      "type": "genuine_image",
+      "source": "evidence/prometheus-applicable-targets-summary-updated.jpg",
+      "bounds": [
+        190.65259117082536,
+        104.0,
+        578.6948176583493,
+        335.0
+      ]
+    },
+    {
+      "slide": 10,
+      "type": "text",
+      "text": "14 applicable targets UP; original loopback-endpoint failures and local fix retained.",
+      "bounds": [
+        64,
+        449,
+        820,
+        17.5
+      ]
+    },
+    {
+      "slide": 10,
+      "type": "text",
+      "text": "Grafana: real API data verified; populated browser-panel capture still pending login.",
+      "bounds": [
+        64,
+        477,
+        820,
+        17.5
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "10 \u00b7 HONEST CLOUD STATUS",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "AWS is prepared, but has not been deployed",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "11 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "Observed: a real read-only account plan",
+      "bounds": [
+        64,
+        117,
+        820,
+        26.25
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "62 creates \u00b7 0 updates \u00b7 0 deletes. No apply, access grant or cloud teardown.",
+      "bounds": [
+        64,
+        148,
+        820,
+        21.25
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "Prepared: reproducible infrastructure and bootstrap",
+      "bounds": [
+        64,
+        187.25,
+        820,
+        26.25
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "VPC + EKS + one worker + NLB; restricted API; Helm and monitoring; project-only cleanup.",
+      "bounds": [
+        64,
+        218.25,
+        820,
+        21.25
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "Remaining: approval and genuine cloud evidence",
+      "bounds": [
+        64,
+        257.5,
+        820,
+        26.25
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "Exact access/visibility decisions, actual apply, Console/runtime verification and complete teardown.",
+      "bounds": [
+        64,
+        288.5,
+        820,
+        21.25
+      ]
+    },
+    {
+      "slide": 11,
+      "type": "text",
+      "text": "Pricing scenario: about US$2.43 before tax. Conditional ceiling: US$10 / maximum 2 hours.",
+      "bounds": [
+        64,
+        461,
+        832,
+        20.0
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "11 \u00b7 HANDOFF AND LIMITS",
+      "bounds": [
+        64,
+        26,
+        820,
+        13.75
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Present the verified work, then review the submission",
+      "bounds": [
+        64,
+        48,
+        820,
+        37.5
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Jaivardhan D Rao  \u00b7  10117  \u00b7  Group A",
+      "bounds": [
+        64,
+        512,
+        600,
+        12.5
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "12 / 12",
+      "bounds": [
+        842,
+        512,
+        70,
+        12.5
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Ready to review",
+      "bounds": [
+        64,
+        116,
+        820,
+        26.25
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Original app, tests, containers, green CI, local Kubernetes, native evidence and these editable slides.",
+      "bounds": [
+        64,
+        147,
+        820,
+        21.25
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Still required for the complete presentation",
+      "bounds": [
+        64,
+        186.25,
+        820,
+        26.25
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Live browser/Swagger CRUD, populated Grafana and package-page captures; genuine AWS evidence after approval.",
+      "bounds": [
+        64,
+        217.25,
+        820,
+        42.5
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Final submission stays with the student",
+      "bounds": [
+        64,
+        277.75,
+        820,
+        26.25
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Form filled for Group A / roll 10117. Review the public repository and evidence before pressing Submit.",
+      "bounds": [
+        64,
+        308.75,
+        820,
+        21.25
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Public repository and complete evidence index",
+      "bounds": [
+        64,
+        480,
+        820,
+        13.75
+      ]
+    }
+  ]
+}

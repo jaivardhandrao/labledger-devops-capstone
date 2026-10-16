@@ -1,0 +1,38 @@
+{
+  "source_run": "https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38915964006",
+  "source_sha": "5cb1c80d6489103ad0c4d60352d0b6c24e998920",
+  "reports": [
+    {
+      "artifact": "trivy-backend-amd64/trivy.json",
+      "image_id": "sha256:7d0a431a4795740eee9e89de34ba4c1f216faf89fc66851ed8c8a5777859db84",
+      "image_tags": [
+        "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend:5cb1c80d6489103ad0c4d60352d0b6c24e998920-amd64"
+      ],
+      "high_critical_findings": 0
+    },
+    {
+      "artifact": "trivy-backend-arm64/trivy.json",
+      "image_id": "sha256:6e305f0bd8716ca77d8560273d7d79dc4af01c4dfff454c24eee3006861a3e33",
+      "image_tags": [
+        "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend:5cb1c80d6489103ad0c4d60352d0b6c24e998920-arm64"
+      ],
+      "high_critical_findings": 0
+    },
+    {
+      "artifact": "trivy-frontend-amd64/trivy.json",
+      "image_id": "sha256:5eebb6067598d6962fb9833b95527263c9879a3eaab506a155eae8e3f4b386f5",
+      "image_tags": [
+        "ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend:5cb1c80d6489103ad0c4d60352d0b6c24e998920-amd64"
+      ],
+      "high_critical_findings": 0
+    },
+    {
+      "artifact": "trivy-frontend-arm64/trivy.json",
+      "image_id": "sha256:a41598015a99b280f10477766e83d6d6a35e041c8cb8abc0b234c172c4bf6bda",
+      "image_tags": [
+        "ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend:5cb1c80d6489103ad0c4d60352d0b6c24e998920-arm64"
+      ],
+      "high_critical_findings": 0
+    }
+  ]
+}

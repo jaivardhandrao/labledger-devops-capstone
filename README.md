@@ -101,6 +101,8 @@ The dedicated local profile is **labledger-capstone**. Every command and script 
 - [Rubric status and remaining evidence](docs/RUBRIC-STATUS.md)
 - [Actual evidence index](evidence/README.md)
 - [Demonstration and presentation guide](docs/DEMO.md)
+- [Presentation PDF, editable slides and speaker notes](docs/presentation/README.md)
+- [Genuine native Terminal screenshots and recording](evidence/presentation/README.md)
 - [Actual commit-to-deployment demonstration record](docs/DELIVERY-DEMONSTRATION.md)
 - [Troubleshooting record](troubleshooting/README.md)
 - [Infrastructure validation limits](terraform/VALIDATION.md)

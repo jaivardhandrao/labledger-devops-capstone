@@ -1,0 +1,29 @@
+{
+  "capture_date": "2026-10-16",
+  "scope": "Actual dedicated native macOS Terminal window ONLY; no browser, whole-display, microphone or system audio capture",
+  "raw_capture": "ScreenCaptureKit desktopIndependentWindow filter, guarded by exact new Terminal window ID and bundle identifier",
+  "video_seconds": 53.0,
+  "dimensions": [
+    1754,
+    998
+  ],
+  "capture_request_seconds": 50,
+  "published_video_sha256": "b1e290e621a49921063b9e35b2e79a3acb9518c4501d2031f4d2d75965a8673c",
+  "original_mov_sha256": "b17a319a4bb3dccfdfd6bf6ba17d8024c0f33a3e8bcf9c1fb6ad3e3d42475070",
+  "transcode": "H.264 MP4,10fps,CRF24,faststart,noaudio; no overlays or invented frames/content",
+  "screen_recording_contents": [
+    "actual existing Git history and successful run38915964006 query",
+    "current healthy Compose/nonroot/read-only PostgreSQL table inspection",
+    "current dedicated local Pods/Services/Helm",
+    "current Ingress stats/direct backend readiness/actual unfiltered targets/HPA",
+    "explicitly labeled saved original pytest output, not a rerun"
+  ],
+  "source_revision": "5cb1c80d6489103ad0c4d60352d0b6c24e998920",
+  "deployed_local_revision": "c2f4acf1e663d79f122e47296621906c9b57d908",
+  "aws_activity": false,
+  "secret_read_for_capture": false,
+  "app_data_mutation_for_capture": false,
+  "new_build_or_test_rerun": false,
+  "school_form_touched": false,
+  "presentation_limit": "Supporting Terminal walkthrough; does not claim a complete browser CRUD/Grafana/AWS or newly recorded commit-to-rollout demonstration"
+}

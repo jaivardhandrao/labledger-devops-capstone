@@ -1,0 +1,7 @@
+Actual completed Trivy step excerpt, run38915964006 / job117023528690 / source5cb1c80.
+GitHub job/step prefixes and ANSI colors removed; selected command/result payloads unchanged.
+
+2026-10-16T14:28:49.8156811Z   --severity HIGH,CRITICAL --ignore-unfixed=false --exit-code 1 \
+2026-10-16T14:29:06.7609483Z 2026-10-16T14:29:06Z	INFO	Detected OS	family="alpine" version="3.24.2"
+2026-10-16T14:29:06.7618237Z 2026-10-16T14:29:06Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=38
+2026-10-16T14:29:06.7627723Z 2026-10-16T14:29:06Z	INFO	[python-pkg] Detecting vulnerabilities...

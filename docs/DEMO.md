@@ -2,6 +2,8 @@
 
 Use only the SST Chrome profile for browser work. Demonstrate actual running services and real command results. Do not read a script as though an unperformed deployment succeeded.
 
+[The presentation package](presentation/README.md) contains a 12-slide PDF, editable PowerPoint, speaker notes and a genuine 53-second native Terminal recording. The recording supports the live presentation; it does not claim to show a complete browser/AWS walkthrough or a newly performed rollout. [Native evidence provenance](../evidence/presentation/README.md) explains exactly what was captured.
+
 ## Suggested slides / speaking order
 
 1. **Problem and original domain:** a campus equipment desk must track request, collection, overdue status and return. LabLedger models equipment loans, not project tasks.
