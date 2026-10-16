@@ -102,6 +102,8 @@ Browser Console/app/Prometheus originals remain private pending their specific p
 
 ## Presentation, evidence and troubleshooting
 
+[Watch or download the 58-second engineering overview](evidence/presentation/LabLedger_Engineering_Walkthrough.mp4). It combines actual recorded application, CI, EKS, monitoring and teardown evidence with explanatory animations and default macOS `say` narration. The temporary cloud environment has been removed. This edited overview supplements the [full demonstration requirements and remaining evidence](docs/RUBRIC-STATUS.md).
+
 - [Rubric status and remaining evidence](docs/RUBRIC-STATUS.md)
 - [Actual evidence index](evidence/README.md)
 - [Demonstration and presentation guide](docs/DEMO.md)
