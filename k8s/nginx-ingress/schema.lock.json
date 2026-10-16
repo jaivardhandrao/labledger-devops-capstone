@@ -1,0 +1,7 @@
+{
+  "source_url": "https://raw.githubusercontent.com/nginxinc/kubernetes-json-schema/master/v1.37.0/_definitions.json",
+  "sha256": "e1d22fd4a24696a48ed62cbc5facd39b3ff64293f8605b0dc6e7df0f32ed0c40",
+  "bytes": 1649364,
+  "expected_reference_count": 82,
+  "purpose": "Optional verified local schema resolution; Helm value validation stays enabled and every runtime chart file remains identical to the pinned official archive."
+}

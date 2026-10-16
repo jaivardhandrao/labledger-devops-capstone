@@ -41,3 +41,18 @@ The installer requires `BOOTSTRAP_GRANTS_APPROVED=yes`, the reviewed personal `A
 `--install-reviewed` applies the application namespace and installs release `nginx-ingress` into namespace `nginx-ingress` using explicit kubeconfig/context flags and `--skip-crds`. It creates no AWS load balancer or IAM access mapping. It checks deployment rollout and Service configuration; these commands have not been run against AWS.
 
 Metrics Server is handled separately by Terraform's reviewed managed addon `v0.9.0-eksbuild.13`, with its 10251 control-plane/node rules. This controller helper does not install a second Metrics Server.
+# Reproducible schema resolution
+
+Chart 2.8.0 references an upstream Kubernetes JSON schema during values validation.
+If that external request times out, download the exact `source_url` in
+[schema.lock.json](schema.lock.json) to a local file and set
+`NGINX_SCHEMA_DEFINITIONS=/absolute/path/to/_definitions.json` before running the
+bootstrap helper. The helper verifies both file checksums, resolves only the 82
+known references locally, and checks that every other chart file is unchanged.
+Helm schema validation remains enabled. The prepared chart is temporary and
+contains no credentials or cluster state.
+
+The controller uses its readiness probe on 8081. Its optional chart startup probe
+is disabled because enabling it on the same port produces duplicate container port
+keys that Kubernetes server-side apply rejects. Application startup/readiness
+probes remain enabled independently.

@@ -36,14 +36,10 @@ controller:
     port: 8081
     initialDelaySeconds: 2
   startupStatus:
-    enable: true
-    port: 8081
-    path: /nginx-ready
-    initialDelaySeconds: 2
-    periodSeconds: 5
-    timeoutSeconds: 2
-    successThreshold: 1
-    failureThreshold: 36
+    # Chart 2.8.0 emits a separate containerPort for this optional probe.
+    # Reusing readiness 8081 produces duplicate port keys under server-side apply.
+    # Keep the controller readiness gate; application Pods have startup probes.
+    enable: false
   autoscaling:
     enabled: false
   service:

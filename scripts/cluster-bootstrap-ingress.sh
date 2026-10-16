@@ -16,11 +16,16 @@ if actual!=lock['package_sha256']:
     raise SystemExit('Chart checksum mismatch; no cluster was contacted.')
 print('Official downloaded package checksum matches chart2.8.0/controller5.7.0')
 PY
+chart_path="$NGINX_CHART"
+if [[ -n "${NGINX_SCHEMA_DEFINITIONS:-}" ]]; then
+  chart_path=$(python3 "$repo_root/scripts/prepare-nginx-schema.py" \
+    --chart "$NGINX_CHART" --definitions "$NGINX_SCHEMA_DEFINITIONS")
+fi
 if [[ "$mode" == --render ]]; then
   render_dir=${RENDER_DIR:-/tmp/labledger-nginx-review}
   mkdir -p "$render_dir"
-  helm lint "$NGINX_CHART" -f "$repo_root/k8s/nginx-ingress/values.yaml" --kube-version 1.34.0
-  helm template nginx-ingress "$NGINX_CHART" -n nginx-ingress \
+  helm lint "$chart_path" -f "$repo_root/k8s/nginx-ingress/values.yaml" --kube-version 1.34.0
+  helm template nginx-ingress "$chart_path" -n nginx-ingress \
     -f "$repo_root/k8s/nginx-ingress/values.yaml" --kube-version 1.34.0 --skip-crds \
     --set-string controller.config.entries.external-status-address=example.elb.ap-south-1.amazonaws.com \
     > "$render_dir/controller.yaml"
@@ -51,7 +56,7 @@ k=(kubectl --kubeconfig "$CLOUD_KUBECONFIG" --context "$EXPECTED_EKS_CONTEXT")
 "${k[@]}" get namespace kube-system >/dev/null
 "${k[@]}" auth can-i create clusterroles --quiet
 "${k[@]}" apply -f "$repo_root/k8s/namespace.yaml"
-helm upgrade --install nginx-ingress "$NGINX_CHART" --kubeconfig "$CLOUD_KUBECONFIG" \
+helm upgrade --install nginx-ingress "$chart_path" --kubeconfig "$CLOUD_KUBECONFIG" \
   --kube-context "$EXPECTED_EKS_CONTEXT" --namespace nginx-ingress --create-namespace \
   --skip-crds -f "$repo_root/k8s/nginx-ingress/values.yaml" \
   --set-string "controller.config.entries.external-status-address=$NLB_DNS" \
