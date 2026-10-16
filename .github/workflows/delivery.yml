@@ -103,7 +103,9 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: docker/setup-buildx-action@v3
+      # Manifest assembly uses the client only; no BuildKit builder is needed.
+      - name: Verify the installed manifest client
+        run: docker buildx version
       - name: Authenticate to GHCR
         env:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
