@@ -1,0 +1,24 @@
+# Local secrets and databases
+.env
+.env.*
+!.env.example
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform/
+*.tfvars
+!terraform.tfvars.example
+*credentials*
+# Dependencies and build output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+node_modules/
+dist/
+.coverage
+htmlcov/
+.DS_Store
+# Generated transient artifacts
+*.log
