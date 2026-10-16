@@ -48,3 +48,7 @@
   .dialog-inner{padding-left:18px;padding-right:18px}
   .dialog-description{font-size:12px}
 }
+
+/* Keep resetting a filtered view available even when matching loans remain. */
+.register-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.register-actions .button{white-space:nowrap}
