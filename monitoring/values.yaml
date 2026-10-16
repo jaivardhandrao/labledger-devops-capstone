@@ -1,0 +1,49 @@
+# kube-prometheus-stack, release monitoring, namespace monitoring.
+# Install this only into an approved cluster. All UIs remain ClusterIP.
+fullnameOverride: monitoring
+prometheus:
+  service:
+    type: ClusterIP
+  prometheusSpec:
+    retention: 6h
+    resources:
+      requests: {cpu: 100m, memory: 128Mi}
+      limits: {cpu: 500m, memory: 512Mi}
+    serviceMonitorSelectorNilUsesHelmValues: false
+    serviceMonitorSelector:
+      matchLabels:
+        release: monitoring
+    serviceMonitorNamespaceSelector:
+      matchNames: [monitoring]
+    podMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelector:
+      matchLabels:
+        release: monitoring
+    podMonitorNamespaceSelector:
+      matchNames: [monitoring]
+grafana:
+  service:
+    type: ClusterIP
+  # Create this Secret manually, outside Git; do not commit real credentials.
+  admin:
+    existingSecret: monitoring-grafana-admin
+    userKey: username
+    passwordKey: password
+  persistence:
+    enabled: false
+  resources:
+    requests: {cpu: 50m, memory: 128Mi}
+    limits: {cpu: 250m, memory: 256Mi}
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      labelValue: "1"
+      searchNamespace: monitoring
+alertmanager:
+  enabled: false
+# The operator and default exporters/rules remain enabled for cluster CPU/HPA panels.
+prometheusOperator:
+  resources:
+    requests: {cpu: 50m, memory: 64Mi}
+    limits: {cpu: 250m, memory: 128Mi}
