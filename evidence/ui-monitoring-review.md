@@ -35,3 +35,17 @@ All paths are relative to this evidence directory:
 | `ui-fixed-short-laptop-1024x600.jpg` | Compact sidebar and footer visible |
 
 The prior Compose screenshot set remains in place as historical evidence. This review supersedes the prior four UI polish findings: all were addressed in the current deployed frontend. Grafana dashboard capture is the only requested capture still blocked. School form tab 1342518778 remains blank, retained and unsubmitted.
+
+## Follow-up: applicable local targets all UP
+
+The coordinating task reported that it diagnosed the three inaccessible optional Minikube control-plane metrics and excluded those endpoints in the local-only scrape configuration. This browser follow-up did not modify that configuration.
+
+Reopened `http://localhost:9090/targets` in the same School Chrome profile and verified **14 UP, 0 DOWN** across **13 scrape pools**, with no health or endpoint display filter applied. The LabLedger pool still has 2/2 UP; each other applicable pool has 1/1 UP. The previously failing controller-manager, etcd and scheduler scrape pools are absent from the updated target list. This is evidence of the revised applicable target set being healthy, not evidence that the excluded endpoints became reachable.
+
+New evidence, preserving all original captures:
+
+- `prometheus-applicable-targets-full-updated.jpg`: complete expanded target list.
+- `prometheus-applicable-targets-summary-updated.jpg`: all 13 pool summaries, totaling 14 UP targets.
+- `prometheus-applicable-targets-updated.txt`: DOM snapshot of expanded target state.
+
+Original `prometheus-all-targets.jpg` still records the earlier three failures. Grafana dashboard capture remains pending an authenticated session at `http://localhost:3001/login` (tab 1342518796); no secret was read or entered and no authentication attempt was made. The school form repository field remains untouched pending verification of repository contents/CI. Group A and roll 10117 were additionally confirmed by the user through the coordinating task.

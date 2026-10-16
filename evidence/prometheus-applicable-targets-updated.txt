@@ -1,0 +1,468 @@
+- banner:
+  - link "Prometheus":
+    - /url: /
+    - paragraph: Prometheus
+    - paragraph
+  - link "Query":
+    - /url: /query
+    - generic: Query
+  - link "Alerts":
+    - /url: /alerts
+    - generic: Alerts
+  - link "Status Target health":
+    - /url: /targets
+    - text: Status
+    - text: Target health
+  - button "Switch to light theme":
+  - button "Settings":
+  - link "Documentation":
+    - /url: https://prometheus.io/docs/prometheus/latest/getting_started/
+- navigation:
+  - link "Query":
+    - /url: /query
+    - generic: Query
+  - link "Alerts":
+    - /url: /alerts
+    - generic: Alerts
+  - link "Status Target health":
+    - /url: /targets
+    - text: Status
+    - text: Target health
+- main:
+  - combobox "Select scrape pool"
+  - textbox "Filter by target health"
+  - textbox
+  - textbox "Filter by endpoint or labels"
+  - button "Collapse all pools":
+  - button "serviceMonitor/monitoring/labledger/0 Show config 2 / 2 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/labledger/0
+    - button "Show config"
+    - paragraph: 2 / 2 up
+  - region "serviceMonitor/monitoring/labledger/0 Show config 2 / 2 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "http://10.244.0.12:8000/metrics container=\"backend\" endpoint=\"http\" instance=\"10.244.0.12:8000\" job=\"labledger-backend\" namespace=\"labledger\" pod=\"labledger-backend-86796c5fb6-pkcwk\" service=\"labledger-backend\" 8.466s ago 14ms up":
+          - cell "http://10.244.0.12:8000/metrics":
+            - link "http://10.244.0.12:8000/metrics":
+              - /url: http://10.244.0.12:8000/metrics
+          - cell "container=\"backend\" endpoint=\"http\" instance=\"10.244.0.12:8000\" job=\"labledger-backend\" namespace=\"labledger\" pod=\"labledger-backend-86796c5fb6-pkcwk\" service=\"labledger-backend\"":
+            - generic: container="backend"
+            - generic: endpoint="http"
+            - generic: instance="10.244.0.12:8000"
+            - generic: job="labledger-backend"
+            - generic: namespace="labledger"
+            - generic: pod="labledger-backend-86796c5fb6-pkcwk"
+            - generic: service="labledger-backend"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "8.466s ago 14ms":
+            - generic: 8.466s ago
+            - generic: 14ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+        - row "http://10.244.0.13:8000/metrics container=\"backend\" endpoint=\"http\" instance=\"10.244.0.13:8000\" job=\"labledger-backend\" namespace=\"labledger\" pod=\"labledger-backend-86796c5fb6-tqcdn\" service=\"labledger-backend\" 8.219s ago 2ms up":
+          - cell "http://10.244.0.13:8000/metrics":
+            - link "http://10.244.0.13:8000/metrics":
+              - /url: http://10.244.0.13:8000/metrics
+          - cell "container=\"backend\" endpoint=\"http\" instance=\"10.244.0.13:8000\" job=\"labledger-backend\" namespace=\"labledger\" pod=\"labledger-backend-86796c5fb6-tqcdn\" service=\"labledger-backend\"":
+            - generic: container="backend"
+            - generic: endpoint="http"
+            - generic: instance="10.244.0.13:8000"
+            - generic: job="labledger-backend"
+            - generic: namespace="labledger"
+            - generic: pod="labledger-backend-86796c5fb6-tqcdn"
+            - generic: service="labledger-backend"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "8.219s ago 2ms":
+            - generic: 8.219s ago
+            - generic: 2ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-apiserver/0 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-apiserver/0
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-apiserver/0 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "https://192.168.58.2:8443/metrics endpoint=\"https\" instance=\"192.168.58.2:8443\" job=\"apiserver\" namespace=\"default\" service=\"kubernetes\" 5.797s ago 74ms up":
+          - cell "https://192.168.58.2:8443/metrics":
+            - link "https://192.168.58.2:8443/metrics":
+              - /url: https://192.168.58.2:8443/metrics
+          - cell "endpoint=\"https\" instance=\"192.168.58.2:8443\" job=\"apiserver\" namespace=\"default\" service=\"kubernetes\"":
+            - generic: endpoint="https"
+            - generic: instance="192.168.58.2:8443"
+            - generic: job="apiserver"
+            - generic: namespace="default"
+            - generic: service="kubernetes"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "5.797s ago 74ms":
+            - generic: 5.797s ago
+            - generic: 74ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-coredns/0 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-coredns/0
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-coredns/0 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "http://10.244.0.2:9153/metrics container=\"coredns\" endpoint=\"http-metrics\" instance=\"10.244.0.2:9153\" job=\"coredns\" namespace=\"kube-system\" pod=\"coredns-559f6c778d-22922\" service=\"monitoring-coredns\" 3.46s ago 33ms up":
+          - cell "http://10.244.0.2:9153/metrics":
+            - link "http://10.244.0.2:9153/metrics":
+              - /url: http://10.244.0.2:9153/metrics
+          - cell "container=\"coredns\" endpoint=\"http-metrics\" instance=\"10.244.0.2:9153\" job=\"coredns\" namespace=\"kube-system\" pod=\"coredns-559f6c778d-22922\" service=\"monitoring-coredns\"":
+            - generic: container="coredns"
+            - generic: endpoint="http-metrics"
+            - generic: instance="10.244.0.2:9153"
+            - generic: job="coredns"
+            - generic: namespace="kube-system"
+            - generic: pod="coredns-559f6c778d-22922"
+            - generic: service="monitoring-coredns"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "3.46s ago 33ms":
+            - generic: 3.46s ago
+            - generic: 33ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-grafana/0 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-grafana/0
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-grafana/0 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "http://10.244.0.25:3000/metrics container=\"grafana\" endpoint=\"http-web\" instance=\"10.244.0.25:3000\" job=\"monitoring-grafana\" namespace=\"monitoring\" pod=\"monitoring-grafana-7d488b9c57-f6rt7\" service=\"monitoring-grafana\" 19.628s ago 80ms up":
+          - cell "http://10.244.0.25:3000/metrics":
+            - link "http://10.244.0.25:3000/metrics":
+              - /url: http://10.244.0.25:3000/metrics
+          - cell "container=\"grafana\" endpoint=\"http-web\" instance=\"10.244.0.25:3000\" job=\"monitoring-grafana\" namespace=\"monitoring\" pod=\"monitoring-grafana-7d488b9c57-f6rt7\" service=\"monitoring-grafana\"":
+            - generic: container="grafana"
+            - generic: endpoint="http-web"
+            - generic: instance="10.244.0.25:3000"
+            - generic: job="monitoring-grafana"
+            - generic: namespace="monitoring"
+            - generic: pod="monitoring-grafana-7d488b9c57-f6rt7"
+            - generic: service="monitoring-grafana"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "19.628s ago 80ms":
+            - generic: 19.628s ago
+            - generic: 80ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-kube-proxy/0 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-kube-proxy/0
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-kube-proxy/0 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "http://192.168.58.2:10249/metrics endpoint=\"http-metrics\" instance=\"192.168.58.2:10249\" job=\"kube-proxy\" namespace=\"kube-system\" pod=\"kube-proxy-qgzph\" service=\"monitoring-kube-proxy\" 23.994s ago 20ms up":
+          - cell "http://192.168.58.2:10249/metrics":
+            - link "http://192.168.58.2:10249/metrics":
+              - /url: http://192.168.58.2:10249/metrics
+          - cell "endpoint=\"http-metrics\" instance=\"192.168.58.2:10249\" job=\"kube-proxy\" namespace=\"kube-system\" pod=\"kube-proxy-qgzph\" service=\"monitoring-kube-proxy\"":
+            - generic: endpoint="http-metrics"
+            - generic: instance="192.168.58.2:10249"
+            - generic: job="kube-proxy"
+            - generic: namespace="kube-system"
+            - generic: pod="kube-proxy-qgzph"
+            - generic: service="monitoring-kube-proxy"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "23.994s ago 20ms":
+            - generic: 23.994s ago
+            - generic: 20ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-kube-state-metrics/0 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-kube-state-metrics/0
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-kube-state-metrics/0 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "http://10.244.0.23:8080/metrics container=\"kube-state-metrics\" endpoint=\"http\" instance=\"10.244.0.23:8080\" job=\"kube-state-metrics\" namespace=\"monitoring\" pod=\"monitoring-kube-state-metrics-cb45886-pqtll\" service=\"monitoring-kube-state-metrics\" 18.449s ago 9ms up":
+          - cell "http://10.244.0.23:8080/metrics":
+            - link "http://10.244.0.23:8080/metrics":
+              - /url: http://10.244.0.23:8080/metrics
+          - cell "container=\"kube-state-metrics\" endpoint=\"http\" instance=\"10.244.0.23:8080\" job=\"kube-state-metrics\" namespace=\"monitoring\" pod=\"monitoring-kube-state-metrics-cb45886-pqtll\" service=\"monitoring-kube-state-metrics\"":
+            - generic: container="kube-state-metrics"
+            - generic: endpoint="http"
+            - generic: instance="10.244.0.23:8080"
+            - generic: job="kube-state-metrics"
+            - generic: namespace="monitoring"
+            - generic: pod="monitoring-kube-state-metrics-cb45886-pqtll"
+            - generic: service="monitoring-kube-state-metrics"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "18.449s ago 9ms":
+            - generic: 18.449s ago
+            - generic: 9ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-kubelet/0 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-kubelet/0
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-kubelet/0 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "https://192.168.58.2:10250/metrics endpoint=\"https-metrics\" instance=\"192.168.58.2:10250\" job=\"kubelet\" metrics_path=\"/metrics\" namespace=\"kube-system\" node=\"labledger-capstone\" service=\"monitoring-kubelet\" 18.402s ago 32ms up":
+          - cell "https://192.168.58.2:10250/metrics":
+            - link "https://192.168.58.2:10250/metrics":
+              - /url: https://192.168.58.2:10250/metrics
+          - cell "endpoint=\"https-metrics\" instance=\"192.168.58.2:10250\" job=\"kubelet\" metrics_path=\"/metrics\" namespace=\"kube-system\" node=\"labledger-capstone\" service=\"monitoring-kubelet\"":
+            - generic: endpoint="https-metrics"
+            - generic: instance="192.168.58.2:10250"
+            - generic: job="kubelet"
+            - generic: metrics_path="/metrics"
+            - generic: namespace="kube-system"
+            - generic: node="labledger-capstone"
+            - generic: service="monitoring-kubelet"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "18.402s ago 32ms":
+            - generic: 18.402s ago
+            - generic: 32ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-kubelet/1 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-kubelet/1
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-kubelet/1 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "https://192.168.58.2:10250/metrics/cadvisor endpoint=\"https-metrics\" instance=\"192.168.58.2:10250\" job=\"kubelet\" metrics_path=\"/metrics/cadvisor\" namespace=\"kube-system\" node=\"labledger-capstone\" service=\"monitoring-kubelet\" 7.205s ago 55ms up":
+          - cell "https://192.168.58.2:10250/metrics/cadvisor":
+            - link "https://192.168.58.2:10250/metrics/cadvisor":
+              - /url: https://192.168.58.2:10250/metrics/cadvisor
+          - cell "endpoint=\"https-metrics\" instance=\"192.168.58.2:10250\" job=\"kubelet\" metrics_path=\"/metrics/cadvisor\" namespace=\"kube-system\" node=\"labledger-capstone\" service=\"monitoring-kubelet\"":
+            - generic: endpoint="https-metrics"
+            - generic: instance="192.168.58.2:10250"
+            - generic: job="kubelet"
+            - generic: metrics_path="/metrics/cadvisor"
+            - generic: namespace="kube-system"
+            - generic: node="labledger-capstone"
+            - generic: service="monitoring-kubelet"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "7.205s ago 55ms":
+            - generic: 7.205s ago
+            - generic: 55ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-kubelet/2 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-kubelet/2
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-kubelet/2 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "https://192.168.58.2:10250/metrics/probes endpoint=\"https-metrics\" instance=\"192.168.58.2:10250\" job=\"kubelet\" metrics_path=\"/metrics/probes\" namespace=\"kube-system\" node=\"labledger-capstone\" service=\"monitoring-kubelet\" 22.393s ago 22ms up":
+          - cell "https://192.168.58.2:10250/metrics/probes":
+            - link "https://192.168.58.2:10250/metrics/probes":
+              - /url: https://192.168.58.2:10250/metrics/probes
+          - cell "endpoint=\"https-metrics\" instance=\"192.168.58.2:10250\" job=\"kubelet\" metrics_path=\"/metrics/probes\" namespace=\"kube-system\" node=\"labledger-capstone\" service=\"monitoring-kubelet\"":
+            - generic: endpoint="https-metrics"
+            - generic: instance="192.168.58.2:10250"
+            - generic: job="kubelet"
+            - generic: metrics_path="/metrics/probes"
+            - generic: namespace="kube-system"
+            - generic: node="labledger-capstone"
+            - generic: service="monitoring-kubelet"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "22.393s ago 22ms":
+            - generic: 22.393s ago
+            - generic: 22ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-operator/0 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-operator/0
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-operator/0 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "https://10.244.0.9:10250/metrics container=\"kube-prometheus-stack\" endpoint=\"https\" instance=\"10.244.0.9:10250\" job=\"monitoring-operator\" namespace=\"monitoring\" pod=\"monitoring-operator-5cf869f6f-29rpx\" service=\"monitoring-operator\" 8.904s ago 46ms up":
+          - cell "https://10.244.0.9:10250/metrics":
+            - link "https://10.244.0.9:10250/metrics":
+              - /url: https://10.244.0.9:10250/metrics
+          - cell "container=\"kube-prometheus-stack\" endpoint=\"https\" instance=\"10.244.0.9:10250\" job=\"monitoring-operator\" namespace=\"monitoring\" pod=\"monitoring-operator-5cf869f6f-29rpx\" service=\"monitoring-operator\"":
+            - generic: container="kube-prometheus-stack"
+            - generic: endpoint="https"
+            - generic: instance="10.244.0.9:10250"
+            - generic: job="monitoring-operator"
+            - generic: namespace="monitoring"
+            - generic: pod="monitoring-operator-5cf869f6f-29rpx"
+            - generic: service="monitoring-operator"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "8.904s ago 46ms":
+            - generic: 8.904s ago
+            - generic: 46ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-prometheus-node-exporter/0 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-prometheus-node-exporter/0
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-prometheus-node-exporter/0 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "http://192.168.58.2:9100/metrics container=\"node-exporter\" endpoint=\"http-metrics\" instance=\"192.168.58.2:9100\" job=\"node-exporter\" namespace=\"monitoring\" pod=\"monitoring-prometheus-node-exporter-mwrfg\" service=\"monitoring-prometheus-node-exporter\" 800ms ago 607ms up":
+          - cell "http://192.168.58.2:9100/metrics":
+            - link "http://192.168.58.2:9100/metrics":
+              - /url: http://192.168.58.2:9100/metrics
+          - cell "container=\"node-exporter\" endpoint=\"http-metrics\" instance=\"192.168.58.2:9100\" job=\"node-exporter\" namespace=\"monitoring\" pod=\"monitoring-prometheus-node-exporter-mwrfg\" service=\"monitoring-prometheus-node-exporter\"":
+            - generic: container="node-exporter"
+            - generic: endpoint="http-metrics"
+            - generic: instance="192.168.58.2:9100"
+            - generic: job="node-exporter"
+            - generic: namespace="monitoring"
+            - generic: pod="monitoring-prometheus-node-exporter-mwrfg"
+            - generic: service="monitoring-prometheus-node-exporter"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "800ms ago 607ms":
+            - generic: 800ms ago
+            - generic: 607ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-prometheus/0 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-prometheus/0
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-prometheus/0 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "http://10.244.0.18:9090/metrics container=\"prometheus\" endpoint=\"http-web\" instance=\"10.244.0.18:9090\" job=\"monitoring-prometheus\" namespace=\"monitoring\" pod=\"prometheus-monitoring-prometheus-0\" service=\"monitoring-prometheus\" 16.523s ago 41ms up":
+          - cell "http://10.244.0.18:9090/metrics":
+            - link "http://10.244.0.18:9090/metrics":
+              - /url: http://10.244.0.18:9090/metrics
+          - cell "container=\"prometheus\" endpoint=\"http-web\" instance=\"10.244.0.18:9090\" job=\"monitoring-prometheus\" namespace=\"monitoring\" pod=\"prometheus-monitoring-prometheus-0\" service=\"monitoring-prometheus\"":
+            - generic: container="prometheus"
+            - generic: endpoint="http-web"
+            - generic: instance="10.244.0.18:9090"
+            - generic: job="monitoring-prometheus"
+            - generic: namespace="monitoring"
+            - generic: pod="prometheus-monitoring-prometheus-0"
+            - generic: service="monitoring-prometheus"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "16.523s ago 41ms":
+            - generic: 16.523s ago
+            - generic: 41ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up
+  - button "serviceMonitor/monitoring/monitoring-prometheus/1 Show config 1 / 1 up" [expanded]:
+    - paragraph: serviceMonitor/monitoring/monitoring-prometheus/1
+    - button "Show config"
+    - paragraph: 1 / 1 up
+  - region "serviceMonitor/monitoring/monitoring-prometheus/1 Show config 1 / 1 up":
+    - table:
+      - rowgroup:
+        - row "Endpoint Labels Last scrape State":
+          - columnheader "Endpoint"
+          - columnheader "Labels"
+          - columnheader "Last scrape"
+          - columnheader "State"
+      - rowgroup:
+        - row "http://10.244.0.18:8080/metrics container=\"config-reloader\" endpoint=\"reloader-web\" instance=\"10.244.0.18:8080\" job=\"monitoring-prometheus\" namespace=\"monitoring\" pod=\"prometheus-monitoring-prometheus-0\" service=\"monitoring-prometheus\" 9.977s ago 18ms up":
+          - cell "http://10.244.0.18:8080/metrics":
+            - link "http://10.244.0.18:8080/metrics":
+              - /url: http://10.244.0.18:8080/metrics
+          - cell "container=\"config-reloader\" endpoint=\"reloader-web\" instance=\"10.244.0.18:8080\" job=\"monitoring-prometheus\" namespace=\"monitoring\" pod=\"prometheus-monitoring-prometheus-0\" service=\"monitoring-prometheus\"":
+            - generic: container="config-reloader"
+            - generic: endpoint="reloader-web"
+            - generic: instance="10.244.0.18:8080"
+            - generic: job="monitoring-prometheus"
+            - generic: namespace="monitoring"
+            - generic: pod="prometheus-monitoring-prometheus-0"
+            - generic: service="monitoring-prometheus"
+            - button "Show discovered (pre-relabeling) labels":
+          - cell "9.977s ago 18ms":
+            - generic: 9.977s ago
+            - generic: 18ms
+            - button "Show additional timing info":
+          - cell "up":
+            - generic: up

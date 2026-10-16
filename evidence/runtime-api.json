@@ -24,12 +24,12 @@
     },
     {
       "method": "GET",
-      "path": "/api/loans/8483aa47-1638-4f50-879c-8e27c953c321",
+      "path": "/api/loans/425233f2-9105-4933-bdad-2c4863311808",
       "status": 200
     },
     {
       "method": "PUT",
-      "path": "/api/loans/8483aa47-1638-4f50-879c-8e27c953c321",
+      "path": "/api/loans/425233f2-9105-4933-bdad-2c4863311808",
       "status": 200
     },
     {
@@ -49,12 +49,12 @@
     },
     {
       "method": "DELETE",
-      "path": "/api/loans/8483aa47-1638-4f50-879c-8e27c953c321",
+      "path": "/api/loans/425233f2-9105-4933-bdad-2c4863311808",
       "status": 204
     },
     {
       "method": "GET",
-      "path": "/api/loans/8483aa47-1638-4f50-879c-8e27c953c321",
+      "path": "/api/loans/425233f2-9105-4933-bdad-2c4863311808",
       "status": 404
     }
   ],

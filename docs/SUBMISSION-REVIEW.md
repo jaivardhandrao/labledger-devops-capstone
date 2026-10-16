@@ -16,7 +16,7 @@ The project requirements and rubric were read through the SST School Chrome prof
 | Group | Group A |
 | Scaler Email address | `jaivardhan.24bcs10117@sst.scaler.com` |
 | Roll Number, numeric only | `10117` |
-| GitHub URL | Pending approved publication and access verification |
+| GitHub URL | `https://github.com/jaivardhandrao/labledger-devops-capstone` — published public; verify in the School profile |
 
 ## Review before the final action
 

@@ -78,7 +78,7 @@ ghcr.io/jaivardhandrao/labledger-devops-capstone-backend:<40-character-git-sha>
 ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend:<40-character-git-sha>
 ```
 
-The workflow uses the repository-scoped ephemeral GitHub token for GHCR. It contains no AWS credentials or automatic AWS access grant. Publishing a repository or changing package visibility is a separate approval action. Actual run/package links belong in the [evidence index](evidence/README.md) only after they exist.
+The workflow uses the repository-scoped ephemeral GitHub token for GHCR. It contains no AWS credentials or automatic AWS access grant. Publishing a repository or changing package visibility is a separate approval action. The [first actual green run](https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38908280610) passed both test jobs, all four strict image scans and multi-architecture publication for commit `7e28da8`. [Downloaded CI reports](evidence/ci/baseline-scan-summary.json) record the exact image IDs and zero HIGH/CRITICAL findings. Package public visibility is a separate pending decision.
 
 [Local promotion](scripts/promote-local.sh) requires clean tracked files and a successful main-push delivery run for the reviewed SHA. It builds/scans images and deploys chart inputs from an exact Git archive of that commit, preserves monitoring, loads the native images into the dedicated Minikube profile, and waits for rollout. This is an explicit promotion step; it does not claim that the publication workflow automatically deploys to AWS.
 
@@ -104,5 +104,6 @@ The dedicated local profile is **labledger-capstone**. Every command and script 
 - [Troubleshooting record](troubleshooting/README.md)
 - [Infrastructure validation limits](terraform/VALIDATION.md)
 - [Submission sources and review checklist](docs/SUBMISSION-REVIEW.md)
+- [AWS review-only inventory and pricing worksheet](docs/AWS-REVIEW-PLAN.md)
 
 The final school form accepts one repository URL and no resubmission. Use the verified SST account, Group A and numeric roll 10117. Keep the final Submit action for the student after reviewing the repository URL and evidence. These instructions do not claim that a form has been filled or submitted.

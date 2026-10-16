@@ -1,6 +1,6 @@
 # Container scan result
 
-Trivy 0.75.0 scanned both final runtime images for known HIGH and CRITICAL vulnerabilities with `--ignore-unfixed=false` and a failing exit code for findings. The initial Debian backend reported 44 HIGH findings; replacing its base with Alpine and retesting produced zero HIGH/CRITICAL findings for the backend and final frontend image in the saved local reports. These results apply to the exact image IDs and vulnerability database at scan time; they do not establish that the application is free of vulnerabilities, and actual CI scan evidence remains pending publication.
+Trivy 0.75.0 scanned both pre-demo baseline runtime images for known HIGH and CRITICAL vulnerabilities with `--ignore-unfixed=false` and a failing exit code for findings. The initial Debian backend reported 44 HIGH findings; replacing its base with Alpine and retesting produced zero HIGH/CRITICAL findings for the backend and final frontend image in the saved local reports. These results apply to the exact image IDs and vulnerability database at scan time; they do not establish that the application is free of vulnerabilities, and all four actual baseline CI scans are also clean in the downloaded [CI reports](ci/baseline-scan-summary.json).
 
 | Image | Exact local image ID | Scan timestamp | HIGH / CRITICAL |
 |---|---|---|---|
