@@ -1,0 +1,31 @@
+# EKS profile for the reviewed managed-control-plane topology.
+# These three chart monitors discover component Pods/node endpoints. Managed EKS
+# does not expose those self-hosted component targets on customer worker nodes.
+# This does not disable API-server metrics or claim no other EKS control-plane
+# metrics integration exists. Verify actual AWS targets after an approved deploy.
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeEtcd:
+  enabled: false
+
+# Preserve applicable discovery, application scraping and node-level evidence.
+kubeApiServer:
+  enabled: true
+kubelet:
+  enabled: true
+coreDns:
+  enabled: true
+kubeProxy:
+  enabled: true
+kubeStateMetrics:
+  enabled: true
+nodeExporter:
+  enabled: true
+prometheusOperator:
+  enabled: true
+prometheus:
+  enabled: true
+grafana:
+  enabled: true

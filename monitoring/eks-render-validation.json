@@ -1,0 +1,29 @@
+{
+  "prepared_at_utc": "2026-10-16T14:24:53.080156+00:00",
+  "validation_scope": "Offline Helm lint/render and semantic checks only; no AWS/kubeconfig/cluster/Secret reads or operations",
+  "eks_kubernetes_fixture": "1.34.0",
+  "monitoring_chart": "92.9.0",
+  "controller_chart": "2.8.0",
+  "controller_cached_package": "/tmp/labledger-capstone-tools/nginx-ingress-2.8.0.tgz",
+  "monitoring_cached_package": "/tmp/labledger-capstone-tools/kube-prometheus-stack-92.9.0.tgz",
+  "monitoring_package_sha256": "d99bc9dca70d8a2844e59ca18e589bfd69014b5c46d0be05ba8587932048b07f",
+  "service_monitor_names_preserved": [
+    "monitoring-apiserver",
+    "monitoring-coredns",
+    "monitoring-grafana",
+    "monitoring-kube-proxy",
+    "monitoring-kube-state-metrics",
+    "monitoring-kubelet",
+    "monitoring-operator",
+    "monitoring-prometheus",
+    "monitoring-prometheus-node-exporter"
+  ],
+  "direct_managed_control_plane_monitors_disabled": [
+    "kube-controller-manager",
+    "kube-scheduler",
+    "kube-etcd"
+  ],
+  "app_checks": "Two UI/two API replicas, ClusterIP, strict fixture NLB hostname, nginx class, gp3 storage, HPA minimum2 and ServiceMonitor namespace passed",
+  "storage_source_checks": "Encrypted gp3, WaitForFirstConsumer, current disposable Delete policy passed",
+  "live_target_verification": "Not performed: actual EKS targets remain to be verified after approved creation."
+}

@@ -11,8 +11,23 @@ import subprocess
 from urllib.parse import quote
 context = os.environ['KUBE_CONTEXT']
 namespace = 'labledger'
-username = input('Postgres username [labledger]: ').strip() or 'labledger'
-database = input('Postgres database [labledger]: ').strip() or 'labledger'
+# The Python source arrives on stdin, so interactive fields must use the TTY.
+try:
+    terminal_in = open('/dev/tty', 'r')
+    terminal_out = open('/dev/tty', 'w')
+except OSError:
+    raise SystemExit('Run this helper from an interactive terminal; nothing was changed.')
+def prompt(label, default):
+    terminal_out.write(label)
+    terminal_out.flush()
+    answer = terminal_in.readline()
+    if not answer:
+        raise SystemExit('Input closed; nothing was changed.')
+    return answer.strip() or default
+username = prompt('Postgres username [labledger]: ', 'labledger')
+database = prompt('Postgres database [labledger]: ', 'labledger')
+terminal_in.close()
+terminal_out.close()
 password = getpass.getpass('New Postgres password (not echoed): ')
 if len(password) < 16:
     raise SystemExit('Use at least 16 characters; nothing was changed.')

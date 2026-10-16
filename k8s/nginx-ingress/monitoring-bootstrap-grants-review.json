@@ -1,0 +1,970 @@
+{
+  "scope": "Offline rendered permission inventory only. No resources, grants or CRDs applied.",
+  "monitoring_chart_version": "92.9.0",
+  "counts_by_kind": {
+    "CustomResourceDefinition": 10,
+    "ServiceAccount": 7,
+    "ClusterRole": 5,
+    "ClusterRoleBinding": 5,
+    "MutatingWebhookConfiguration": 1,
+    "ValidatingWebhookConfiguration": 1,
+    "Role": 1,
+    "RoleBinding": 1
+  },
+  "resources": [
+    {
+      "kind": "CustomResourceDefinition",
+      "name": "alertmanagerconfigs.monitoring.coreos.com",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "CustomResourceDefinition",
+      "name": "alertmanagers.monitoring.coreos.com",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "CustomResourceDefinition",
+      "name": "podmonitors.monitoring.coreos.com",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "CustomResourceDefinition",
+      "name": "probes.monitoring.coreos.com",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "CustomResourceDefinition",
+      "name": "prometheusagents.monitoring.coreos.com",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "CustomResourceDefinition",
+      "name": "prometheuses.monitoring.coreos.com",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "CustomResourceDefinition",
+      "name": "prometheusrules.monitoring.coreos.com",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "CustomResourceDefinition",
+      "name": "scrapeconfigs.monitoring.coreos.com",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "CustomResourceDefinition",
+      "name": "servicemonitors.monitoring.coreos.com",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "CustomResourceDefinition",
+      "name": "thanosrulers.monitoring.coreos.com",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ServiceAccount",
+      "name": "monitoring-grafana",
+      "namespace": "monitoring",
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ServiceAccount",
+      "name": "monitoring-kube-state-metrics",
+      "namespace": "monitoring",
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ServiceAccount",
+      "name": "monitoring-prometheus-node-exporter",
+      "namespace": "monitoring",
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ServiceAccount",
+      "name": "monitoring-operator",
+      "namespace": "monitoring",
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ServiceAccount",
+      "name": "monitoring-prometheus",
+      "namespace": "monitoring",
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ClusterRole",
+      "name": "monitoring-grafana-clusterrole",
+      "namespace": null,
+      "rules": [
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "configmaps",
+            "secrets"
+          ],
+          "verbs": [
+            "get",
+            "watch",
+            "list"
+          ]
+        }
+      ],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ClusterRole",
+      "name": "monitoring-kube-state-metrics",
+      "namespace": null,
+      "rules": [
+        {
+          "apiGroups": [
+            "certificates.k8s.io"
+          ],
+          "resources": [
+            "certificatesigningrequests"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "configmaps"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "batch"
+          ],
+          "resources": [
+            "cronjobs"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "apps"
+          ],
+          "resources": [
+            "daemonsets"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "apps"
+          ],
+          "resources": [
+            "deployments"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "discovery.k8s.io"
+          ],
+          "resources": [
+            "endpointslices"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "autoscaling"
+          ],
+          "resources": [
+            "horizontalpodautoscalers"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "networking.k8s.io"
+          ],
+          "resources": [
+            "ingresses"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "batch"
+          ],
+          "resources": [
+            "jobs"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "coordination.k8s.io"
+          ],
+          "resources": [
+            "leases"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "limitranges"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "admissionregistration.k8s.io"
+          ],
+          "resources": [
+            "mutatingwebhookconfigurations"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "namespaces"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "networking.k8s.io"
+          ],
+          "resources": [
+            "networkpolicies"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "nodes"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "persistentvolumeclaims"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "persistentvolumes"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "policy"
+          ],
+          "resources": [
+            "poddisruptionbudgets"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "apps"
+          ],
+          "resources": [
+            "replicasets"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "replicationcontrollers"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "resourcequotas"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "secrets"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "services"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "apps"
+          ],
+          "resources": [
+            "statefulsets"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "storage.k8s.io"
+          ],
+          "resources": [
+            "storageclasses"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "admissionregistration.k8s.io"
+          ],
+          "resources": [
+            "validatingwebhookconfigurations"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "storage.k8s.io"
+          ],
+          "resources": [
+            "volumeattachments"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        }
+      ],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ClusterRole",
+      "name": "monitoring-operator",
+      "namespace": null,
+      "rules": [
+        {
+          "apiGroups": [
+            "monitoring.coreos.com"
+          ],
+          "resources": [
+            "alertmanagers",
+            "prometheusagents",
+            "prometheuses",
+            "thanosrulers"
+          ],
+          "verbs": [
+            "patch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "monitoring.coreos.com"
+          ],
+          "resources": [
+            "alertmanagers/status",
+            "podmonitors/status",
+            "probes/status",
+            "prometheuses/status",
+            "prometheusagents/status",
+            "prometheusrules/status",
+            "scrapeconfigs/status",
+            "servicemonitors/status",
+            "thanosrulers/status"
+          ],
+          "verbs": [
+            "create",
+            "update",
+            "patch",
+            "delete"
+          ]
+        },
+        {
+          "apiGroups": [
+            "monitoring.coreos.com"
+          ],
+          "resources": [
+            "alertmanagers/finalizers",
+            "prometheusagents/finalizers",
+            "prometheuses/finalizers",
+            "thanosrulers/finalizers"
+          ],
+          "verbs": [
+            "update"
+          ]
+        },
+        {
+          "apiGroups": [
+            "monitoring.coreos.com"
+          ],
+          "resources": [
+            "alertmanagers",
+            "alertmanagerconfigs",
+            "podmonitors",
+            "probes",
+            "prometheusagents",
+            "prometheuses",
+            "prometheusrules",
+            "servicemonitors",
+            "scrapeconfigs",
+            "thanosrulers"
+          ],
+          "verbs": [
+            "get",
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "apps"
+          ],
+          "resources": [
+            "statefulsets"
+          ],
+          "verbs": [
+            "get",
+            "list",
+            "watch",
+            "create",
+            "update",
+            "patch",
+            "delete"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "configmaps",
+            "secrets"
+          ],
+          "verbs": [
+            "get",
+            "list",
+            "watch",
+            "create",
+            "update",
+            "delete"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "pods"
+          ],
+          "verbs": [
+            "list",
+            "delete"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "services",
+            "services/finalizers",
+            "endpoints"
+          ],
+          "verbs": [
+            "get",
+            "create",
+            "update",
+            "delete"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "nodes"
+          ],
+          "verbs": [
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "namespaces"
+          ],
+          "verbs": [
+            "get",
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "",
+            "events.k8s.io"
+          ],
+          "resources": [
+            "events"
+          ],
+          "verbs": [
+            "patch",
+            "create"
+          ]
+        },
+        {
+          "apiGroups": [
+            "networking.k8s.io"
+          ],
+          "resources": [
+            "ingresses"
+          ],
+          "verbs": [
+            "get",
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "storage.k8s.io"
+          ],
+          "resources": [
+            "storageclasses"
+          ],
+          "verbs": [
+            "get"
+          ]
+        },
+        {
+          "apiGroups": [
+            "discovery.k8s.io"
+          ],
+          "resources": [
+            "endpointslices"
+          ],
+          "verbs": [
+            "get",
+            "create",
+            "list",
+            "watch",
+            "update",
+            "delete"
+          ]
+        }
+      ],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ClusterRole",
+      "name": "monitoring-prometheus",
+      "namespace": null,
+      "rules": [
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "nodes",
+            "nodes/metrics",
+            "services",
+            "endpoints",
+            "pods"
+          ],
+          "verbs": [
+            "get",
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "discovery.k8s.io"
+          ],
+          "resources": [
+            "endpointslices"
+          ],
+          "verbs": [
+            "get",
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "apiGroups": [
+            "networking.k8s.io"
+          ],
+          "resources": [
+            "ingresses"
+          ],
+          "verbs": [
+            "get",
+            "list",
+            "watch"
+          ]
+        },
+        {
+          "nonResourceURLs": [
+            "/metrics",
+            "/metrics/cadvisor"
+          ],
+          "verbs": [
+            "get"
+          ]
+        }
+      ],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ClusterRoleBinding",
+      "name": "monitoring-grafana-clusterrolebinding",
+      "namespace": null,
+      "rules": [],
+      "roleRef": {
+        "kind": "ClusterRole",
+        "name": "monitoring-grafana-clusterrole",
+        "apiGroup": "rbac.authorization.k8s.io"
+      },
+      "subjects": [
+        {
+          "kind": "ServiceAccount",
+          "name": "monitoring-grafana",
+          "namespace": "monitoring"
+        }
+      ]
+    },
+    {
+      "kind": "ClusterRoleBinding",
+      "name": "monitoring-kube-state-metrics",
+      "namespace": null,
+      "rules": [],
+      "roleRef": {
+        "apiGroup": "rbac.authorization.k8s.io",
+        "kind": "ClusterRole",
+        "name": "monitoring-kube-state-metrics"
+      },
+      "subjects": [
+        {
+          "kind": "ServiceAccount",
+          "name": "monitoring-kube-state-metrics",
+          "namespace": "monitoring"
+        }
+      ]
+    },
+    {
+      "kind": "ClusterRoleBinding",
+      "name": "monitoring-operator",
+      "namespace": null,
+      "rules": [],
+      "roleRef": {
+        "apiGroup": "rbac.authorization.k8s.io",
+        "kind": "ClusterRole",
+        "name": "monitoring-operator"
+      },
+      "subjects": [
+        {
+          "kind": "ServiceAccount",
+          "name": "monitoring-operator",
+          "namespace": "monitoring"
+        }
+      ]
+    },
+    {
+      "kind": "ClusterRoleBinding",
+      "name": "monitoring-prometheus",
+      "namespace": null,
+      "rules": [],
+      "roleRef": {
+        "apiGroup": "rbac.authorization.k8s.io",
+        "kind": "ClusterRole",
+        "name": "monitoring-prometheus"
+      },
+      "subjects": [
+        {
+          "kind": "ServiceAccount",
+          "name": "monitoring-prometheus",
+          "namespace": "monitoring"
+        }
+      ]
+    },
+    {
+      "kind": "MutatingWebhookConfiguration",
+      "name": "monitoring-admission",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ValidatingWebhookConfiguration",
+      "name": "monitoring-admission",
+      "namespace": null,
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ServiceAccount",
+      "name": "monitoring-grafana-test",
+      "namespace": "monitoring",
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ServiceAccount",
+      "name": "monitoring-admission",
+      "namespace": "monitoring",
+      "rules": [],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ClusterRole",
+      "name": "monitoring-admission",
+      "namespace": null,
+      "rules": [
+        {
+          "apiGroups": [
+            "admissionregistration.k8s.io"
+          ],
+          "resources": [
+            "validatingwebhookconfigurations",
+            "mutatingwebhookconfigurations"
+          ],
+          "verbs": [
+            "get",
+            "update",
+            "patch"
+          ]
+        }
+      ],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "ClusterRoleBinding",
+      "name": "monitoring-admission",
+      "namespace": null,
+      "rules": [],
+      "roleRef": {
+        "apiGroup": "rbac.authorization.k8s.io",
+        "kind": "ClusterRole",
+        "name": "monitoring-admission"
+      },
+      "subjects": [
+        {
+          "kind": "ServiceAccount",
+          "name": "monitoring-admission",
+          "namespace": "monitoring"
+        }
+      ]
+    },
+    {
+      "kind": "Role",
+      "name": "monitoring-admission",
+      "namespace": "monitoring",
+      "rules": [
+        {
+          "apiGroups": [
+            ""
+          ],
+          "resources": [
+            "secrets"
+          ],
+          "verbs": [
+            "get",
+            "create"
+          ]
+        }
+      ],
+      "roleRef": null,
+      "subjects": null
+    },
+    {
+      "kind": "RoleBinding",
+      "name": "monitoring-admission",
+      "namespace": "monitoring",
+      "rules": [],
+      "roleRef": {
+        "apiGroup": "rbac.authorization.k8s.io",
+        "kind": "Role",
+        "name": "monitoring-admission"
+      },
+      "subjects": [
+        {
+          "kind": "ServiceAccount",
+          "name": "monitoring-admission",
+          "namespace": "monitoring"
+        }
+      ]
+    }
+  ]
+}

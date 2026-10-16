@@ -125,3 +125,25 @@ variable "ingress_client_cidrs" {
     error_message = "Use valid IPv4 CIDRs."
   }
 }
+
+variable "enable_public_nlb" {
+  description = "Explicit opt-in: Terraform owns one public HTTP NLB, listener and instance-target attachment. Requires approved app-client CIDRs; no AWS Load Balancer Controller role."
+  type        = bool
+  default     = false
+  validation {
+    condition     = !var.enable_public_nlb || length(var.ingress_client_cidrs) > 0
+    error_message = "Public NLB requires an explicitly approved nonempty ingress_client_cidrs audience."
+  }
+}
+
+variable "enable_metrics_server" {
+  description = "Optional EKS-managed Metrics Server; adds no AWS IAM role. Verified compatible with Kubernetes 1.34 on 16 October 2026."
+  type        = bool
+  default     = false
+}
+
+variable "metrics_server_addon_version" {
+  description = "Exact AWS EKS add-on version verified by DescribeAddonVersions for Kubernetes 1.34. Recheck compatibility before changing Kubernetes versions."
+  type        = string
+  default     = "v0.9.0-eksbuild.13"
+}

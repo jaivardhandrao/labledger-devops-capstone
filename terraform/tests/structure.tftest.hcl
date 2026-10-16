@@ -103,3 +103,54 @@ run "reject_unreviewed_node_growth" {
   }
   expect_failures = [var.node_max_size]
 }
+
+run "nlb_owns_http_path_without_direct_node_cidrs" {
+  command = plan
+  variables {
+    enable_public_nlb    = true
+    ingress_client_cidrs = ["203.0.113.10/32"]
+  }
+  assert {
+    condition     = length(aws_lb.app) == 1 && aws_lb.app[0].load_balancer_type == "network" && !aws_lb.app[0].internal && aws_lb.app[0].enable_cross_zone_load_balancing
+    error_message = "Opt-in must configure exactly one public cross-zone NLB."
+  }
+  assert {
+    condition     = aws_lb_listener.http[0].port == 80 && aws_lb_listener.http[0].protocol == "TCP" && aws_lb_target_group.app[0].port == 30080 && aws_lb_target_group.app[0].target_type == "instance"
+    error_message = "HTTP listener must target the fixed NGINX instance NodePort."
+  }
+  assert {
+    condition     = aws_lb_target_group.app[0].health_check[0].protocol == "TCP" && aws_lb_target_group.app[0].health_check[0].port == "traffic-port" && length(aws_autoscaling_attachment.app) == 1
+    error_message = "NLB requires matching TCP health checks and managed ASG target registration."
+  }
+  assert {
+    condition     = length(aws_security_group.nlb) == 1 && length(aws_lb.app[0].security_groups) == 1 && length(aws_vpc_security_group_ingress_rule.ingress_clients) == 0 && length(aws_vpc_security_group_ingress_rule.ingress_healthcheck) == 0
+    error_message = "NLB mode must use a dedicated SG and remove direct client/subnet-CIDR access to node ports."
+  }
+  assert {
+    condition     = aws_vpc_security_group_ingress_rule.nodes_nlb[0].from_port == 30080 && aws_vpc_security_group_ingress_rule.nodes_nlb[0].to_port == 30080 && aws_vpc_security_group_ingress_rule.nodes_nlb[0].cidr_ipv4 == null && length(aws_vpc_security_group_ingress_rule.nlb_clients) == 1
+    error_message = "Worker access must be a single SG-referenced HTTP port, with app audience at the NLB."
+  }
+}
+
+run "managed_metrics_server_requires_its_verified_port" {
+  command = plan
+  variables {
+    enable_metrics_server = true
+  }
+  assert {
+    condition     = length(aws_eks_addon.metrics_server) == 1 && aws_eks_addon.metrics_server[0].addon_name == "metrics-server" && aws_eks_addon.metrics_server[0].addon_version == "v0.9.0-eksbuild.13"
+    error_message = "Metrics Server must be explicitly opted in and use the API-verified version."
+  }
+  assert {
+    condition     = contains(keys(aws_vpc_security_group_ingress_rule.nodes_control_plane), "10251") && contains(keys(aws_vpc_security_group_egress_rule.control_plane_nodes), "10251") && aws_eks_addon.metrics_server[0].service_account_role_arn == null
+    error_message = "Metrics API requires control-plane port10251 and no extra AWS role."
+  }
+}
+
+run "reject_public_nlb_without_explicit_app_audience" {
+  command = plan
+  variables {
+    enable_public_nlb = true
+  }
+  expect_failures = [var.enable_public_nlb]
+}

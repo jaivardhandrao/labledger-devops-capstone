@@ -6,6 +6,8 @@ locals {
     }
   }
   node_subnet_ids = var.enable_nat_gateway ? values(aws_subnet.private)[*].id : values(aws_subnet.public)[*].id
+  # The verified managed Metrics Server add-on listens on 10251; kubelet uses 10250.
+  control_plane_node_ports = toset(concat(["443", "8443", "9443", "10250"], var.enable_metrics_server ? ["10251"] : []))
 }
 
 resource "aws_vpc" "this" {
@@ -128,7 +130,7 @@ resource "aws_vpc_security_group_ingress_rule" "api_operator" {
 }
 
 resource "aws_vpc_security_group_egress_rule" "control_plane_nodes" {
-  for_each                     = toset(["443", "8443", "9443", "10250"])
+  for_each                     = local.control_plane_node_ports
   security_group_id            = aws_security_group.control_plane.id
   referenced_security_group_id = aws_security_group.nodes.id
   from_port                    = tonumber(each.value)
@@ -138,7 +140,7 @@ resource "aws_vpc_security_group_egress_rule" "control_plane_nodes" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "nodes_control_plane" {
-  for_each                     = toset(["443", "8443", "9443", "10250"])
+  for_each                     = local.control_plane_node_ports
   security_group_id            = aws_security_group.nodes.id
   referenced_security_group_id = aws_security_group.control_plane.id
   from_port                    = tonumber(each.value)
@@ -165,13 +167,13 @@ resource "aws_vpc_security_group_egress_rule" "nodes_outbound" {
 
 locals {
   ingress_rules = {
-    for item in setproduct(var.ingress_client_cidrs, [30080, 30443]) : "${item[0]}:${item[1]}" => {
+    for item in setproduct(var.enable_public_nlb ? toset([]) : var.ingress_client_cidrs, [30080, 30443]) : "${item[0]}:${item[1]}" => {
       cidr = item[0]
       port = item[1]
     }
   }
   healthcheck_rules = {
-    for item in setproduct(values(local.subnets)[*].public_cidr, [30080, 30443]) : "${item[0]}:${item[1]}" => {
+    for item in setproduct(var.enable_public_nlb ? [] : values(local.subnets)[*].public_cidr, [30080, 30443]) : "${item[0]}:${item[1]}" => {
       cidr = item[0]
       port = item[1]
     }

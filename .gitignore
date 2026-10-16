@@ -1,12 +1,15 @@
 # Local secrets and databases
 .env
 .env.*
+*.env
+*.env.*
 !.env.example
 *.tfstate
 *.tfstate.*
 *.tfplan
 .terraform/
 *.tfvars
+*.tfvars.json
 !terraform.tfvars.example
 *credentials*
 # Dependencies and build output

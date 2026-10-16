@@ -1,0 +1,30 @@
+{
+  "source_commit": "c2f4acf1e663d79f122e47296621906c9b57d908",
+  "run_url": "https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38909739859",
+  "actual_reports": [
+    {
+      "report": "evidence/ci/promotion-fix-scans/trivy-backend-amd64/trivy.json",
+      "image": "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend:c2f4acf1e663d79f122e47296621906c9b57d908-amd64",
+      "imageID": "sha256:9fb4b32e87fbe65743c3f848e772eeae5f10c66b0cce0223ed5fdc013a32ce48",
+      "findings": 0
+    },
+    {
+      "report": "evidence/ci/promotion-fix-scans/trivy-backend-arm64/trivy.json",
+      "image": "ghcr.io/jaivardhandrao/labledger-devops-capstone-backend:c2f4acf1e663d79f122e47296621906c9b57d908-arm64",
+      "imageID": "sha256:360b4b69b8848f29a6e219752b54aa809581ebe7b4fec6687b1a8525452c8477",
+      "findings": 0
+    },
+    {
+      "report": "evidence/ci/promotion-fix-scans/trivy-frontend-amd64/trivy.json",
+      "image": "ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend:c2f4acf1e663d79f122e47296621906c9b57d908-amd64",
+      "imageID": "sha256:125c3c8e7a4f4074fa97cc431ef70d2b4136f12163a50ae6c5d9a6420477f63a",
+      "findings": 0
+    },
+    {
+      "report": "evidence/ci/promotion-fix-scans/trivy-frontend-arm64/trivy.json",
+      "image": "ghcr.io/jaivardhandrao/labledger-devops-capstone-frontend:c2f4acf1e663d79f122e47296621906c9b57d908-arm64",
+      "imageID": "sha256:6c952ee60a027804930de63e30edc6a485b61245959a068a8977554d7a0673c0",
+      "findings": 0
+    }
+  ]
+}

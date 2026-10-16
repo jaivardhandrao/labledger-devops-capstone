@@ -1,0 +1,28 @@
+{
+  "observed_at_utc": "2026-10-16T13:52:43.216598+00:00",
+  "environment": "dedicated local minikube; not AWS evidence",
+  "source_commit": "c2f4acf1e663d79f122e47296621906c9b57d908",
+  "green_run_url": "https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38909739859",
+  "deployments": [
+    {
+      "name": "labledger-backend",
+      "ready_replicas": 2,
+      "images": [
+        "labledger-backend:c2f4acf1e663d79f122e47296621906c9b57d908"
+      ]
+    },
+    {
+      "name": "labledger-frontend",
+      "ready_replicas": 2,
+      "images": [
+        "labledger-frontend:c2f4acf1e663d79f122e47296621906c9b57d908"
+      ]
+    }
+  ],
+  "monitoring_enabled_after_promotion": true,
+  "served_javascript": "/assets/index-jgRagTjh.js",
+  "new_footer_present": true,
+  "old_footer_absent": true,
+  "prometheus_targets": 14,
+  "prometheus_targets_up": 14
+}

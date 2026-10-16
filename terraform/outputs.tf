@@ -32,3 +32,13 @@ output "kubectl_setup_command" {
 output "node_network_mode" {
   value = var.enable_nat_gateway ? "private subnets through one billed NAT gateway" : "public subnets with public IPv4 and restricted inbound rules"
 }
+
+output "application_nlb_dns_name" {
+  value       = var.enable_public_nlb ? aws_lb.app[0].dns_name : null
+  description = "Optional public HTTP NLB DNS. Configure the NGINX/app Ingress host to this name; actual controller/target health must be verified."
+}
+
+output "application_nlb_target_group_arn" {
+  value       = var.enable_public_nlb ? aws_lb_target_group.app[0].arn : null
+  description = "For read-only target-health verification after an approved deployment; not evidence of healthy targets."
+}

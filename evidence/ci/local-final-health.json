@@ -1,0 +1,33 @@
+{
+  "recorded_at_utc": "2026-10-16T14:23:56.134516+00:00",
+  "environment": "local dedicated labledger-capstone; not AWS",
+  "ingress": {
+    "status": 200,
+    "new_footer": true,
+    "old_footer": false
+  },
+  "readiness": {
+    "status": 200
+  },
+  "prometheus": {
+    "active": 14,
+    "up": 14,
+    "down": 0
+  },
+  "deployments": [
+    {
+      "name": "labledger-backend",
+      "ready": 2,
+      "images": [
+        "labledger-backend:c2f4acf1e663d79f122e47296621906c9b57d908"
+      ]
+    },
+    {
+      "name": "labledger-frontend",
+      "ready": 2,
+      "images": [
+        "labledger-frontend:c2f4acf1e663d79f122e47296621906c9b57d908"
+      ]
+    }
+  ]
+}

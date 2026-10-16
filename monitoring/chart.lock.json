@@ -1,0 +1,9 @@
+{
+  "repository": "https://prometheus-community.github.io/helm-charts",
+  "chart": "kube-prometheus-stack",
+  "chart_version": "92.9.0",
+  "operator_version": "v0.94.1",
+  "package_sha256": "d99bc9dca70d8a2844e59ca18e589bfd69014b5c46d0be05ba8587932048b07f",
+  "local_cached_package": "/tmp/labledger-capstone-tools/kube-prometheus-stack-92.9.0.tgz",
+  "source_inspection": "Official Helm repository package metadata; this lock is not AWS runtime evidence."
+}

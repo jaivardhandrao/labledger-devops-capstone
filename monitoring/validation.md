@@ -42,4 +42,4 @@ The initial default monitoring configuration included three unreachable control-
 
 The artifact validation interpreter was `/opt/homebrew/bin/python3` with cached PyYAML supplied through `PYTHONPATH=/Users/jaivardhandrao/.cache/uv/archive-v0/Xt-iiomMkrJh7YJ1MD_EZ`; PyYAML was not globally installed and is not part of the runtime backend dependency set. The validation script itself supports `PYTHON_BIN` for a separate environment with PyYAML installed.
 
-All actual cloud-independent evidence is local. The user has no AWS account; no AWS provisioning, EKS execution, cloud teardown or cloud screenshots are claimed.
+All actual monitoring evidence is local. A personal AWS account has subsequently been verified and read-only infrastructure planning completed, but exact deployment access approval is pending. No AWS provisioning, EKS execution, cloud teardown or cloud screenshot is claimed here.

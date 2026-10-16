@@ -94,16 +94,18 @@ The dedicated local profile is **labledger-capstone**. Every command and script 
 
 [Terraform](terraform/README.md) defines two public/two private subnets, optional NAT, restricted EKS API access and one managed worker group, with CNI/EBS CSI service roles and encrypted storage. `terraform.tfvars.example` contains documentation placeholders. The provider requires an explicitly approved account ID and rejects another account.
 
-**No workplace AWS profile is authorized for this coursework. No real AWS plan/apply/destroy has been performed.** The student confirmed that no personal/school sandbox account is available, so the completed deployment evidence is local. Future cloud work needs an eligible account, finalized controller/LB/Metrics Server bootstrap, current-rate estimate and reviewed resource/IAM/network/teardown plan. The mocked configuration checks do not satisfy the rubric's real VPC/EKS/teardown evidence.
+**A personal AWS identity and a real read-only account plan are verified; deployment approval is pending.** The proposed plan contains 62 creates, zero changes and zero deletions, with a current-rate estimate inside the conditional US$10 / two-hour limit. No apply, cloud deployment or destroy has occurred. The exact IAM, Kubernetes bootstrap, network and teardown scope is documented for review separately; [the public AWS worksheet](docs/AWS-REVIEW-PLAN.md) explains the design and remaining requirements. No workplace AWS profile is authorized. The completed runtime evidence is local, and mock validation/read-only planning does not satisfy the rubric's real VPC/EKS/Console/teardown requirements.
 
 ## Presentation, evidence and troubleshooting
 
 - [Rubric status and remaining evidence](docs/RUBRIC-STATUS.md)
 - [Actual evidence index](evidence/README.md)
 - [Demonstration and presentation guide](docs/DEMO.md)
+- [Actual commit-to-deployment demonstration record](docs/DELIVERY-DEMONSTRATION.md)
 - [Troubleshooting record](troubleshooting/README.md)
 - [Infrastructure validation limits](terraform/VALIDATION.md)
 - [Submission sources and review checklist](docs/SUBMISSION-REVIEW.md)
 - [AWS review-only inventory and pricing worksheet](docs/AWS-REVIEW-PLAN.md)
+- [Guarded EKS bootstrap, real evidence and cleanup sequence](docs/CLOUD-BOOTSTRAP-RUNBOOK.md)
 
 The final school form accepts one repository URL and no resubmission. Use the verified SST account, Group A and numeric roll 10117. Keep the final Submit action for the student after reviewing the repository URL and evidence. These instructions do not claim that a form has been filled or submitted.

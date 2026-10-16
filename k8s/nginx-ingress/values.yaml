@@ -1,0 +1,91 @@
+# F5 / NGINX Ingress Controller OSS, chart2.8.0 / controller5.7.0.
+# Preparation only: actual cluster bootstrap/RBAC require explicit review approval.
+controller:
+  kind: deployment
+  replicaCount: 2
+  nginxplus: false
+  image:
+    repository: nginx/nginx-ingress
+    tag: "5.7.0"
+    pullPolicy: IfNotPresent
+  ingressClass:
+    name: nginx
+    create: true
+    setAsDefaultIngress: false
+  # Reconcile only this project's application/TLS namespace.
+  # The vendor ClusterRole still has broader capabilities; see RBAC-REVIEW.md.
+  watchNamespace: labledger
+  watchSecretNamespace: labledger
+  enableCustomResources: false
+  enableSnippets: false
+  enableExternalDNS: false
+  enableCertManager: false
+  enableOIDC: false
+  allowEmptyIngressHost: false
+  hostNetwork: false
+  hostPort:
+    enable: false
+  telemetryReporting:
+    enable: false
+  readOnlyRootFilesystem: true
+  resources:
+    requests: {cpu: 100m, memory: 128Mi}
+    limits: {cpu: 500m, memory: 256Mi}
+  readyStatus:
+    enable: true
+    port: 8081
+    initialDelaySeconds: 2
+  startupStatus:
+    enable: true
+    port: 8081
+    path: /nginx-ready
+    initialDelaySeconds: 2
+    periodSeconds: 5
+    timeoutSeconds: 2
+    successThreshold: 1
+    failureThreshold: 36
+  autoscaling:
+    enabled: false
+  service:
+    create: true
+    type: NodePort
+    # Any registered worker can forward to a Ready controller Pod.
+    externalTrafficPolicy: Cluster
+    annotations: {}
+    httpPort:
+      enable: true
+      port: 80
+      targetPort: 80
+      nodePort: 30080
+    httpsPort:
+      enable: true
+      port: 443
+      targetPort: 443
+      nodePort: 30443
+    additionalServices: {}
+  reportIngressStatus:
+    # Helper supplies the exact Terraform NLB DNS in external-status-address.
+    enable: true
+    enableLeaderElection: true
+  serviceAccount:
+    annotations: {}
+  affinity:
+    podAntiAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchLabels:
+                app.kubernetes.io/instance: nginx-ingress
+            topologyKey: kubernetes.io/hostname
+rbac:
+  create: true
+  clusterrole:
+    create: true
+# No ServiceMonitor/custom CRDs are needed to bootstrap standard Ingress routing.
+prometheus:
+  create: false
+  service:
+    create: false
+  serviceMonitor:
+    create: false

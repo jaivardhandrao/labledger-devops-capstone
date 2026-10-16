@@ -15,3 +15,11 @@ operator_principal_arn    = null # Set the exact approved IAM role/user ARN.
 grant_bootstrap_cluster_admin = false # Privileged opt-in needs separate approval.
 ingress_client_cidrs      = [] # Approved app audience; never used for the API.
 # NO AWS keys, tokens, account passwords, or database credentials belong here.
+
+# Review-only optional deterministic cloud path. False until the complete
+# IAM/network/controller/data-teardown plan has action-time confirmation.
+enable_public_nlb       = false
+enable_metrics_server   = false
+metrics_server_addon_version = "v0.9.0-eksbuild.13" # Verified EKS1.34 compatibility.
+# Public NLB requires an explicit nonempty approved ingress_client_cidrs.
+# Do not copy a real operator IP or account/ARN into this tracked example.

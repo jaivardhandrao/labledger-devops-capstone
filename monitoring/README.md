@@ -91,3 +91,9 @@ helm upgrade --install monitoring /path/to/kube-prometheus-stack-92.9.0.tgz \
 ```
 
 Grafana browser login is a user review step if the School profile has no authenticated Grafana session. Credentials are not included in the evidence or repository.
+
+## Prepared EKS profile (not deployed)
+
+`values-eks.yaml` explicitly disables only direct self-hosted etcd/controller-manager/scheduler discovery for the managed control-plane topology. It keeps API-server, kubelet/cAdvisor/probes, CoreDNS, kube-proxy, node/exporter and application monitoring enabled. This is a prepared configuration, not a claim of live EKS target reachability; no cloud target count is assumed. Other provider-supported EKS control-plane metrics integrations are separate from these chart defaults.
+
+The pinned package is `/tmp/labledger-capstone-tools/kube-prometheus-stack-92.9.0.tgz`; `chart.lock.json` records source/version/checksum. `scripts/cluster-bootstrap-monitoring.sh` defaults to local render; reviewed install requires an exact new personal EKS ARN/account/name and dedicated outside-Git kubeconfig. No AWS API, kubeconfig or Secret is read in render mode. See [cloud bootstrap runbook](../docs/CLOUD-BOOTSTRAP-RUNBOOK.md) for storage, real NLB hostname, Metrics Server 10251, image/replica and teardown prerequisites.
