@@ -22,3 +22,9 @@ htmlcov/
 .DS_Store
 # Generated transient artifacts
 *.log
+.ruff_cache/
+*.db
+*.sqlite
+*.sqlite3
+*.pid
+.cache/
