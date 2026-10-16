@@ -13,7 +13,7 @@ kubectl --context "$KUBE_CONTEXT" -n labledger get secret labledger-db >/dev/nul
 # Preserve the existing scrape target, while letting explicit caller flags
 # intentionally override the value. Do not turn a Helm failure into false.
 monitoring_enabled=false
-existing_release=$(helm list --kube-context "$KUBE_CONTEXT" -n labledger --all --short --filter '^labledger$')
+existing_release=$(helm list --kube-context "$KUBE_CONTEXT" -n labledger --deployed --failed --pending --uninstalled --superseded --uninstalling --short --filter '^labledger$')
 if [[ -n "$existing_release" ]]; then
   monitoring_enabled=$(helm get values labledger --kube-context "$KUBE_CONTEXT" -n labledger --all --output json | python3 -c '
 import json,sys

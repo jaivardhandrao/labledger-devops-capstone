@@ -23,3 +23,7 @@ The local cluster had registry/CDN connectivity trouble for an exporter image an
 ## Classroom drill to demonstrate
 
 In the dedicated lab only, a nonexistent image can create an image-pull failure while rolling-update settings keep the previous replicas serving. Inspect Pod status/events and the configured image, then restore the exact reviewed image. Alternatively, a deliberately incorrect Service selector produces no endpoints; compare selectors with Pod labels and restore the correct value. Do not perform these exercises in another context or shared production environment. Capture real output when running the drill; this paragraph is a procedure, not proof that it has occurred.
+
+## Real promotion preflight caught a Helm-version flag mismatch
+
+The first remote delivery demonstrations passed all seven GitHub Actions jobs, but local promotion stopped before building or changing the release: Helm4.3.0 rejects `helm list --all`. The earlier stubbed script checks had not validated the real CLI flag contract. Both deployment scripts now enumerate supported release-status flags explicitly; the read-only command was checked against the actual dedicated local release. The initial error is retained in `evidence/ci/promotion-helm4-flag-failure.txt`. A successful later promotion must be recorded separately.

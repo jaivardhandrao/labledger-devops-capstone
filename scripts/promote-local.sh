@@ -22,7 +22,7 @@ git archive "$sha" | tar -xf - -C "$archive_root"
 # Preserve the enabled scrape target during an upgrade. A failed Helm query is
 # an error, not evidence that the release is absent or monitoring is disabled.
 monitoring_enabled=false
-existing_release=$(helm list --kube-context labledger-capstone -n labledger --all --short --filter '^labledger$')
+existing_release=$(helm list --kube-context labledger-capstone -n labledger --deployed --failed --pending --uninstalled --superseded --uninstalling --short --filter '^labledger$')
 if [[ -n "$existing_release" ]]; then
   monitoring_enabled=$(helm get values labledger --kube-context labledger-capstone -n labledger --all --output json | python3 -c '
 import json,sys
