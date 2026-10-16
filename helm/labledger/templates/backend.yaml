@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "labledger.fullname" . }}-backend
+  labels:
+    {{- include "labledger.labels" . | nindent 4 }}
+    app.kubernetes.io/component: backend
+spec:
+  replicas: {{ .Values.backend.replicaCount }}
+  revisionHistoryLimit: 3
+  strategy:
+    rollingUpdate: {maxUnavailable: 0, maxSurge: 1}
+  selector:
+    matchLabels:
+      {{- include "labledger.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: backend
+  template:
+    metadata:
+      labels:
+        {{- include "labledger.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: backend
+    spec:
+      automountServiceAccountToken: false
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- include "labledger.securityContext" . | nindent 8 }}
+      {{- if .Values.migration.enabled }}
+      # A single Job owns migrations. Every replica waits for the expected revision.
+      initContainers:
+        - name: wait-schema
+          image: {{ include "labledger.backendImage" . | quote }}
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          command: [python, /schema/wait-schema.py]
+          env:
+            {{- include "labledger.databaseEnv" . | nindent 12 }}
+          securityContext:
+            {{- include "labledger.containerSecurityContext" . | nindent 12 }}
+          resources:
+            requests: {cpu: 25m, memory: 64Mi}
+            limits: {cpu: 200m, memory: 128Mi}
+          volumeMounts:
+            - {name: schema-tools, mountPath: /schema, readOnly: true}
+            - {name: tmp, mountPath: /tmp}
+      {{- end }}
+      containers:
+        - name: backend
+          image: {{ include "labledger.backendImage" . | quote }}
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          # Migrations are performed once by the Job, never concurrently per replica.
+          command: [uvicorn, app.main:app, --host, 0.0.0.0, --port, "8000"]
+          ports:
+            - {name: http, containerPort: 8000}
+          env:
+            {{- include "labledger.databaseEnv" . | nindent 12 }}
+          securityContext:
+            {{- include "labledger.containerSecurityContext" . | nindent 12 }}
+          resources:
+            {{- toYaml .Values.backend.resources | nindent 12 }}
+          startupProbe:
+            httpGet: {path: /health, port: http}
+            failureThreshold: 30
+            periodSeconds: 2
+          readinessProbe:
+            httpGet: {path: /ready, port: http}
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 2
+          livenessProbe:
+            httpGet: {path: /health, port: http}
+            periodSeconds: 10
+            timeoutSeconds: 3
+          volumeMounts:
+            - {name: tmp, mountPath: /tmp}
+      volumes:
+        - {name: tmp, emptyDir: {}}
+        {{- if .Values.migration.enabled }}
+        - name: schema-tools
+          configMap:
+            name: {{ include "labledger.fullname" . }}-schema-tools
+        {{- end }}

@@ -1,0 +1,12 @@
+LabLedger release: {{ .Release.Name }} in {{ .Release.Namespace }}.
+
+Check actual readiness (these commands are instructions, not evidence of a run):
+  kubectl get pods,svc,ingress,hpa -n {{ .Release.Namespace }}
+  kubectl rollout status deployment/{{ include "labledger.fullname" . }}-backend -n {{ .Release.Namespace }}
+  kubectl logs job/{{ include "labledger.fullname" . }}-migrate-{{ .Release.Revision }} -n {{ .Release.Namespace }}
+
+An installed Ingress Controller must implement class {{ .Values.ingress.className }}.
+{{- if .Values.ingress.host }}
+Configure your own hostname resolution before opening http://{{ .Values.ingress.host }}.
+{{- end }}
+PostgreSQL PVCs are intentionally retained on uninstall. Never delete them casually.

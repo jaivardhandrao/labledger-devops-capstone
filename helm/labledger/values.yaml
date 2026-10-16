@@ -1,0 +1,67 @@
+nameOverride: ""
+fullnameOverride: ""
+imagePullSecrets: []
+
+frontend:
+  replicaCount: 2
+  image:
+    repository: ghcr.io/your-github-username/labledger-frontend
+    # Required: set a full git SHA in CI. See values-local.yaml for local images.
+    tag: ""
+    pullPolicy: IfNotPresent
+  resources:
+    requests: {cpu: 50m, memory: 32Mi}
+    limits: {cpu: 250m, memory: 128Mi}
+
+backend:
+  replicaCount: 2
+  image:
+    repository: ghcr.io/your-github-username/labledger-backend
+    tag: ""
+    pullPolicy: IfNotPresent
+  resources:
+    requests: {cpu: 100m, memory: 128Mi}
+    limits: {cpu: 500m, memory: 384Mi}
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 4
+    targetCPUUtilizationPercentage: 65
+
+# The Secret is created outside Helm/Git. Supply all four keys described in README.
+database:
+  enabled: true
+  existingSecret: labledger-db
+  urlKey: database-url
+  usernameKey: username
+  passwordKey: password
+  databaseKey: database
+  image: postgres:17-alpine
+  storage:
+    size: 2Gi
+    # null: cluster default class; set gp3 after installing the EBS CSI driver on EKS.
+    className: null
+  resources:
+    requests: {cpu: 100m, memory: 128Mi}
+    limits: {cpu: 500m, memory: 512Mi}
+
+migration:
+  enabled: true
+  # The single migration Job runs before API Pods pass their schema startup gate.
+  activeDeadlineSeconds: 300
+  backoffLimit: 2
+
+# This creates routing rules only. Install an Ingress Controller separately.
+ingress:
+  enabled: true
+  className: nginx
+  host: labledger.local
+  annotations: {}
+  tls: []
+
+monitoring:
+  enabled: false
+  # Match the Prometheus installation namespace/release in monitoring/values.yaml.
+  namespace: monitoring
+  release: monitoring
+  interval: 15s

@@ -1,0 +1,6 @@
+{{- if gt (int .Values.backend.autoscaling.minReplicas) (int .Values.backend.autoscaling.maxReplicas) -}}
+{{- fail "backend.autoscaling.minReplicas cannot exceed maxReplicas" -}}
+{{- end -}}
+{{- if and .Values.monitoring.enabled (eq .Values.monitoring.namespace "") -}}
+{{- fail "monitoring.namespace is required" -}}
+{{- end -}}

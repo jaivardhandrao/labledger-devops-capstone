@@ -1,0 +1,14 @@
+# Build both images locally and load them into an already configured local cluster.
+# Do not use this override on the AWS deployment or as SHA-tag evidence.
+frontend:
+  image:
+    repository: labledger-frontend
+    tag: local
+    pullPolicy: Never
+backend:
+  image:
+    repository: labledger-backend
+    tag: local
+    pullPolicy: Never
+ingress:
+  host: labledger.local

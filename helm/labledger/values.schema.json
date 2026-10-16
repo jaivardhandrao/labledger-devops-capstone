@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "frontend",
+    "backend",
+    "database",
+    "ingress",
+    "monitoring"
+  ],
+  "properties": {
+    "frontend": {
+      "type": "object",
+      "required": [
+        "replicaCount",
+        "image",
+        "resources"
+      ],
+      "properties": {
+        "replicaCount": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "image": {
+          "type": "object",
+          "required": [
+            "repository",
+            "tag",
+            "pullPolicy"
+          ],
+          "properties": {
+            "repository": {
+              "type": "string",
+              "minLength": 1
+            },
+            "tag": {
+              "type": "string",
+              "pattern": "^([0-9a-f]{40}|local)$"
+            },
+            "pullPolicy": {
+              "enum": [
+                "Always",
+                "IfNotPresent",
+                "Never"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "backend": {
+      "type": "object",
+      "required": [
+        "replicaCount",
+        "image",
+        "resources"
+      ],
+      "properties": {
+        "replicaCount": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "image": {
+          "type": "object",
+          "required": [
+            "repository",
+            "tag",
+            "pullPolicy"
+          ],
+          "properties": {
+            "repository": {
+              "type": "string",
+              "minLength": 1
+            },
+            "tag": {
+              "type": "string",
+              "pattern": "^([0-9a-f]{40}|local)$"
+            },
+            "pullPolicy": {
+              "enum": [
+                "Always",
+                "IfNotPresent",
+                "Never"
+              ]
+            }
+          }
+        },
+        "autoscaling": {
+          "type": "object",
+          "required": [
+            "enabled",
+            "minReplicas",
+            "maxReplicas",
+            "targetCPUUtilizationPercentage"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "minReplicas": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "maxReplicas": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 10
+            },
+            "targetCPUUtilizationPercentage": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        }
+      }
+    },
+    "database": {
+      "type": "object",
+      "required": [
+        "existingSecret",
+        "urlKey"
+      ],
+      "properties": {
+        "existingSecret": {
+          "type": "string",
+          "minLength": 1
+        },
+        "urlKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "storage": {
+          "type": "object",
+          "properties": {
+            "size": {
+              "type": "string",
+              "minLength": 1
+            },
+            "className": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "monitoring": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "namespace",
+        "release"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "namespace": {
+          "type": "string",
+          "minLength": 1
+        },
+        "release": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

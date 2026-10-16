@@ -1,0 +1,74 @@
+{{- if .Values.migration.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "labledger.fullname" . }}-schema-tools
+  labels:
+    {{- include "labledger.labels" . | nindent 4 }}
+data:
+  wait-schema.py: |
+    import os
+    import time
+    from alembic.config import Config
+    from alembic.script import ScriptDirectory
+    from sqlalchemy import create_engine, text
+    expected = set(ScriptDirectory.from_config(Config("alembic.ini")).get_heads())
+    for attempt in range(120):
+        try:
+            with create_engine(os.environ["DATABASE_URL"]).connect() as conn:
+                current = set(conn.execute(text("SELECT version_num FROM alembic_version")).scalars())
+                if current == expected:
+                    print("Database schema matches image migration heads", flush=True)
+                    break
+        except Exception:
+            pass  # Do not print a database URL or credentials in retry logs.
+        time.sleep(2)
+    else:
+        raise SystemExit("Schema did not reach this image's migration revision within 240 seconds")
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "labledger.fullname" . }}-migrate-{{ .Release.Revision }}
+  labels:
+    {{- include "labledger.labels" . | nindent 4 }}
+    app.kubernetes.io/component: migration
+spec:
+  ttlSecondsAfterFinished: 3600
+  activeDeadlineSeconds: {{ .Values.migration.activeDeadlineSeconds }}
+  backoffLimit: {{ .Values.migration.backoffLimit }}
+  template:
+    metadata:
+      labels:
+        {{- include "labledger.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: migration
+    spec:
+      restartPolicy: Never
+      automountServiceAccountToken: false
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- include "labledger.securityContext" . | nindent 8 }}
+      containers:
+        - name: migrate
+          image: {{ include "labledger.backendImage" . | quote }}
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+          command: [python, -m, app.migrate]
+          env:
+            {{- include "labledger.databaseEnv" . | nindent 12 }}
+          securityContext:
+            {{- include "labledger.containerSecurityContext" . | nindent 12 }}
+          resources:
+            requests: {cpu: 25m, memory: 64Mi}
+            limits: {cpu: 200m, memory: 128Mi}
+          volumeMounts:
+            - {name: schema-tools, mountPath: /schema, readOnly: true}
+            - {name: tmp, mountPath: /tmp}
+      volumes:
+        - name: schema-tools
+          configMap:
+            name: {{ include "labledger.fullname" . }}-schema-tools
+        - {name: tmp, emptyDir: {}}
+{{- end }}
