@@ -46,7 +46,7 @@ jobs:
       - run: npm test
       - run: npm run build
   scan-and-publish:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: [backend-tests, frontend-checks]
     runs-on: ubuntu-latest
     timeout-minutes: 30

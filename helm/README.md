@@ -25,7 +25,7 @@ Use `scripts/cluster-create-secret.sh` after applying `k8s/namespace.yaml`. It p
 
 ```bash
 export KUBE_CONTEXT='<approved-cluster-context>'
-export GITHUB_OWNER='<lowercase-github-owner>'
+export LABLEDGER_REPOSITORY='jaivardhandrao/labledger-devops-capstone'
 export IMAGE_SHA='<full-40-character-commit-sha>'
 kubectl --context "$KUBE_CONTEXT" apply -f k8s/namespace.yaml
 ./scripts/cluster-create-secret.sh
@@ -33,7 +33,7 @@ kubectl --context "$KUBE_CONTEXT" apply -f k8s/namespace.yaml
 ./scripts/cluster-check.sh
 ```
 
-The deploy script uses `--wait --wait-for-jobs`. Pass extra Helm flags after the script name, for example `--set database.storage.className=gp3 --set ingress.host=demo.example.edu`. Creating or modifying public AWS resources, DNS, ingress exposure or security rules requires separate approval; these commands do not grant it.
+The deploy script uses `--wait --wait-for-jobs`. The repository setting defaults to `jaivardhandrao/labledger-devops-capstone`, matching the workflow image names `ghcr.io/<owner>/<repository>-frontend:<sha>` and `ghcr.io/<owner>/<repository>-backend:<sha>`. Both deployment scripts preserve the existing `monitoring.enabled` setting during upgrades, fail if Helm cannot read the release, and permit an intentional override through caller Helm flags. Pass extra Helm flags after the script name, for example `--set database.storage.className=gp3 --set ingress.host=demo.example.edu`. Creating or modifying public AWS resources, DNS, ingress exposure or security rules requires separate approval; these commands do not grant it.
 
 The default hostname is `labledger.local`. Configure hostname resolution to the actual Ingress address, or use a local request with `Host: labledger.local`. No custom domain purchase is required. Ingress preserves `/api` when sending API requests to FastAPI; no rewrite annotation strips it. The frontend's mounted Nginx configuration also preserves `/api` for a frontend port-forward. Swagger can be opened through a backend port-forward; the public Ingress intentionally routes only `/` and `/api`.
 
@@ -45,6 +45,8 @@ kubectl --context "$KUBE_CONTEXT" -n labledger port-forward svc/labledger-backen
 ```
 
 ## Local cluster override
+
+The validated classroom demo used a dedicated local node with 4 CPUs and 3GiB RAM, within an existing 4GiB Docker VM. A smaller 2-CPU/2.3GiB node encountered startup resource pressure while unpacking the monitoring images. For a new dedicated profile, size it before deployment; do not alter another project's cluster or global Docker settings.
 
 `values-local.yaml` explicitly uses local images and `pullPolicy: Never`. It is solely for an existing local cluster; it is not GHCR publication or AWS evidence.
 
@@ -59,6 +61,16 @@ helm upgrade --install labledger helm/labledger \
 ```
 
 The namespace and external Secret must already exist. Enable the local profile's Ingress, Metrics Server and storage provisioner before demonstrating these features. These instructions do not create a cluster or enable add-ons automatically.
+
+## Promote a reviewed commit after real publication
+
+```bash
+./scripts/promote-local.sh '<full-40-character-reviewed-sha>'
+# Optional explicit Helm flags follow the SHA, for example:
+#   --set monitoring.enabled=true
+```
+
+The local promotion script requires HEAD to match that SHA, clean tracked files and a successful **main-push** delivery workflow for that commit. A green pull-request run is insufficient because publishing jobs are skipped on pull requests. Both Docker contexts and the Helm chart/values come from a temporary `git archive` of the reviewed commit, so untracked files cannot enter the deployed application or chart. Temporary files are removed on exit. Each native local image is separately built and strictly scanned before loading; it is not claimed to be the exact multi-architecture GHCR artifact. Publication and cloud use still require their separate approvals.
 
 ## Startup, migration and failure behavior
 
