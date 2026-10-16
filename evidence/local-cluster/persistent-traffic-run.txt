@@ -1,0 +1,1 @@
+Persistent local GET load: 2338 successful, 0 failed; connections closed

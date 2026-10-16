@@ -1,4 +1,8 @@
-# Optional EKS class. Requires installed/authorized EBS CSI driver; does not install it.
+# DISPOSABLE classroom EKS example, not a production data-retention policy.
+# Requires the installed/authorized EBS CSI driver; does not install it.
+# Helm uninstall alone retains StatefulSet PVCs. Deliberate deletion of a project
+# PVC using this class also deletes its backing EBS volume through the CSI driver.
+# Apply/use only after project resource, data-disposal and teardown approval.
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -8,5 +12,5 @@ parameters:
   type: gp3
   encrypted: "true"
 volumeBindingMode: WaitForFirstConsumer
-reclaimPolicy: Retain
+reclaimPolicy: Delete
 allowVolumeExpansion: true

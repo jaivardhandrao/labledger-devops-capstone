@@ -1,0 +1,9 @@
+==> Linting helm/labledger
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+local: semantic contracts passed for 11 manifests
+production: semantic contracts passed for 12 manifests
+Prometheus selectors and six Grafana panel definitions passed
+Helm, invalid-input, manifest, migration-gate, monitoring, dashboard and shell syntax checks passed.
+No Kubernetes or AWS resources were contacted or created.

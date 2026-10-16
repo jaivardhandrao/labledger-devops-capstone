@@ -1,0 +1,26 @@
+UTC 2026-10-16T13:18:57Z
+Defaulted container "backend" out of: backend, wait-schema (init)
+uid=10001(labledger) gid=10001(labledger) groups=10001(labledger)
+uid=101(nginx) gid=101(nginx) groups=101(nginx)
+                          Table "public.loans"
+   Column   |           Type           | Collation | Nullable | Default 
+------------+--------------------------+-----------+----------+---------
+ id         | character varying(36)    |           | not null | 
+ equipment  | character varying(120)   |           | not null | 
+ borrower   | character varying(120)   |           | not null | 
+ due_date   | date                     |           | not null | 
+ status     | character varying(16)    |           | not null | 
+ notes      | text                     |           | not null | 
+ created_at | timestamp with time zone |           | not null | 
+Indexes:
+    "loans_pkey" PRIMARY KEY, btree (id)
+    "ix_loans_due_date" btree (due_date)
+    "ix_loans_status" btree (status)
+Check constraints:
+    "ck_loans_status" CHECK (status::text = ANY (ARRAY['requested'::character varying, 'collected'::character varying, 'returned'::character varying]::text[]))
+
+ synthetic_demo_loan_count 
+---------------------------
+                         3
+(1 row)
+

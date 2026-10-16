@@ -1,0 +1,222 @@
+{
+  "recorded_at_utc": "2026-10-16T13:26:11.208852+00:00",
+  "context": "labledger-capstone",
+  "scope": "All active targets, without client-side filtering",
+  "expected_target_count": 14,
+  "up_target_count": 14,
+  "down_target_count": 0,
+  "excluded_at_chart_configuration_with_documented_listener_reason": [
+    "kube-controller-manager",
+    "kube-scheduler",
+    "kube-etcd"
+  ],
+  "targets": [
+    {
+      "health": "up",
+      "scrapeUrl": "http://10.244.0.12:8000/metrics",
+      "labels": {
+        "container": "backend",
+        "endpoint": "http",
+        "instance": "10.244.0.12:8000",
+        "job": "labledger-backend",
+        "namespace": "labledger",
+        "pod": "labledger-backend-86796c5fb6-pkcwk",
+        "service": "labledger-backend"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/labledger/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "http://10.244.0.13:8000/metrics",
+      "labels": {
+        "container": "backend",
+        "endpoint": "http",
+        "instance": "10.244.0.13:8000",
+        "job": "labledger-backend",
+        "namespace": "labledger",
+        "pod": "labledger-backend-86796c5fb6-tqcdn",
+        "service": "labledger-backend"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/labledger/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "https://192.168.58.2:8443/metrics",
+      "labels": {
+        "endpoint": "https",
+        "instance": "192.168.58.2:8443",
+        "job": "apiserver",
+        "namespace": "default",
+        "service": "kubernetes"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-apiserver/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "http://10.244.0.2:9153/metrics",
+      "labels": {
+        "container": "coredns",
+        "endpoint": "http-metrics",
+        "instance": "10.244.0.2:9153",
+        "job": "coredns",
+        "namespace": "kube-system",
+        "pod": "coredns-559f6c778d-22922",
+        "service": "monitoring-coredns"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-coredns/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "http://10.244.0.25:3000/metrics",
+      "labels": {
+        "container": "grafana",
+        "endpoint": "http-web",
+        "instance": "10.244.0.25:3000",
+        "job": "monitoring-grafana",
+        "namespace": "monitoring",
+        "pod": "monitoring-grafana-7d488b9c57-f6rt7",
+        "service": "monitoring-grafana"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-grafana/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "http://192.168.58.2:10249/metrics",
+      "labels": {
+        "endpoint": "http-metrics",
+        "instance": "192.168.58.2:10249",
+        "job": "kube-proxy",
+        "namespace": "kube-system",
+        "pod": "kube-proxy-qgzph",
+        "service": "monitoring-kube-proxy"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-kube-proxy/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "http://10.244.0.23:8080/metrics",
+      "labels": {
+        "container": "kube-state-metrics",
+        "endpoint": "http",
+        "instance": "10.244.0.23:8080",
+        "job": "kube-state-metrics",
+        "namespace": "monitoring",
+        "pod": "monitoring-kube-state-metrics-cb45886-pqtll",
+        "service": "monitoring-kube-state-metrics"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-kube-state-metrics/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "https://192.168.58.2:10250/metrics",
+      "labels": {
+        "endpoint": "https-metrics",
+        "instance": "192.168.58.2:10250",
+        "job": "kubelet",
+        "metrics_path": "/metrics",
+        "namespace": "kube-system",
+        "node": "labledger-capstone",
+        "service": "monitoring-kubelet"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-kubelet/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "https://192.168.58.2:10250/metrics/cadvisor",
+      "labels": {
+        "endpoint": "https-metrics",
+        "instance": "192.168.58.2:10250",
+        "job": "kubelet",
+        "metrics_path": "/metrics/cadvisor",
+        "namespace": "kube-system",
+        "node": "labledger-capstone",
+        "service": "monitoring-kubelet"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-kubelet/1"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "https://192.168.58.2:10250/metrics/probes",
+      "labels": {
+        "endpoint": "https-metrics",
+        "instance": "192.168.58.2:10250",
+        "job": "kubelet",
+        "metrics_path": "/metrics/probes",
+        "namespace": "kube-system",
+        "node": "labledger-capstone",
+        "service": "monitoring-kubelet"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-kubelet/2"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "https://10.244.0.9:10250/metrics",
+      "labels": {
+        "container": "kube-prometheus-stack",
+        "endpoint": "https",
+        "instance": "10.244.0.9:10250",
+        "job": "monitoring-operator",
+        "namespace": "monitoring",
+        "pod": "monitoring-operator-5cf869f6f-29rpx",
+        "service": "monitoring-operator"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-operator/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "http://192.168.58.2:9100/metrics",
+      "labels": {
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.58.2:9100",
+        "job": "node-exporter",
+        "namespace": "monitoring",
+        "pod": "monitoring-prometheus-node-exporter-mwrfg",
+        "service": "monitoring-prometheus-node-exporter"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-prometheus-node-exporter/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "http://10.244.0.18:9090/metrics",
+      "labels": {
+        "container": "prometheus",
+        "endpoint": "http-web",
+        "instance": "10.244.0.18:9090",
+        "job": "monitoring-prometheus",
+        "namespace": "monitoring",
+        "pod": "prometheus-monitoring-prometheus-0",
+        "service": "monitoring-prometheus"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-prometheus/0"
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "http://10.244.0.18:8080/metrics",
+      "labels": {
+        "container": "config-reloader",
+        "endpoint": "reloader-web",
+        "instance": "10.244.0.18:8080",
+        "job": "monitoring-prometheus",
+        "namespace": "monitoring",
+        "pod": "prometheus-monitoring-prometheus-0",
+        "service": "monitoring-prometheus"
+      },
+      "lastError": "",
+      "scrapePool": "serviceMonitor/monitoring/monitoring-prometheus/1"
+    }
+  ]
+}

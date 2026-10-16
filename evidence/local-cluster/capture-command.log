@@ -1,0 +1,35 @@
+UTC 2026-10-16T13:10:44Z
+Context: labledger-capstone
+Client Version: v1.37.0
+Kustomize Version: v5.8.1
+NAME                                  READY   STATUS      RESTARTS       AGE     IP            NODE                 NOMINATED NODE   READINESS GATES
+labledger-backend-86796c5fb6-pkcwk    1/1     Running     1 (6m7s ago)   10m     10.244.0.12   labledger-capstone   <none>           <none>
+labledger-backend-86796c5fb6-tqcdn    1/1     Running     1 (6m7s ago)   10m     10.244.0.13   labledger-capstone   <none>           <none>
+labledger-frontend-7876dddd64-dgs2c   1/1     Running     0              10m     10.244.0.16   labledger-capstone   <none>           <none>
+labledger-frontend-7876dddd64-zttvx   1/1     Running     0              10m     10.244.0.11   labledger-capstone   <none>           <none>
+labledger-migrate-1-kjsp5             0/1     Completed   0              9m32s   10.244.0.19   labledger-capstone   <none>           <none>
+labledger-postgres-0                  1/1     Running     0              10m     10.244.0.15   labledger-capstone   <none>           <none>
+NAME                         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/labledger-backend    ClusterIP   10.106.205.215   <none>        8000/TCP   10m
+service/labledger-frontend   ClusterIP   10.99.79.185     <none>        8080/TCP   10m
+service/labledger-postgres   ClusterIP   None             <none>        5432/TCP   10m
+
+NAME                                  CLASS   HOSTS       ADDRESS        PORTS   AGE
+ingress.networking.k8s.io/labledger   nginx   localhost   192.168.58.2   80      10m
+
+NAME                                                    REFERENCE                      TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/labledger-backend   Deployment/labledger-backend   cpu: 5%/65%   2         4         2          10m
+
+NAME                                              STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/data-labledger-postgres-0   Bound    pvc-caea9d3e-2757-4e89-8f32-2292fda8f8c0   2Gi        RWO            standard       <unset>                 10m
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
+NAME                 ENDPOINTS                           AGE
+labledger-backend    10.244.0.12:8000,10.244.0.13:8000   10m
+labledger-frontend   10.244.0.11:8080,10.244.0.16:8080   10m
+labledger-postgres   10.244.0.15:5432                    10m
+NAME     	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART          	APP VERSION
+labledger	labledger	1       	2026-10-16 18:29:55.307606 +0530 IST	deployed	labledger-0.1.0	1.0.0      
+labledger-backend: labledger-backend:local 
+labledger-frontend: labledger-frontend:local 
+Saved actual command output to evidence/local-cluster
+Capture browser screenshots/video separately in the SST Chrome profile.

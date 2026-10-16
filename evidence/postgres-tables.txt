@@ -1,0 +1,7 @@
+              List of relations
+ Schema |      Name       | Type  |   Owner   
+--------+-----------------+-------+-----------
+ public | alembic_version | table | labledger
+ public | loans           | table | labledger
+(2 rows)
+

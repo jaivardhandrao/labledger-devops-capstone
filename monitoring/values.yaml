@@ -14,14 +14,25 @@ prometheus:
       matchLabels:
         release: monitoring
     serviceMonitorNamespaceSelector:
-      matchNames: [monitoring]
+      matchLabels:
+        kubernetes.io/metadata.name: monitoring
     podMonitorSelectorNilUsesHelmValues: false
     podMonitorSelector:
       matchLabels:
         release: monitoring
     podMonitorNamespaceSelector:
-      matchNames: [monitoring]
+      matchLabels:
+        kubernetes.io/metadata.name: monitoring
 grafana:
+  # Keep the capstone dashboard; avoid dozens of unrelated classroom dashboards.
+  defaultDashboardsEnabled: false
+  deploymentStrategy:
+    type: Recreate
+  startupProbe:
+    httpGet: {path: /api/health, port: grafana}
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 120
   service:
     type: ClusterIP
   # Create this Secret manually, outside Git; do not commit real credentials.
@@ -33,7 +44,7 @@ grafana:
     enabled: false
   resources:
     requests: {cpu: 50m, memory: 128Mi}
-    limits: {cpu: 250m, memory: 256Mi}
+    limits: {cpu: 1000m, memory: 384Mi}
   sidecar:
     dashboards:
       enabled: true
@@ -42,8 +53,20 @@ grafana:
       searchNamespace: monitoring
 alertmanager:
   enabled: false
-# The operator and default exporters/rules remain enabled for cluster CPU/HPA panels.
+# The operator and applicable exporters provide cluster CPU/HPA panels.
 prometheusOperator:
   resources:
     requests: {cpu: 50m, memory: 64Mi}
     limits: {cpu: 250m, memory: 128Mi}
+
+# Keep this small classroom stack focused on application evidence.
+defaultRules:
+  create: false
+kube-state-metrics:
+  resources:
+    requests: {cpu: 25m, memory: 32Mi}
+    limits: {cpu: 100m, memory: 96Mi}
+prometheus-node-exporter:
+  resources:
+    requests: {cpu: 10m, memory: 16Mi}
+    limits: {cpu: 100m, memory: 64Mi}

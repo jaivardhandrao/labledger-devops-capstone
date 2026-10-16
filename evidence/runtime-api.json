@@ -1,0 +1,62 @@
+{
+  "base_url": "http://127.0.0.1:3000",
+  "scope": "Actual running HTTP stack; fictional test record created, updated and removed",
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/ready",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/docs",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/loans",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/api/loans/8483aa47-1638-4f50-879c-8e27c953c321",
+      "status": 200
+    },
+    {
+      "method": "PUT",
+      "path": "/api/loans/8483aa47-1638-4f50-879c-8e27c953c321",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/loans",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/loans/stats",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/metrics",
+      "status": 200
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/loans/8483aa47-1638-4f50-879c-8e27c953c321",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/api/loans/8483aa47-1638-4f50-879c-8e27c953c321",
+      "status": 404
+    }
+  ],
+  "result": "PASS"
+}

@@ -8,8 +8,12 @@ set -euo pipefail
 repo_root=$(cd "$(dirname "$0")/.." && pwd)
 kubectl --context "$KUBE_CONTEXT" create namespace monitoring --dry-run=client -o yaml | kubectl --context "$KUBE_CONTEXT" apply -f -
 kubectl --context "$KUBE_CONTEXT" -n monitoring get secret monitoring-grafana-admin >/dev/null
+values_args=(-f "$repo_root/monitoring/values.yaml")
+if [[ "$KUBE_CONTEXT" == labledger-capstone ]]; then
+  values_args+=(-f "$repo_root/monitoring/values-minikube.yaml")
+fi
 helm upgrade --install monitoring "$PROMETHEUS_CHART" --kube-context "$KUBE_CONTEXT" \
-  --namespace monitoring -f "$repo_root/monitoring/values.yaml" --wait --timeout 10m
+  --namespace monitoring "${values_args[@]}" --wait --timeout 10m
 kubectl --context "$KUBE_CONTEXT" -n monitoring create configmap labledger-dashboard \
   --from-file=labledger.json="$repo_root/monitoring/dashboards/labledger.json" \
   --dry-run=client -o yaml | kubectl --context "$KUBE_CONTEXT" apply -f -

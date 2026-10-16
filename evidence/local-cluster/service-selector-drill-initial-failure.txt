@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<stdin>", line 25, in <module>
+  File "<stdin>", line 8, in count_endpoints
+  File "<stdin>", line 8, in <genexpr>
+TypeError: 'NoneType' object is not iterable

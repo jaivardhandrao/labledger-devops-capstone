@@ -1,0 +1,83 @@
+NAME                                      READY   STATUS      RESTARTS      AGE
+pod/labledger-backend-86796c5fb6-pkcwk    1/1     Running     1 (18m ago)   23m
+pod/labledger-backend-86796c5fb6-tqcdn    1/1     Running     1 (18m ago)   23m
+pod/labledger-frontend-797d94bd65-gnzw8   1/1     Running     0             6m34s
+pod/labledger-frontend-797d94bd65-wpf67   1/1     Running     0             6m40s
+pod/labledger-migrate-1-kjsp5             0/1     Completed   0             22m
+pod/labledger-postgres-0                  1/1     Running     0             23m
+
+NAME                         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/labledger-backend    ClusterIP   10.106.205.215   <none>        8000/TCP   23m
+service/labledger-frontend   ClusterIP   10.99.79.185     <none>        8080/TCP   23m
+service/labledger-postgres   ClusterIP   None             <none>        5432/TCP   23m
+
+NAME                                  CLASS   HOSTS       ADDRESS        PORTS   AGE
+ingress.networking.k8s.io/labledger   nginx   localhost   192.168.58.2   80      23m
+
+NAME                                                    REFERENCE                      TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/labledger-backend   Deployment/labledger-backend   cpu: 3%/65%   2         4         2          23m
+
+NAME                                              STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+persistentvolumeclaim/data-labledger-postgres-0   Bound    pvc-caea9d3e-2757-4e89-8f32-2292fda8f8c0   2Gi        RWO            standard       <unset>                 23m
+NAME     	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART          	APP VERSION
+labledger	labledger	1       	2026-10-16 18:29:55.307606 +0530 IST	deployed	labledger-0.1.0	1.0.0      
+deployment "labledger-backend" successfully rolled out
+deployment "labledger-frontend" successfully rolled out
+Both Deployments have at least two Ready replicas
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
+NAME                 ENDPOINTS                           AGE
+labledger-backend    10.244.0.12:8000,10.244.0.13:8000   23m
+labledger-frontend   10.244.0.29:8080,10.244.0.30:8080   23m
+NAME                                  CPU(cores)   MEMORY(bytes)   
+labledger-backend-86796c5fb6-pkcwk    4m           61Mi            
+labledger-backend-86796c5fb6-tqcdn    3m           60Mi            
+labledger-frontend-797d94bd65-gnzw8   1m           12Mi            
+labledger-frontend-797d94bd65-wpf67   1m           13Mi            
+labledger-postgres-0                  7m           48Mi            
+Name:                                                  labledger-backend
+Namespace:                                             labledger
+Labels:                                                app.kubernetes.io/instance=labledger
+                                                       app.kubernetes.io/managed-by=Helm
+                                                       app.kubernetes.io/name=labledger
+                                                       helm.sh/chart=labledger-0.1.0
+Annotations:                                           meta.helm.sh/release-name: labledger
+                                                       meta.helm.sh/release-namespace: labledger
+CreationTimestamp:                                     Fri, 16 Oct 2026 18:29:55 +0530
+Reference:                                             Deployment/labledger-backend
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  3% (3m) / 65%
+Min replicas:                                          2
+Max replicas:                                          4
+Behavior:
+  Scale Up:
+    Stabilization Window: 0 seconds
+    Select Policy: Max
+    Policies:
+      - Type: Pods     Value: 4    Period: 15 seconds
+      - Type: Percent  Value: 100  Period: 15 seconds
+  Scale Down:
+    Stabilization Window: 120 seconds
+    Select Policy: Max
+    Policies:
+      - Type: Percent  Value: 100  Period: 15 seconds
+Deployment pods:       2 current / 2 desired
+Conditions:
+  Type            Status  Reason            Message
+  ----            ------  ------            -------
+  AbleToScale     True    ReadyForNewScale  recommended size matches current size
+  ScalingActive   True    ValidMetricFound  the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  True    TooFewReplicas    the desired replica count is less than the minimum replica count
+  ScaledToZero    False   NotScaledToZero   the HPA controller did not scale the workload to zero
+Events:
+  Type     Reason                        Age                From                       Message
+  ----     ------                        ----               ----                       -------
+  Warning  FailedGetResourceMetric       23m                horizontal-pod-autoscaler  failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+  Warning  FailedComputeMetricsReplicas  23m                horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+  Warning  FailedGetResourceMetric       22m (x6 over 23m)  horizontal-pod-autoscaler  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  22m (x6 over 23m)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       21m                horizontal-pod-autoscaler  failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Warning  FailedComputeMetricsReplicas  21m                horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Warning  FailedGetResourceMetric       17m (x5 over 18m)  horizontal-pod-autoscaler  failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+  Warning  FailedComputeMetricsReplicas  17m (x5 over 18m)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: unable to fetch metrics from resource metrics API: the server is currently unable to handle the request (get pods.metrics.k8s.io)
+  Normal   SuccessfulRescale             9m1s               horizontal-pod-autoscaler  New size: 4; reason: cpu resource utilization (percentage of request) above target
+  Normal   SuccessfulRescale             4m13s              horizontal-pod-autoscaler  New size: 2; reason: All metrics below target

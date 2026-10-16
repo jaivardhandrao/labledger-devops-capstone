@@ -11,4 +11,4 @@ backend:
     tag: local
     pullPolicy: Never
 ingress:
-  host: labledger.local
+  host: localhost

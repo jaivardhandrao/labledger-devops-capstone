@@ -1,0 +1,33 @@
+{
+  "status": "success",
+  "targets": [
+    {
+      "health": "up",
+      "scrapeUrl": "http://10.244.0.12:8000/metrics",
+      "labels": {
+        "container": "backend",
+        "endpoint": "http",
+        "instance": "10.244.0.12:8000",
+        "job": "labledger-backend",
+        "namespace": "labledger",
+        "pod": "labledger-backend-86796c5fb6-pkcwk",
+        "service": "labledger-backend"
+      },
+      "lastError": ""
+    },
+    {
+      "health": "up",
+      "scrapeUrl": "http://10.244.0.13:8000/metrics",
+      "labels": {
+        "container": "backend",
+        "endpoint": "http",
+        "instance": "10.244.0.13:8000",
+        "job": "labledger-backend",
+        "namespace": "labledger",
+        "pod": "labledger-backend-86796c5fb6-tqcdn",
+        "service": "labledger-backend"
+      },
+      "lastError": ""
+    }
+  ]
+}

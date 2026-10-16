@@ -1,0 +1,2 @@
+Error response from daemon: Cannot update container de4d7dc6ba3992b3c0af45d5841253a0720c03f8d7591b05aff583b0470517a4: Memory limit should be smaller than already set memoryswap limit, update the memoryswap at the same time
+labledger-capstone

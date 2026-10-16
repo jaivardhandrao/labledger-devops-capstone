@@ -1,0 +1,34 @@
+{
+  "recorded_at_utc": "2026-10-16T13:22:31.756994+00:00",
+  "host_frontend_image_id": "sha256:18098bb883fab3b21d3a2add3195144f0534e10be3c5174fa6864aff659cfc80",
+  "host_repo_digests": [
+    "labledger-frontend@sha256:18098bb883fab3b21d3a2add3195144f0534e10be3c5174fa6864aff659cfc80"
+  ],
+  "exported_image_config_sha256": "sha256:556cd7f82bca56a6b0644e91f47d2a58c0e94266d7c3ba8a0f43cb74b3766576",
+  "cluster_frontend_image_config_id": "sha256:556cd7f82bca56a6b0644e91f47d2a58c0e94266d7c3ba8a0f43cb74b3766576",
+  "root_filesystem_layers_match": true,
+  "root_filesystem_layer_count": 11,
+  "two_running_frontend_pods_match_exported_config": true,
+  "endpoints": {
+    "ingress_ui": {
+      "url": "http://localhost:8088/",
+      "status": 200
+    },
+    "ingress_api": {
+      "url": "http://localhost:8088/api/loans",
+      "status": 200
+    },
+    "backend_ready": {
+      "url": "http://localhost:8001/ready",
+      "status": 200
+    },
+    "prometheus_ready": {
+      "url": "http://localhost:9090/-/ready",
+      "status": 200
+    },
+    "grafana_health": {
+      "url": "http://localhost:3001/api/health",
+      "status": 200
+    }
+  }
+}

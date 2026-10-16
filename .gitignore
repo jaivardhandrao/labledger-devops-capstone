@@ -28,3 +28,4 @@ htmlcov/
 *.sqlite3
 *.pid
 .cache/
+.local/

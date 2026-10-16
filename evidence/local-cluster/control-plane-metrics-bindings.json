@@ -1,0 +1,27 @@
+{
+  "recorded_at_utc": "2026-10-16T13:25:34.544290+00:00",
+  "context": "labledger-capstone",
+  "bindings": [
+    {
+      "component": "kube-controller-manager",
+      "actual_listener_arguments": [
+        "--bind-address=127.0.0.1"
+      ],
+      "applicability": "Metrics bound to node loopback; inaccessible to a Prometheus Pod via the node IP"
+    },
+    {
+      "component": "kube-scheduler",
+      "actual_listener_arguments": [
+        "--bind-address=127.0.0.1"
+      ],
+      "applicability": "Metrics bound to node loopback; inaccessible to a Prometheus Pod via the node IP"
+    },
+    {
+      "component": "etcd",
+      "actual_listener_arguments": [
+        "--listen-metrics-urls=http://127.0.0.1:2381"
+      ],
+      "applicability": "Metrics bound to node loopback; inaccessible to a Prometheus Pod via the node IP"
+    }
+  ]
+}

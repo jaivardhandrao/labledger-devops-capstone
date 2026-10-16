@@ -1,0 +1,9 @@
+{
+  "environment": "local minikube through Ingress",
+  "started_utc": "2026-10-16T13:09:16.131873+00:00",
+  "requests": 90,
+  "failed": 0,
+  "path": "/api/loans",
+  "cadence": "one request per second, 90 iterations",
+  "finished_utc": "2026-10-16T13:10:47.358959+00:00"
+}

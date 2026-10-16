@@ -1,0 +1,80 @@
+{
+  "scenario": "Recreate backend only; retain frontend and PostgreSQL containers and existing loan records",
+  "started_at_utc": "2026-10-16T13:03:14Z",
+  "before": {
+    "backend": {
+      "id": "90ef4cdbe9d85c14500195e9059eb8f0c2c32bd8ad12ef5a5fbcfc9cd6bd6733",
+      "networks": {
+        "labledger-capstone_data": "172.19.0.3",
+        "labledger-capstone_web": "172.18.0.2"
+      }
+    },
+    "frontend": {
+      "id": "6cc8f8d7f778e7f222b6b80a8598480e1cad583df2bf34311cc9dad28f10d87f",
+      "networks": {
+        "labledger-capstone_web": "172.18.0.3"
+      }
+    },
+    "database": {
+      "id": "3d9db27e7ba533dbb051456a589ebb779fac1031439c670055f66fe102f05913",
+      "networks": {
+        "labledger-capstone_data": "172.19.0.2"
+      }
+    },
+    "loan_count": 3,
+    "loan_sha256": "a8387d79a360409ce5b80a80c27fabe0eef4725991f8be962fe2dcde7d915d80",
+    "health_status": 200
+  },
+  "recreate_exit_code": 0,
+  "recreate_output": "Container labledger-capstone-backend-1 Recreate \n Container labledger-capstone-backend-1 Recreated \n Container labledger-capstone-backend-1 Starting \n Container labledger-capstone-backend-1 Started",
+  "attempts": [
+    {
+      "elapsed_seconds": 0.0,
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "elapsed_seconds": 1.0,
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "elapsed_seconds": 2.13,
+      "health": 200,
+      "ready": 200,
+      "api": 200,
+      "filtered_api": 200
+    }
+  ],
+  "after": {
+    "backend": {
+      "id": "e7f28aa1c34e05b7dc62a30a9bf01df343b4b2e05c371e4c4a9108fb1a09ad85",
+      "networks": {
+        "labledger-capstone_data": "172.19.0.3",
+        "labledger-capstone_web": "172.18.0.2"
+      }
+    },
+    "frontend": {
+      "id": "6cc8f8d7f778e7f222b6b80a8598480e1cad583df2bf34311cc9dad28f10d87f",
+      "networks": {
+        "labledger-capstone_web": "172.18.0.3"
+      }
+    },
+    "database": {
+      "id": "3d9db27e7ba533dbb051456a589ebb779fac1031439c670055f66fe102f05913",
+      "networks": {
+        "labledger-capstone_data": "172.19.0.2"
+      }
+    },
+    "loan_count": 3,
+    "loan_sha256": "a8387d79a360409ce5b80a80c27fabe0eef4725991f8be962fe2dcde7d915d80"
+  },
+  "assertions": {
+    "backend_recreated": true,
+    "backend_ip_changed": false,
+    "frontend_not_recreated": true,
+    "postgres_not_recreated": true,
+    "records_preserved": true,
+    "query_string_preserved": true,
+    "health_ready_api_200": true
+  },
+  "finished_at_utc": "2026-10-16T13:03:18Z"
+}

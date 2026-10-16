@@ -1,0 +1,13 @@
+UTC 2026-10-16T13:15:11Z
+NAME                REFERENCE                      TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+labledger-backend   Deployment/labledger-backend   cpu: 206%/65%   2         4         4          15m
+NAME                READY   UP-TO-DATE   AVAILABLE   AGE
+labledger-backend   4/4     4            4           15m
+NAME                                 READY   STATUS    RESTARTS      AGE
+labledger-backend-86796c5fb6-j8s9d   1/1     Running   0             45s
+labledger-backend-86796c5fb6-k9bhz   1/1     Running   0             45s
+labledger-backend-86796c5fb6-pkcwk   1/1     Running   1 (10m ago)   15m
+labledger-backend-86796c5fb6-tqcdn   1/1     Running   1 (10m ago)   15m
+NAME                                 CPU(cores)   MEMORY(bytes)   
+labledger-backend-86796c5fb6-pkcwk   157m         65Mi            
+labledger-backend-86796c5fb6-tqcdn   255m         63Mi            

@@ -1,0 +1,120 @@
+{
+    "apiVersion": "autoscaling/v2",
+    "kind": "HorizontalPodAutoscaler",
+    "metadata": {
+        "annotations": {
+            "meta.helm.sh/release-name": "labledger",
+            "meta.helm.sh/release-namespace": "labledger"
+        },
+        "creationTimestamp": "2026-10-16T12:59:55Z",
+        "generation": 1,
+        "labels": {
+            "app.kubernetes.io/instance": "labledger",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "labledger",
+            "helm.sh/chart": "labledger-0.1.0"
+        },
+        "name": "labledger-backend",
+        "namespace": "labledger",
+        "resourceVersion": "3697",
+        "uid": "58b162cb-a5c2-4fd0-aef5-04bba3322c2d"
+    },
+    "spec": {
+        "behavior": {
+            "scaleDown": {
+                "policies": [
+                    {
+                        "periodSeconds": 15,
+                        "type": "Percent",
+                        "value": 100
+                    }
+                ],
+                "selectPolicy": "Max",
+                "stabilizationWindowSeconds": 120
+            },
+            "scaleUp": {
+                "policies": [
+                    {
+                        "periodSeconds": 15,
+                        "type": "Pods",
+                        "value": 4
+                    },
+                    {
+                        "periodSeconds": 15,
+                        "type": "Percent",
+                        "value": 100
+                    }
+                ],
+                "selectPolicy": "Max",
+                "stabilizationWindowSeconds": 0
+            }
+        },
+        "maxReplicas": 4,
+        "metrics": [
+            {
+                "resource": {
+                    "name": "cpu",
+                    "target": {
+                        "averageUtilization": 65,
+                        "type": "Utilization"
+                    }
+                },
+                "type": "Resource"
+            }
+        ],
+        "minReplicas": 2,
+        "scaleTargetRef": {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "name": "labledger-backend"
+        }
+    },
+    "status": {
+        "conditions": [
+            {
+                "lastTransitionTime": "2026-10-16T12:59:55Z",
+                "message": "recommended size matches current size",
+                "reason": "ReadyForNewScale",
+                "status": "True",
+                "type": "AbleToScale"
+            },
+            {
+                "lastTransitionTime": "2026-10-16T13:06:26Z",
+                "message": "the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)",
+                "reason": "ValidMetricFound",
+                "status": "True",
+                "type": "ScalingActive"
+            },
+            {
+                "lastTransitionTime": "2026-10-16T13:19:14Z",
+                "message": "the desired replica count is less than the minimum replica count",
+                "reason": "TooFewReplicas",
+                "status": "True",
+                "type": "ScalingLimited"
+            },
+            {
+                "lastTransitionTime": "2026-10-16T13:14:26Z",
+                "message": "the HPA controller did not scale the workload to zero",
+                "reason": "NotScaledToZero",
+                "status": "False",
+                "type": "ScaledToZero"
+            }
+        ],
+        "currentMetrics": [
+            {
+                "resource": {
+                    "current": {
+                        "averageUtilization": 3,
+                        "averageValue": "3m"
+                    },
+                    "name": "cpu"
+                },
+                "type": "Resource"
+            }
+        ],
+        "currentReplicas": 2,
+        "desiredReplicas": 2,
+        "lastScaleTime": "2026-10-16T13:19:14Z",
+        "observedGeneration": 1
+    }
+}

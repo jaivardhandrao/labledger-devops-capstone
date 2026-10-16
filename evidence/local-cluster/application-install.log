@@ -1,0 +1,19 @@
+Release "labledger" does not exist. Installing it now.
+NAME: labledger
+LAST DEPLOYED: Fri Oct 16 18:29:55 2026
+NAMESPACE: labledger
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+NOTES:
+LabLedger release: labledger in labledger.
+
+Check actual readiness (these commands are instructions, not evidence of a run):
+  kubectl get pods,svc,ingress,hpa -n labledger
+  kubectl rollout status deployment/labledger-backend -n labledger
+  kubectl logs job/labledger-migrate-1 -n labledger
+
+An installed Ingress Controller must implement class nginx.
+Configure your own hostname resolution before opening http://localhost.
+PostgreSQL PVCs are intentionally retained on uninstall. Never delete them casually.

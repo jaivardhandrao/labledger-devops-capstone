@@ -1,0 +1,4 @@
+# Preserve raw terminal output, including its alignment and trailing spaces.
+evidence/**/*.txt -whitespace
+evidence/**/*.log -whitespace
+evidence/local-cluster/monitoring-chart-metadata.yaml -whitespace

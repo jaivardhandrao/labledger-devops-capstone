@@ -25,7 +25,7 @@ The selectors deliberately agree:
 
 | Component | Selection |
 |---|---|
-| Prometheus | ServiceMonitors in namespace `monitoring`, label `release: monitoring` |
+| Prometheus | ServiceMonitors in namespaces labeled `kubernetes.io/metadata.name: monitoring`, with monitor label `release: monitoring` |
 | LabLedger ServiceMonitor | Created in `monitoring` with `release: monitoring` |
 | ServiceMonitor target namespace | The Helm release namespace, normally `labledger` |
 | Target Service | Label `app.kubernetes.io/component: backend` plus chart name/release labels |
@@ -67,3 +67,27 @@ After running the stack, save:
 4. Installed chart/version and the application image SHA or clearly labeled local image identity.
 
 A dashboard JSON or render test alone earns no claim of installed Prometheus, live scraping or a populated Grafana panel. The UI remains authenticated and local via port-forward. The short 6h retention and resource requests support a classroom demo; this configuration is not a production capacity or backup policy. No monitoring password is committed.
+
+## Why the local profile has a control-plane override
+
+`values-minikube.yaml` is applied automatically by the installation script only when `KUBE_CONTEXT=labledger-capstone`. It disables exactly three optional component scrapes:
+
+| Component | Verified local listener | Why the default target failed |
+|---|---|---|
+| Controller manager | `127.0.0.1:10257` | Its actual `--bind-address=127.0.0.1` excludes the node IP used by the default monitor |
+| Scheduler | `127.0.0.1:10259` | Its actual `--bind-address=127.0.0.1` excludes the node IP used by the default monitor |
+| etcd metrics | `127.0.0.1:2381` | Its actual `--listen-metrics-urls=http://127.0.0.1:2381` is node-local |
+
+The original failed targets and verified component arguments/listening sockets are retained in `evidence/local-cluster/prometheus-targets-before-local-configuration.json`, `control-plane-metrics-bindings.json` and `control-plane-metrics-listeners.txt`. This is a chart configuration adjustment for unsupported local scrape endpoints; it does not open control-plane listeners, change authentication/security rules, alter application monitoring or filter failures in the dashboard/query client.
+
+API server, CoreDNS, kube-proxy, kubelet/cAdvisor/probes, node exporter, kube-state-metrics, operator, Grafana, Prometheus and both LabLedger replicas remain monitored. The complete active-target API response after reconciliation contains **14 UP and 0 DOWN** applicable targets; see `prometheus-targets-final.json`. On another cluster, inspect its actual endpoint reachability and configure optional component monitors for that environment. Do not blindly widen private metrics listeners.
+
+For exact reproduction with the pinned chart:
+
+```bash
+helm upgrade --install monitoring /path/to/kube-prometheus-stack-92.9.0.tgz \
+  --kube-context labledger-capstone -n monitoring \
+  -f monitoring/values.yaml -f monitoring/values-minikube.yaml --wait --timeout 5m
+```
+
+Grafana browser login is a user review step if the School profile has no authenticated Grafana session. Credentials are not included in the evidence or repository.

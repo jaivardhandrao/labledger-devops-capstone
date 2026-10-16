@@ -1,0 +1,2 @@
+labledger-backend: labledger-backend:local 
+labledger-frontend: labledger-frontend:local 

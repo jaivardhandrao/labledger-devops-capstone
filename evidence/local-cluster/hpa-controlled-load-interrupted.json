@@ -1,0 +1,8 @@
+{
+  "measurement_complete": false,
+  "summary": "The initial load generator was stopped after client-side ephemeral TCP port exhaustion interrupted kubectl sampling.",
+  "termination_exit_code": 143,
+  "request_totals": null,
+  "actual_scale_proof": "hpa-scale-up.txt",
+  "repair": "Use bounded persistent HTTP connections and a finally block for subsequent load."
+}

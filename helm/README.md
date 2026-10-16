@@ -86,6 +86,14 @@ For schema-changing upgrades use backward-compatible expand/migrate/contract cha
 
 ## Rendering and evidence
 
+The semantic validator uses a separate, pinned Python dependency; it is not needed by the runtime images. Install it into an isolated local environment:
+
+```bash
+python3 -m venv .local/validation-venv
+.local/validation-venv/bin/python -m pip install -r scripts/requirements-validation.txt
+PYTHON_BIN=.local/validation-venv/bin/python ./scripts/cluster-validate.sh
+```
+
 ```bash
 helm lint helm/labledger -f helm/labledger/values-local.yaml
 helm template labledger helm/labledger -n labledger \

@@ -1,0 +1,151 @@
+{
+  "recorded_at_utc": "2026-10-16T13:09:15.967578+00:00",
+  "environment": "local minikube labledger-capstone through Ingress localhost:8088",
+  "records_are_synthetic_demo_data": true,
+  "steps": [
+    {
+      "action": "create demo record",
+      "response": {
+        "status": 201,
+        "body": {
+          "equipment": "DSLR camera \u2014 demo",
+          "borrower": "Demo photography team",
+          "due_date": "2026-10-15",
+          "status": "collected",
+          "notes": "Synthetic capstone demonstration record; not a real equipment loan.",
+          "id": "e7dcd5ac-a627-41e8-a495-4f98a3b5469d",
+          "created_at": "2026-10-16T13:09:16.016301Z"
+        }
+      }
+    },
+    {
+      "action": "create demo record",
+      "response": {
+        "status": 201,
+        "body": {
+          "equipment": "Arduino kit \u2014 demo",
+          "borrower": "Demo robotics team",
+          "due_date": "2026-10-18",
+          "status": "requested",
+          "notes": "Synthetic capstone demonstration record; not a real equipment loan.",
+          "id": "8b768020-f25d-4f27-97e7-3552d3d45d1a",
+          "created_at": "2026-10-16T13:09:16.029848Z"
+        }
+      }
+    },
+    {
+      "action": "create demo record",
+      "response": {
+        "status": 201,
+        "body": {
+          "equipment": "USB microphone \u2014 demo",
+          "borrower": "Demo recording team",
+          "due_date": "2026-10-16",
+          "status": "returned",
+          "notes": "Synthetic capstone demonstration record; not a real equipment loan.",
+          "id": "ddbc3a37-4d43-4427-9d65-148f75c50cf9",
+          "created_at": "2026-10-16T13:09:16.037799Z"
+        }
+      }
+    },
+    {
+      "action": "POST create temporary record",
+      "response": {
+        "status": 201,
+        "body": {
+          "equipment": "Temporary CRUD probe",
+          "borrower": "Synthetic API test",
+          "due_date": "2026-10-17",
+          "status": "requested",
+          "notes": "This record will be removed by the CRUD check.",
+          "id": "9e289989-d2d9-4103-a490-e8b34cfc4026",
+          "created_at": "2026-10-16T13:09:16.045722Z"
+        }
+      }
+    },
+    {
+      "action": "GET item",
+      "response": {
+        "status": 200,
+        "body": {
+          "equipment": "Temporary CRUD probe",
+          "borrower": "Synthetic API test",
+          "due_date": "2026-10-17",
+          "status": "requested",
+          "notes": "This record will be removed by the CRUD check.",
+          "id": "9e289989-d2d9-4103-a490-e8b34cfc4026",
+          "created_at": "2026-10-16T13:09:16.045722Z"
+        }
+      }
+    },
+    {
+      "action": "PUT return temporary record",
+      "response": {
+        "status": 200,
+        "body": {
+          "equipment": "Temporary CRUD probe",
+          "borrower": "Synthetic API test",
+          "due_date": "2026-10-17",
+          "status": "returned",
+          "notes": "This record will be removed by the CRUD check.",
+          "id": "9e289989-d2d9-4103-a490-e8b34cfc4026",
+          "created_at": "2026-10-16T13:09:16.045722Z"
+        }
+      }
+    },
+    {
+      "action": "DELETE only temporary record",
+      "response": {
+        "status": 204,
+        "body": null
+      }
+    },
+    {
+      "action": "GET collection through Ingress",
+      "response": {
+        "status": 200,
+        "body": [
+          {
+            "equipment": "USB microphone \u2014 demo",
+            "borrower": "Demo recording team",
+            "due_date": "2026-10-16",
+            "status": "returned",
+            "notes": "Synthetic capstone demonstration record; not a real equipment loan.",
+            "id": "ddbc3a37-4d43-4427-9d65-148f75c50cf9",
+            "created_at": "2026-10-16T13:09:16.037799Z"
+          },
+          {
+            "equipment": "Arduino kit \u2014 demo",
+            "borrower": "Demo robotics team",
+            "due_date": "2026-10-18",
+            "status": "requested",
+            "notes": "Synthetic capstone demonstration record; not a real equipment loan.",
+            "id": "8b768020-f25d-4f27-97e7-3552d3d45d1a",
+            "created_at": "2026-10-16T13:09:16.029848Z"
+          },
+          {
+            "equipment": "DSLR camera \u2014 demo",
+            "borrower": "Demo photography team",
+            "due_date": "2026-10-15",
+            "status": "collected",
+            "notes": "Synthetic capstone demonstration record; not a real equipment loan.",
+            "id": "e7dcd5ac-a627-41e8-a495-4f98a3b5469d",
+            "created_at": "2026-10-16T13:09:16.016301Z"
+          }
+        ]
+      }
+    },
+    {
+      "action": "GET stats through Ingress",
+      "response": {
+        "status": 200,
+        "body": {
+          "total": 3,
+          "active": 2,
+          "overdue": 1,
+          "returned": 1
+        }
+      }
+    }
+  ]
+}

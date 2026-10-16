@@ -1,0 +1,13 @@
+v0.94.1: Pulling from prometheus-operator/prometheus-config-reloader
+e3ae58d19500: Pulling fs layer
+e3c413c9dfa5: Pulling fs layer
+886712664838: Pulling fs layer
+886712664838: Download complete
+e3ae58d19500: Download complete
+e3c413c9dfa5: Download complete
+886712664838: Pull complete
+e3c413c9dfa5: Pull complete
+e3ae58d19500: Pull complete
+Digest: sha256:06b52bd4dbe3ed6dd5905aadaf8b9987d9da4c31d37bb86deaadae68cee2d26b
+Status: Downloaded newer image for quay.io/prometheus-operator/prometheus-config-reloader:v0.94.1
+quay.io/prometheus-operator/prometheus-config-reloader:v0.94.1

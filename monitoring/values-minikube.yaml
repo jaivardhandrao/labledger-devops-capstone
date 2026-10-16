@@ -1,0 +1,11 @@
+# Dedicated local minikube profile only. The actual control-plane Pods bind these
+# metrics listeners to node loopback; Prometheus Pods cannot reach them via nodeIP.
+# Do not widen their bind addresses, relax authentication or open security rules.
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeEtcd:
+  enabled: false
+# API server, kubelet/cAdvisor, CoreDNS, kube-proxy, node exporter, kube-state-metrics,
+# Prometheus/operator, Grafana and the LabLedger application remain monitored.

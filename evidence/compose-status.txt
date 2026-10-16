@@ -1,0 +1,4 @@
+NAME                            IMAGE                      COMMAND                  SERVICE    CREATED         STATUS                                     PORTS
+labledger-capstone-backend-1    labledger-backend:local    "sh -c 'python -m ap…"   backend    1 second ago    Up Less than a second (health: starting)   127.0.0.1:8000->8000/tcp
+labledger-capstone-database-1   postgres:17-alpine         "docker-entrypoint.s…"   database   6 minutes ago   Up 6 minutes (healthy)                     5432/tcp
+labledger-capstone-frontend-1   labledger-frontend:local   "nginx -g 'daemon of…"   frontend   6 minutes ago   Up 6 minutes (healthy)                     127.0.0.1:3000->8080/tcp

@@ -1,0 +1,6 @@
+NAME                                          READY   STATUS    RESTARTS      AGE
+monitoring-grafana-7d488b9c57-f6rt7           3/3     Running   0             11m
+monitoring-kube-state-metrics-cb45886-pqtll   1/1     Running   0             13m
+monitoring-operator-5cf869f6f-29rpx           1/1     Running   4 (18m ago)   24m
+monitoring-prometheus-node-exporter-mwrfg     1/1     Running   0             13m
+prometheus-monitoring-prometheus-0            2/2     Running   0             23m

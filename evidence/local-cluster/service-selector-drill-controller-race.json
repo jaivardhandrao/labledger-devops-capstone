@@ -1,0 +1,27 @@
+{
+  "started_utc": "2026-10-16T13:19:46.866290+00:00",
+  "environment": "local minikube labledger-capstone only",
+  "fault": "Temporary Service selector mismatch; no images, database data or security rules changed",
+  "original_selector": {
+    "app.kubernetes.io/component": "backend",
+    "app.kubernetes.io/instance": "labledger",
+    "app.kubernetes.io/name": "labledger"
+  },
+  "ready_endpoints_before": 2,
+  "http_before": 200,
+  "events": [
+    {
+      "utc": "2026-10-16T13:19:46.962412+00:00",
+      "action": "applied selector mismatch"
+    },
+    {
+      "utc": "2026-10-16T13:19:47.080170+00:00",
+      "action": "restored exact original selector"
+    }
+  ],
+  "ready_endpoints_during": 0,
+  "http_during": 200,
+  "ready_endpoints_after": 2,
+  "http_after": 503,
+  "finished_utc": "2026-10-16T13:19:47.156162+00:00"
+}

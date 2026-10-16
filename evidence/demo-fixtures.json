@@ -1,0 +1,32 @@
+{
+  "scope": "Explicitly fictional capstone demonstration records actually created through the API",
+  "records": [
+    {
+      "equipment": "Digital multimeter \u2014 demo",
+      "borrower": "Fictional Demo Student 01",
+      "due_date": "2026-10-15",
+      "status": "collected",
+      "notes": "Fictional demonstration loan created to show the overdue workflow.",
+      "id": "0b7c29b4-e450-4368-ba09-c51c4a20044a",
+      "created_at": "2026-10-16T12:58:45.974479Z"
+    },
+    {
+      "equipment": "USB microscope \u2014 demo",
+      "borrower": "Fictional Demo Student 02",
+      "due_date": "2026-10-19",
+      "status": "requested",
+      "notes": "Fictional demonstration request; no real student or equipment record.",
+      "id": "407eb22e-b4e5-4ee2-9a24-8a82980c89d3",
+      "created_at": "2026-10-16T12:58:45.982849Z"
+    },
+    {
+      "equipment": "Audio recorder \u2014 demo",
+      "borrower": "Fictional Demo Student 03",
+      "due_date": "2026-10-16",
+      "status": "returned",
+      "notes": "Fictional returned-loan example for the capstone UI.",
+      "id": "fce13833-1c95-44a6-8350-c342a84cff6a",
+      "created_at": "2026-10-16T12:58:45.987312Z"
+    }
+  ]
+}

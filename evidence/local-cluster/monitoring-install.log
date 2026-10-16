@@ -1,0 +1,5 @@
+namespace/monitoring unchanged
+Release "monitoring" does not exist. Installing it now.
+Error: server-side apply failed for object monitoring/monitoring-prometheus monitoring.coreos.com/v1, Kind=Prometheus: failed to create typed patch object (monitoring/monitoring-prometheus; monitoring.coreos.com/v1, Kind=Prometheus): errors:
+  .spec.serviceMonitorNamespaceSelector.matchNames: field not declared in schema
+  .spec.podMonitorNamespaceSelector.matchNames: field not declared in schema

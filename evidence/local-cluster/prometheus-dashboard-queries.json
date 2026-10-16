@@ -1,0 +1,186 @@
+{
+  "recorded_at_utc": "2026-10-16T13:11:35.786978+00:00",
+  "source": "actual local Prometheus HTTP API",
+  "queries": {
+    "request_rate": {
+      "expression": "sum by (route,method) (rate(labledger_http_requests_total{namespace=\"labledger\",service=\"labledger-backend\",route!~\"/health|/ready|/metrics\"}[2m]))",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "method": "GET",
+                "route": "/api/loans"
+              },
+              "value": [
+                1792156295.806,
+                "0.5333384127951644"
+              ]
+            },
+            {
+              "metric": {
+                "method": "POST",
+                "route": "/api/loans"
+              },
+              "value": [
+                1792156295.806,
+                "0"
+              ]
+            },
+            {
+              "metric": {
+                "method": "GET",
+                "route": "/api/loans/{loan_id}"
+              },
+              "value": [
+                1792156295.806,
+                "0"
+              ]
+            },
+            {
+              "metric": {
+                "method": "PUT",
+                "route": "/api/loans/{loan_id}"
+              },
+              "value": [
+                1792156295.806,
+                "0"
+              ]
+            },
+            {
+              "metric": {
+                "method": "DELETE",
+                "route": "/api/loans/{loan_id}"
+              },
+              "value": [
+                1792156295.806,
+                "0"
+              ]
+            },
+            {
+              "metric": {
+                "method": "GET",
+                "route": "/api/loans/stats"
+              },
+              "value": [
+                1792156295.806,
+                "0"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "latency_p95": {
+      "expression": "histogram_quantile(0.95, sum by (le,route) (rate(labledger_http_request_duration_seconds_bucket{namespace=\"labledger\",service=\"labledger-backend\",route!~\"/health|/ready|/metrics\"}[2m])))",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "route": "/api/loans/{loan_id}"
+              },
+              "value": [
+                1792156295.81,
+                "NaN"
+              ]
+            },
+            {
+              "metric": {
+                "route": "/api/loans/stats"
+              },
+              "value": [
+                1792156295.81,
+                "NaN"
+              ]
+            },
+            {
+              "metric": {
+                "route": "/api/loans"
+              },
+              "value": [
+                1792156295.81,
+                "0.0076666740741211025"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "backend_up": {
+      "expression": "up{namespace=\"labledger\",service=\"labledger-backend\"}",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "up",
+                "container": "backend",
+                "endpoint": "http",
+                "instance": "10.244.0.12:8000",
+                "job": "labledger-backend",
+                "namespace": "labledger",
+                "pod": "labledger-backend-86796c5fb6-pkcwk",
+                "service": "labledger-backend"
+              },
+              "value": [
+                1792156295.813,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "__name__": "up",
+                "container": "backend",
+                "endpoint": "http",
+                "instance": "10.244.0.13:8000",
+                "job": "labledger-backend",
+                "namespace": "labledger",
+                "pod": "labledger-backend-86796c5fb6-tqcdn",
+                "service": "labledger-backend"
+              },
+              "value": [
+                1792156295.813,
+                "1"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "hpa_desired": {
+      "expression": "kube_horizontalpodautoscaler_status_desired_replicas{namespace=\"labledger\",horizontalpodautoscaler=\"labledger-backend\"}",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "__name__": "kube_horizontalpodautoscaler_status_desired_replicas",
+                "container": "kube-state-metrics",
+                "endpoint": "http",
+                "horizontalpodautoscaler": "labledger-backend",
+                "instance": "10.244.0.23:8080",
+                "job": "kube-state-metrics",
+                "namespace": "labledger",
+                "pod": "monitoring-kube-state-metrics-cb45886-pqtll",
+                "service": "monitoring-kube-state-metrics"
+              },
+              "value": [
+                1792156295.816,
+                "2"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

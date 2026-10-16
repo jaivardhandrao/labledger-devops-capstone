@@ -83,7 +83,10 @@ for mode in ('local','production'):
     print(f'{mode}: semantic contracts passed for {len(docs)} manifests')
 values=yaml.safe_load(Path('monitoring/values.yaml').read_text())
 assert values['prometheus']['prometheusSpec']['serviceMonitorSelector']['matchLabels']['release']=='monitoring'
-assert values['prometheus']['prometheusSpec']['serviceMonitorNamespaceSelector']['matchNames']==['monitoring']
+assert values['prometheus']['prometheusSpec']['serviceMonitorNamespaceSelector']['matchLabels']=={'kubernetes.io/metadata.name':'monitoring'}
+local_monitoring=yaml.safe_load(Path('monitoring/values-minikube.yaml').read_text())
+assert set(local_monitoring)=={'kubeControllerManager','kubeScheduler','kubeEtcd'}
+assert all(value['enabled'] is False for value in local_monitoring.values())
 dashboard=json.loads(Path('monitoring/dashboards/labledger.json').read_text())
 queries='\n'.join(t['expr'] for p in dashboard['panels'] for t in p['targets'])
 assert 'labledger_http_requests_total' in queries

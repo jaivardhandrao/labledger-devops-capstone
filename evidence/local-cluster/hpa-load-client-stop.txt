@@ -1,0 +1,2 @@
+Stopped only the controlled load generator after client port exhaustion.
+Actual 2-to-4 scale event is retained in hpa-scale-up.txt; the interrupted load has no completed summary and is not claimed as a clean run.

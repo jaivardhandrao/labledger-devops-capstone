@@ -1,0 +1,29 @@
+{
+  "scope": "Completed nonempty local deployment command logs. The previous actual-secret comparison scanned 92 owned files with0matches. Root performs the final whole-repo audit before staging; no further Secret reads are requested here.",
+  "safe_completed_nonempty_log_files": [
+    "application-install.log",
+    "capture-command.log",
+    "capture-final-command.log",
+    "capture-initial-failure.log",
+    "failed-migration-pod-cleanup.log",
+    "grafana-startup-repair.log",
+    "ingress-addon.log",
+    "local-node-capacity-adjustment.log",
+    "metrics-server-addon.log",
+    "monitoring-final-values-reconcile.log",
+    "monitoring-final-values.log",
+    "monitoring-install-retry.log",
+    "monitoring-install.log",
+    "monitoring-minikube-control-plane-reconcile.log",
+    "node-exporter-host-pull.log",
+    "prometheus-host-pull.log",
+    "prometheus-reloader-host-pull.log"
+  ],
+  "exclude_live_logs": [
+    "backend-port-forward.log",
+    "grafana-port-forward.log",
+    "ingress-port-forward.log",
+    "prometheus-port-forward.log"
+  ],
+  "other_active_writers_from_this_agent": []
+}

@@ -49,6 +49,10 @@ The VPC CNI and EBS CSI use dedicated web-identity roles, rather than giving the
 - A public app load balancer, controller IAM permissions, TLS certificates and DNS are separate operations. Do not label an unencrypted classroom HTTP demo as production secure. If the app should be private, prefer port forwarding and no public LB.
 - The API permits only `/24`–`/32` caller CIDRs; `0.0.0.0/0` is rejected. No inbound port 22 is defined. All node internal traffic is allowed only between members of the worker SG to support VPC CNI Pods.
 
+### Cloud bootstrap is not yet finalized
+
+The committed application chart creates Ingress routing rules; it does not install an AWS Ingress Controller or provision a load balancer. Before claiming an AWS deployment is ready, finalize and verify the controller installation/version, chosen AWS load-balancer mode and any controller IAM role, fixed NodePorts `30080`/`30443`, TCP traffic-port health checks, allowed application audience and real target health. Metrics Server must also be installed and verified on EKS before the HPA can obtain CPU measurements. No pinned controller or Metrics Server version, LB installation or required extra IAM access is invented here. These cloud prerequisites and their approval remain pending. The separate local classroom profile already has a working Ingress Controller and Metrics Server; that local result does not verify AWS bootstrap.
+
 ## Reproducible commands
 
 Commands below are instructions, not a report of execution. Commands marked **account action** need the approval above. Keep `terraform.tfvars`, state, binary plans, kubeconfig and raw account outputs out of Git. The root `.gitignore` must preserve these exclusions. The committed provider lockfile pins actual installed provider checksums.
@@ -93,14 +97,14 @@ kubectl get pods -n kube-system
 
 API reachability and Kubernetes authorization are separate. If the operator lacks a tested EKS access entry/appropriate policy, stop and use the approved bootstrap procedure rather than broadening the API CIDR or changing identity. Save screenshots from the real approved region/account after redacting identifiers that should not be public. Do not publish kubeconfig or tokens.
 
-For dynamically provisioned app/Postgres and monitoring storage, install a `gp3` StorageClass using provisioner `ebs.csi.aws.com`, `volumeBindingMode: WaitForFirstConsumer`, encryption and a `Delete` reclaim policy for this disposable demonstration. A volume is AZ-bound; pending Pods/PVCs need inspection, not blind scaling. One worker is not a replicated PostgreSQL setup. Do not use `emptyDir` as claimed persistent database evidence.
+The unapplied `k8s/storageclass-gp3.yaml` example is explicitly for **disposable classroom data**: provisioner `ebs.csi.aws.com`, `volumeBindingMode: WaitForFirstConsumer`, encryption and reclaim policy `Delete`. Use it only after the owner approves the project resources, data disposal and teardown. Helm uninstall alone retains the PostgreSQL StatefulSet PVC. Only a deliberate deletion of that project's PVC triggers CSI/PV reclamation and deletion of its backing EBS volume. Back up wanted data first. Applying this example does not retroactively change existing PV reclaim policies; do not replace an existing StorageClass or alter a live PV blindly. A volume is AZ-bound; pending Pods/PVCs need inspection, not blind scaling. One worker is not a replicated PostgreSQL setup. Do not use `emptyDir` as claimed persistent database evidence.
 
 ### Teardown after the approved demo — destructive account actions
 
 Only the owner-approved project teardown is in scope; do not destroy existing or shared resources. Record the demo and runtime evidence first.
 
 1. Back up any data the owner wants retained. Confirm this is the exact project/cluster/state/account.
-2. Uninstall the app, monitoring, ingress and any AWS load-balancer-controller releases installed for this project. Explicitly review and delete this demo's PVCs; Helm may retain StatefulSet PVCs. Keep controllers running until their LB/volume finalizers complete.
+2. After data-disposal and project-only cloud teardown approval, uninstall the app and monitoring releases and review their retained PVCs. Helm uninstall alone retains the PostgreSQL StatefulSet PVC. Deliberately delete only the approved project's disposable PVCs; with the example's `Delete` reclaim policy, the CSI driver then deletes their backing EBS volumes. Keep storage and load-balancer controllers running until PVC/PV and load-balancer finalizers finish. Remove the ingress release and any project-installed load-balancer controller only after the resources they manage have finished deleting.
 3. Confirm project `LoadBalancer` Services/Ingress-owned cloud load balancers are gone, and the demo EBS PVC/PV volumes using `Delete` have been removed. Kubernetes-created resources are not tracked by this Terraform state and can outlive a VPC destroy.
 4. Plan Terraform deletion, inspect the list, then apply only the approved plan:
 
