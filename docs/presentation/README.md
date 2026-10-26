@@ -1,16 +1,18 @@
-# LabLedger presentation and actual evidence
+# LabLedger presentation — approved reviewed deck
 
-- [12-slide PDF](LabLedger_Capstone_Presentation.pdf)
+- [Corrected 12-slide PDF](LabLedger_Capstone_Presentation.pdf)
 - [Editable PowerPoint with speaker notes](LabLedger_Capstone_Presentation.pptx)
 - [Plain-text speaker notes](SPEAKER-NOTES.md)
-- [Actual temporary AWS run, native evidence and verified cleanup](../../evidence/aws-live-2026-10-16/README.md)
-- [Original supporting local Terminal recording](../../evidence/presentation/local-terminal-walkthrough.mp4)
+- [Demo/ package and exact coverage/gaps](../../demo/README.md)
+- [Actual temporary AWS run and verified cleanup](../../evidence/aws-live-2026-10-16/README.md)
 
-The deck supports the student's live presentation. It covers the original domain, request flow, tests, Docker, strict scan repair, fresh green 06909ce CI, exact-SHA EKS promotion, PostgreSQL/gp3, actual HPA/fault/recovery, real monitoring and verified teardown. Old local captures and saved actual cloud snapshots are labeled by scope and time; a saved result is not presented as a fresh query after retirement.
+Prepared and reviewed 26 October from saved 16 October evidence, then approved by the student for publication. The existing design, 12-slide count and genuine previously published images are retained. Slide 6 distinguishes historical 06909ce EKS release 2 from the final f271a837 seven-green CI and exact-image local Helm release 4. Slide 10 records that the populated local Grafana browser capture exists privately; slide 12 states the current demo/ requirement and remaining presentation/ArgoCD gaps.
 
-No private browser originals were embedded while their publication approval remained pending. A populated Grafana browser panel and the full student browser/live walkthrough are not claimed complete. Short silent Terminal recordings are supporting evidence, not that complete presentation. The cloud burst's12failures remain disclosed, along with the separate lower-rate40/40recovery. No grade is guaranteed.
+The genuine Grafana capture is dated 16 October 23:03:48 UTC. Its one-hour range includes earlier revisions, rollout and recovery; it is not exclusively f271a837 or AWS. No new private browser original is embedded. The complete slides-first AWS Console / ArgoCD synced-GitOps / Kubernetes / Prometheus-UP / Grafana presentation is not recorded. ArgoCD is not implemented, and direct Helm is not described as ArgoCD.
 
-`build.py` produces both formats from one layout/content source and regenerates the notes. It requires the actual successful cleanup-verification artifact before building this final version. Screenshot source pixels are retained without cropping or fabrication. Text/shapes/notes are editable in PowerPoint.
+The existing 3m54.5s video under demo/ is a genuine local Terminal change-to-rollout recording. It supports, but does not replace, the complete requested presentation. The full assignment is not marked ready. The student approved publishing this reviewed deck and existing video. Slide bytes are unchanged from review; “review candidate”, “nothing new is published” and similar captions describe the prepublication review stage. Current repository publication status is recorded here and in demo/README.md. Private raw browser evidence remains excluded. Existing originals are preserved in local review backups and Git history; unrelated evidence is unchanged.
+
+`build.py` retains one layout/content source for both formats and speaker notes. It checks the saved successful cleanup-verification artifact without contacting AWS. To reproduce the artifact locally:
 
 ```sh
 python3 -m venv .local/presentation-venv
@@ -18,4 +20,4 @@ python3 -m venv .local/presentation-venv
 .local/presentation-venv/bin/python docs/presentation/build.py
 ```
 
-The temporary AWS endpoint is retired; local reproduction instructions remain in the repository. [Validation](validation.json) records the final page/slide/text/notes/render checks. Actual final AWS billing is not yet verified; the published price scenario remains an estimate.
+[Validation](validation.json) records page/slide/text/notes/render checks for this review. No application test, deployment, database or AWS operation was repeated. AWS infrastructure is retired; final billing remains unverified. The student reported original form submission; no receipt or resubmission is claimed.

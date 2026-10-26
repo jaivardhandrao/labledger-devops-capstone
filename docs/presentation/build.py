@@ -1,4 +1,8 @@
-"""Build the editable slides and matching PDF from genuine repository evidence."""
+"""Reproduce the reviewed 26 October deck from genuine repository evidence.
+
+Published unchanged after student approval; its review-stage captions record
+the original preparation. Current publication status is in demo/README.md.
+"""
 from pathlib import Path
 from textwrap import dedent
 import json
@@ -126,11 +130,11 @@ class Deck:
 
 
 d = Deck()
-d.page('LabLedger', 'DevOps final capstone · local and AWS evidence', '''
+d.page('LabLedger', 'Review candidate · 26 October 2026', '''
 Introduce the original campus equipment-loan domain. Identify yourself as Jaivardhan D Rao, roll 10117, Group A.
 The screenshot is a genuine earlier School-profile capture of local Kubernetes, not AWS. Every displayed loan is fictional.
 The application, CI, local Kubernetes and temporary personal AWS EKS ran successfully. Actual cleanup was verified separately before this final deck was built.
-The title image remains the original local UI capture, not an AWS browser image. New Terminal/API evidence documents the cloud run; private browser captures are not embedded while publication approval is pending.
+The title image remains the original local UI capture, not an AWS browser image. This 26 October review corrects documentation using saved 16 October evidence, with no fresh runtime checks. Private browser captures are not embedded. ArgoCD is not implemented and the complete slides-first presentation remains unrecorded.
 ''', dark=True)
 d.text('Shared equipment.\nClear returns.', 64, 128, 32, w=318, color='FFFFFF', bold=True)
 d.text('React · FastAPI · PostgreSQL\nDocker · CI · Helm · Monitoring', 64, 252, 19, w=305, color='CBDAE3')
@@ -190,19 +194,20 @@ d.image('evidence/presentation/terminal-compose.png', 64, 106, 832, 367)
 d.text('Live local containers and enforced read-only table inspection; original volumes preserved.', 64, 482, 12, color=MUTED)
 
 d.page('A real change reached the running application', '05 · Delivery', '''
-Show actual completed run 38934060961, seven successful jobs for 06909ce. It tested the controller fix and published both multiarch SHA image tags.
-Anonymous exact-tag manifest fetches succeeded. A deliberate personal-account Helm promotion then rolled the cloud application to exactly06909ce, release2, with Ready UI/API Pods.
-The screenshot combines explicitly completed CI/promotion records with actual current Deployment image queries. A later documentation-only commit is not a newly tested image.
-The earlier visible footer change and c2f4acf local rollout remain independently documented. CI publishes images; AWS promotion is an explicit guarded step, not automatic cloud access.
+The displayed native Terminal image is historical cloud evidence: 06909ce, actual seven-green CI 38934060961, then exact-SHA EKS Helm release 2. It is not the final local revision.
+The later local source change f271a837 has all seven jobs green in CI 38977458426. The genuine 3m54.5s recording shows a new accessibility refinement, 9 frontend tests/build, personal Git push, actual CI wait, anonymous pulls of the exact published ARM64 images, and local Helm release 4.
+All four Ready local app Pods matched the published platform config digests. Separate School-profile captures show matching Arduino/requested filters and the new Show all loans reset.
+The video is prepared privately under demo/ as a review candidate. It is Terminal-only and does not cover slides-first narration, AWS Console, ArgoCD or a full browser walkthrough. Delivery uses explicit Helm; no ArgoCD sync or automatic GitOps reconciliation is implemented.
 ''')
-d.image('evidence/aws-live-2026-10-16/cloud-delivery-terminal.png', 64, 106, 832, 350)
-d.text('Controller fix → seven green jobs → exact 06909ce EKS rollout, Helm release 2.', 64, 466, 13, color=MUTED)
-d.link('Open the actual seven-job green run', 'https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38934060961', y=489)
+d.image('evidence/aws-live-2026-10-16/cloud-delivery-terminal.png', 64, 103, 832, 318)
+d.text('Shown: historical 06909ce EKS rollout, release 2; infrastructure is retired.', 64, 431, 14, color=MUTED)
+d.text('Later local: f271a837 → 7 green CI jobs → exact images → Helm release 4.', 64, 459, 14, color=TEAL, bold=True)
+d.link('Open the final local change’s seven-job green run', 'https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38977458426', y=489)
 
 d.page('The scan gate found a problem, then verified the repair', '06 · DevSecOps', '''
 Explain that the initial Debian-based backend image failed strict HIGH/CRITICAL scanning. Its original failed report was retained.
 Replacing the runtime with Alpine and rebuilding produced clean backend/frontend reports. Both amd64 and arm64 images must pass before canonical multiarch publication.
-Trivy uses HIGH,CRITICAL with ignore-unfixed=false and exit-code1; no broad ignore gate was added. Earlier downloaded reports have zero HIGH/CRITICAL findings. Fresh06909ce metadata verifies all four strict scan jobs succeeded; their raw report ZIPs were not downloaded.
+Trivy uses HIGH,CRITICAL with ignore-unfixed=false and exit-code1; no broad ignore gate was added. Earlier downloaded reports have zero HIGH/CRITICAL findings. Historical 06909ce and final local f271a837 metadata each verify all four strict scan jobs succeeded; their fresh raw report ZIPs were not downloaded.
 A clean container scan is a bounded observation, not proof of total application security. Separate exact-credential and secret scans checked the public tree/history; credentials and local state stay outside Git.
 ''')
 d.rect(64, 124, 393, 250, 'FFFFFF', radius=8)
@@ -241,15 +246,16 @@ d.text('200 → 502 → 200', 501, 264, 25, w=370, bold=True)
 d.text('Service selector fault, diagnosis and real recovery.', 501, 311, 18, w=370, color=MUTED)
 d.text('Actual cloud records retained. Earlier local 2,338 reads / 0 failures are separate evidence.', 64, 433, 16, color=MUTED)
 
-d.page('Actual application scraping is healthy', '09 · Observability', '''
+d.page('Monitoring evidence has a clear scope', '09 · Observability', '''
 This is a genuine native Terminal display of explicitly saved cloud checks, not a browser dashboard. Prometheus returned 16/16 UP before scaling; HPA temporarily increased the API target count.
-Grafana's authenticated API returned the actual six-panel dashboard, six traffic series and positive samples. Credentials remained in RAM. A populated browser panel is still a separate capture requirement.
+Grafana's authenticated API returned the actual six-panel dashboard, six traffic series and positive samples. The genuine local six-panel browser capture was completed 16 October at 23:03:48 UTC after service recovery and remains private. Its one-hour range includes earlier revisions, rollout and recovery; it is not exclusively f271a837 or AWS evidence.
 The initial local loopback-only control-plane failures and local repair remain historical evidence. EKS uses its separately documented managed-control-plane scrape profile.
 Private Console/app/Prometheus browser images were captured separately and remain unpublished pending their specific publication approval. No browser pixels are embedded here.
 ''')
 d.image('evidence/aws-live-2026-10-16/cloud-verification-terminal.png', 64, 104, 832, 335)
 d.text('Cloud: 16/16 targets UP at capture time; actual CRUD and Service recovery retained.', 64, 449, 14, color=MUTED)
-d.text('Grafana: real API data verified; populated browser-panel capture still pending login.', 64, 477, 14, color=TEAL, bold=True)
+d.text('Local Grafana: six populated panels captured privately on 16 Oct, 23:03 UTC.', 64, 473, 14, color=TEAL, bold=True)
+d.text('One-hour history spans revisions and recovery; private browser image is not embedded.', 64, 492, 11, color=MUTED)
 
 d.page('Real AWS deployment, then verified cleanup', '10 · Terraform and lifecycle', '''
 The actual frozen personal-account plan created 62 resources, zero changes/deletions. Mumbai EKS 1.34 and its managed t3.large group became ACTIVE. The VPC had two public/two private subnets, NAT and a Terraform-owned HTTP NLB.
@@ -262,14 +268,15 @@ d.text('62 created → real runtime verified → 62 destroyed; pre-existing reso
 d.text('Planning estimate about US$2.43 before tax; actual final AWS bill is not yet verified.', 64, 477, 14, color=MUTED, w=832)
 
 d.page('Present the verified work and its limits', '11 · Handoff', '''
-Use the PDF or editable slides as a speaking guide. Play the separate native Terminal-only recording as supporting evidence, not a claim that the complete app/browser demo was recorded.
-For a full live/remote walkthrough, open local UI/Swagger/Prometheus/Grafana in the School Chrome profile, show the genuine green run and package pages, and explain the retained change-to-rollout sequence.
-Actual cloud deployment, delivery update, metrics, troubleshooting and project-only cleanup are complete. The temporary AWS endpoint is retired; local demonstration instructions remain reproducible.
-The student reported manually submitting the form. No automated submission, instructor acceptance or submission receipt is claimed, and no further form actions are performed.
+This is a local review candidate, not a claim that the full assignment is ready. The 26 October 14:11 IST class announcement requires the video and PPT/PDF under demo/ in the same submitted repository by EOD; 14:17 IST also permits a Drive-video link in Markdown under demo/. No exact EOD clock time was specified in the supplied announcement.
+M10 is README 2 marks, video 2, slides 1. The guide says a missing video yields zero for M10 only. Assessment remains the instructor's decision.
+The 3m54.5s Terminal recording covers a genuine source change, push, CI and local deployment. It does not start with these slides or show the complete AWS Console, ArgoCD synced/GitOps, Kubernetes/Prometheus/Grafana browser flow. ArgoCD is not implemented; direct Helm deployment is not a substitute for it.
+A genuine local populated Grafana screenshot exists privately, including earlier revisions and recovery. Saved AWS evidence documents a retired environment; no restart or provisioning is authorized. No new runtime checks were performed for this docs-only review.
+The student reported manually submitting the form. No receipt, instructor acceptance, resubmission or new form action is claimed. Publishing the prepared demo/ and changed docs still requires specific approval.
 ''')
-y = d.bullet('Verified and reproducible', 'Original app, seven green CI jobs, exact-SHA EKS rollout, real metrics, recovery and verified cleanup.', 116, w=820)
-y = d.bullet('Remaining evidence limits', 'Private browser captures need publication approval. Populated Grafana and the full student live walkthrough remain separate.', y, w=820)
-d.bullet('Continue in the final repository', 'The student reported manual form submission. No further form action or receipt is claimed.', y, w=820)
-d.link('Public repository and complete evidence index', 'https://github.com/jaivardhandrao/labledger-devops-capstone', y=480)
+y = d.bullet('Prepared locally for review', 'Updated deck + actual local change-to-rollout video under demo/. Nothing new is published.', 116, w=820)
+y = d.bullet('Full presentation remains incomplete', 'ArgoCD is absent. The slides-first AWS Console / GitOps / browser walkthrough is not recorded.', y, w=820)
+d.bullet('Keep the evidence honest', 'Local populated Grafana capture is private historical evidence. AWS is retired; the form is user-reported submitted.', y, w=820)
+d.link('Submitted repository; prepared review files are not yet published', 'https://github.com/jaivardhandrao/labledger-devops-capstone', y=480)
 d.save()
 print('Built 12-slide PDF and editable PPTX with speaker notes; genuine evidence images retained unchanged.')

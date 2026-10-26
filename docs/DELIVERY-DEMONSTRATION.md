@@ -1,7 +1,7 @@
-# Actual delivery demonstration — 16 October 2026
+# Actual delivery demonstrations — retained 16 October evidence
 
 **New cloud continuation:** controller fix06909ce passed all seven jobs in [run 38934060961](https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38934060961), then actually rolled out those exact SHA images to EKS release2 at 16:52:04 UTC. The [cloud record](../evidence/aws-live-2026-10-16/README.md) contains actual metadata and verified cleanup. The visible footer/local sequence below remains a separate historical demonstration.
-The following sequence was performed against the dedicated local `labledger-capstone` profile. It is local Kubernetes evidence; the separate AWS work has not yet been applied.
+The earlier footer-change sequence below was performed against the dedicated local `labledger-capstone` profile. It is separate from the actual cloud continuation above. AWS was subsequently applied, demonstrated and verified removed; it is not currently running.
 
 | Step | Actual observation |
 |---|---|
@@ -23,4 +23,16 @@ Evidence:
 
 The local images were rebuilt and independently scanned from the reviewed SHA. They are not claimed to be byte-identical to the separately published multi-architecture registry images. No AWS credential or registry credential was copied into this local cluster.
 
-A post-promotion browser screenshot and a live presentation or genuine recorded remote walkthrough remain separate capture requirements. This record does not claim a video was created or that the school form was submitted. [Presentation guide](DEMO.md) explains how to demonstrate the system live.
+## Later genuine local recording — final f271a837
+
+The final source change improves the toolbar reset label to “Show all loans” and announces result counts accessibly. Its actual [run 38977458426](https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38977458426) passed all seven jobs. The 3m54.5s continuous native Terminal recording shows the fresh change, 9 frontend tests/build, personal-account Git push, actual CI wait, anonymous public ARM64 image pulls, and waited local Helm revision 4 rollout. It retains the real CI waiting interval.
+
+Unlike the earlier rebuilt local-image sequence above, this final local rollout loaded the exact registry images produced by CI. Independent inspection matched all four active Ready Pod runtime config digests to the published ARM64 platform manifests for `f271a837a203a12e42e8353977bc1215a33f51e8`. The served bundle gained “Show all loans”; separate genuine School-profile captures show matching search/status results and reset to all three fictional records.
+
+The initial `a0f81e7` run 38974959951 stopped because unnecessary BuildKit setup exceeded its five-minute publisher timeout; it was not deployed. The `b02f649` client-only manifest repair then passed all seven jobs and reached local Helm revision 3, but its recorder failed before the first video sample. The final `f271a837` sequence has a complete successful recording. These failures are not relabeled as successful recordings.
+
+The final recording is included with the student’s 26 October publication approval [under demo/](../demo/README.md). It is not claimed to be the complete student presentation. It is Terminal-only and contains no slides-first narration, AWS Console tour, ArgoCD sync/GitOps view or full monitoring browser flow. **ArgoCD is not implemented; the actual deployment path is direct Helm.**
+
+A genuine six-panel populated Grafana browser capture was completed privately on 16 October at 23:03:48 UTC after recovery of the existing local service. Its one-hour range includes earlier local revisions, rollout and recovery and is not exclusively final-SHA or AWS evidence. It is not embedded or published by this preparation.
+
+This 26 October update only reconciles docs and packages saved media; no runtime check was repeated. The student reported manually submitting the repository, but no receipt or instructor acceptance has been verified and no form action is performed. The full slides-first presentation remains incomplete. [Presentation guide](DEMO.md) remains a speaking guide, not evidence that every requested segment was recorded.

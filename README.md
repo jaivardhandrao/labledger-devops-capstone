@@ -98,7 +98,15 @@ The dedicated local profile is **labledger-capstone**. Every command and script 
 
 After capture, the disposable PVC/EBS was deleted before its driver/node, then the reviewed 62-delete Terraform plan removed the infrastructure. [Post-removal API/state verification](evidence/aws-live-2026-10-16/cloud-cleanup-verification.json) confirms zero managed state, the exact cloud resources absent, new-only service-role cleanup and preservation of the existing default VPC. The verified lifecycle was 80.89 minutes, within the approved two-hour window. The temporary endpoint is retired. No workplace AWS profile was used. Actual final billing is not verified; the published price worksheet remains an estimate.
 
-Browser Console/app/Prometheus originals remain private pending their specific publication approval. Native Terminal/API evidence is published separately. A populated Grafana browser panel and the full student live walkthrough are not claimed complete.
+Browser Console/app/Prometheus originals remain private pending their specific publication approval. A genuine local six-panel Grafana browser capture was completed on 16 October at 23:03:48 UTC and is also private. Its one-hour range includes earlier local revisions, rollout and recovery, so it is not exclusively final-revision or AWS evidence. Native Terminal/API evidence is published separately. The full student presentation remains incomplete; ArgoCD is not implemented.
+
+## Demo package — 26 October 2026
+
+The supplied 26 October SST Class of 2028 announcement requires video and PPT/PDF under `demo/` in this same submitted repository by EOD; a later message also allows a Drive-video link in Markdown under `demo/`. No more precise EOD clock time was provided. The current [submission guide](https://github.com/Nency-Ravaliya/devsecops-python/blob/main/SUBMISSION.md) and [grading guide](https://github.com/Nency-Ravaliya/devsecops-python/blob/main/GRADING.md) are the source references. M10 allocates README 2 marks, video 2 and slides 1; a missing video affects M10 only.
+
+[Approved demo files and exact coverage/gaps](demo/README.md) are included in this repository with the student’s 26 October publication approval. They include the corrected 12-slide PPTX/PDF and a genuine 3m54.5s Terminal recording of the `f271a837` source change → personal Git push → [seven-green CI run](https://github.com/jaivardhandrao/labledger-devops-capstone/actions/runs/38977458426) → exact public ARM64 image pulls → local Helm revision 4. Four Ready application Pods matched the published platform config digests at the 16 October capture. This 26 October documentation update did not rerun the application, tests or infrastructure.
+
+**The full assignment is not marked ready.** The existing video is Terminal-only: it does not start with the slides or cover the complete AWS Console, ArgoCD synced/GitOps, Kubernetes and monitoring browser presentation. **ArgoCD is absent; delivery is an explicit Helm promotion.** The temporary AWS environment is retired. The student approved publishing this reviewed set, including the existing video’s visible Mac username/local paths. The reviewed slide binaries are retained unchanged; their review-stage captions describe the earlier preparation, while current publication status is recorded here and in demo/README.md. Private browser captures remain excluded. No Drive upload, deployment, new AWS resource or form action accompanies this addition.
 
 ## Presentation, evidence and troubleshooting
 
@@ -116,4 +124,4 @@ Browser Console/app/Prometheus originals remain private pending their specific p
 - [AWS review-only inventory and pricing worksheet](docs/AWS-REVIEW-PLAN.md)
 - [Guarded EKS bootstrap, real evidence and cleanup sequence](docs/CLOUD-BOOTSTRAP-RUNBOOK.md)
 
-The final school form accepts one repository URL and no resubmission. Use the verified SST account, Group A and numeric roll 10117. Keep the final Submit action for the student after reviewing the repository URL and evidence. These instructions do not claim that a form has been filled or submitted.
+The student reported manually submitting this repository through the school form. No receipt or instructor acceptance has been verified. The form allows one submission, so this work makes no further form or resubmission attempt. Student details remain SST account, Group A and numeric roll 10117.

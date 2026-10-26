@@ -1,5 +1,5 @@
 {
-  "validated_at_utc": "2026-10-16T17:48:33.645054+00:00",
+  "validated_at_utc": "2026-10-26T10:47:17.573935+00:00",
   "pdf_pages": 12,
   "editable_pptx_slides": 12,
   "notes_present_on_all_slides": true,
@@ -10,8 +10,24 @@
   "layout_bounds_passed": true,
   "all_pages_rendered": true,
   "all_pages_visually_reviewed": true,
+  "native_pptx_renderer": "LibreOffice26.8.1, read-only isolated image, private render profile",
+  "native_pptx_render_pages": 12,
+  "native_pptx_all_pages_visually_reviewed": true,
+  "pptx_schema_relationship_validation": "PASS against original deck baseline",
   "actual_cleanup_gate_passed": true,
-  "scope": "Docs/evidence only. No app build/test or infrastructure operation repeated for this artifact update.",
-  "layout_items_checked": 115,
-  "visual_review": "All 12 rendered pages reviewed in two contact sheets; slides 6, 8, 10, 11 and 12 also inspected individually. No clipped or overlapping content found."
+  "scope": "Artifact validation was completed before publication using retained16October evidence. No app tests,deployment,AWS,Terraform,database or form actions repeated. The student later approved publishing this reviewed set.",
+  "layout_items_checked": 117,
+  "local_markdown_links_checked": 54,
+  "all_local_links_resolve": true,
+  "new_private_browser_images_embedded": false,
+  "video_bytes_identical_to_validated_original": true,
+  "secret_scan_findings": 0,
+  "visual_review": "All12matchingPDFpages and all12actualPPTX-rendered pages inspected. Edited visible pages1,6,10,12 inspected individually; no clipping/overlap. Private Grafana image reviewed but not embedded.",
+  "remaining_gaps": [
+    "ArgoCD not implemented",
+    "Full slides-first/narrated AWS Console/GitOps/Kubernetes/monitoring presentation not recorded",
+    "AWS environment retired; no restart authorized"
+  ],
+  "publication_approval_utc": "2026-10-26T14:27:37Z",
+  "reviewed_slide_binaries_unchanged_for_publication": true
 }

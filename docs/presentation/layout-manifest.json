@@ -8,7 +8,7 @@
     {
       "slide": 1,
       "type": "text",
-      "text": "DEVOPS FINAL CAPSTONE \u00b7 LOCAL AND AWS EVIDENCE",
+      "text": "REVIEW CANDIDATE \u00b7 26 OCTOBER 2026",
       "bounds": [
         64,
         26,
@@ -648,27 +648,38 @@
       "type": "genuine_image",
       "source": "evidence/aws-live-2026-10-16/cloud-delivery-terminal.png",
       "bounds": [
-        203.38709677419354,
-        105.99999999999997,
-        553.2258064516129,
-        350.00000000000006
+        228.6774193548387,
+        103.0,
+        502.6451612903226,
+        318.0
       ]
     },
     {
       "slide": 6,
       "type": "text",
-      "text": "Controller fix \u2192 seven green jobs \u2192 exact 06909ce EKS rollout, Helm release 2.",
+      "text": "Shown: historical 06909ce EKS rollout, release 2; infrastructure is retired.",
       "bounds": [
         64,
-        466,
+        431,
         820,
-        16.25
+        17.5
       ]
     },
     {
       "slide": 6,
       "type": "text",
-      "text": "Open the actual seven-job green run",
+      "text": "Later local: f271a837 \u2192 7 green CI jobs \u2192 exact images \u2192 Helm release 4.",
+      "bounds": [
+        64,
+        459,
+        820,
+        17.5
+      ]
+    },
+    {
+      "slide": 6,
+      "type": "text",
+      "text": "Open the final local change\u2019s seven-job green run",
       "bounds": [
         64,
         489,
@@ -1009,7 +1020,7 @@
     {
       "slide": 10,
       "type": "text",
-      "text": "Actual application scraping is healthy",
+      "text": "Monitoring evidence has a clear scope",
       "bounds": [
         64,
         48,
@@ -1064,12 +1075,23 @@
     {
       "slide": 10,
       "type": "text",
-      "text": "Grafana: real API data verified; populated browser-panel capture still pending login.",
+      "text": "Local Grafana: six populated panels captured privately on 16 Oct, 23:03 UTC.",
       "bounds": [
         64,
-        477,
+        473,
         820,
         17.5
+      ]
+    },
+    {
+      "slide": 10,
+      "type": "text",
+      "text": "One-hour history spans revisions and recovery; private browser image is not embedded.",
+      "bounds": [
+        64,
+        492,
+        820,
+        13.75
       ]
     },
     {
@@ -1196,7 +1218,7 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Verified and reproducible",
+      "text": "Prepared locally for review",
       "bounds": [
         64,
         116,
@@ -1207,7 +1229,7 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Original app, seven green CI jobs, exact-SHA EKS rollout, real metrics, recovery and verified cleanup.",
+      "text": "Updated deck + actual local change-to-rollout video under demo/. Nothing new is published.",
       "bounds": [
         64,
         147,
@@ -1218,7 +1240,7 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Remaining evidence limits",
+      "text": "Full presentation remains incomplete",
       "bounds": [
         64,
         186.25,
@@ -1229,32 +1251,10 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Private browser captures need publication approval. Populated Grafana and the full student live walkthrough remain separate.",
+      "text": "ArgoCD is absent. The slides-first AWS Console / GitOps / browser walkthrough is not recorded.",
       "bounds": [
         64,
         217.25,
-        820,
-        42.5
-      ]
-    },
-    {
-      "slide": 12,
-      "type": "text",
-      "text": "Continue in the final repository",
-      "bounds": [
-        64,
-        277.75,
-        820,
-        26.25
-      ]
-    },
-    {
-      "slide": 12,
-      "type": "text",
-      "text": "The student reported manual form submission. No further form action or receipt is claimed.",
-      "bounds": [
-        64,
-        308.75,
         820,
         21.25
       ]
@@ -1262,7 +1262,29 @@
     {
       "slide": 12,
       "type": "text",
-      "text": "Public repository and complete evidence index",
+      "text": "Keep the evidence honest",
+      "bounds": [
+        64,
+        256.5,
+        820,
+        26.25
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Local populated Grafana capture is private historical evidence. AWS is retired; the form is user-reported submitted.",
+      "bounds": [
+        64,
+        287.5,
+        820,
+        42.5
+      ]
+    },
+    {
+      "slide": 12,
+      "type": "text",
+      "text": "Submitted repository; prepared review files are not yet published",
       "bounds": [
         64,
         480,
@@ -1270,5 +1292,6 @@
         13.75
       ]
     }
-  ]
+  ],
+  "publication_note": "Reviewed deck binaries and geometry are unchanged. Student approved publication on26October2026;review-stagecaptions describe preparation,currentstatus is in demo/README.md."
 }
